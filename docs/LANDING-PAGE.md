@@ -2,42 +2,85 @@
 
 ## Resumen Ejecutivo
 
-Landing page profesional para **Dmeter**, consultora de servicios de software, desarrollada con un estilo visual **Solarpunk Tech** (futurista + verde/sostenible).
+Landing page profesional para **Dmeter**, consultora de servicios de software, desarrollada con estilo visual **Solarpunk** - una estética que combina tecnología futurista con naturaleza, sostenibilidad y esperanza radical.
 
 **Fecha de creación:** Diciembre 2025
+**Última actualización:** Diciembre 2025 (Revolución Solarpunk)
 **Tech Stack:** Astro 5 + Tailwind CSS 4
 **Idiomas:** Español (default), English, Português (Brasil)
-**Deploy:** Netlify (gratuito)
+**Deploy:** GitHub Pages / Netlify
 
 ---
 
-## Decisiones de Diseño
+## Filosofía de Diseño: Solarpunk
 
-### Estilo Visual: Solarpunk Tech
-Combinación de tecnología futurista con estética sostenible y optimista.
+### Concepto
+El Solarpunk es un movimiento estético y filosófico que imagina un futuro donde la humanidad vive en armonía con la naturaleza, usando tecnología regenerativa. Cada elemento de esta landing respira:
 
-### Paleta de Colores
+- **Esperanza Radical** - Un mundo mejor es posible
+- **Simbiosis Tech-Natura** - Circuitos que se entrelazan con raíces
+- **Comunidad** - Espacios digitales como jardines comunitarios
+- **Regeneración** - Cada interacción nutre, no extrae
 
+### Metáforas Visuales
+- Botones = Semillas que florecen
+- Cards = Plantas creciendo
+- Proceso = Sendero en un jardín
+- Animaciones = Brisa, crecimiento natural
+- Colores = Ecosistema vivo
+
+---
+
+## Sistema de Colores Solarpunk
+
+### Paleta Completa
+
+#### Verdes Vitales (El corazón del ecosistema)
 | Variable | Color | Hex | Uso |
 |----------|-------|-----|-----|
-| `--color-primary` | Verde Esmeralda | `#10B981` | Color principal, CTAs |
-| `--color-primary-dark` | Verde Profundo | `#059669` | Hover states |
-| `--color-primary-light` | Verde Claro | `#34D399` | Acentos |
-| `--color-accent-cyan` | Cyan Energía | `#06B6D4` | Secundario, IA |
-| `--color-accent-solar` | Dorado Solar | `#FBBF24` | Destacados |
-| `--color-bg-dark` | Fondo Oscuro | `#0C1A1A` | Background principal |
-| `--color-bg-card` | Cards | `#134E4A` | Tarjetas y contenedores |
-| `--color-text-light` | Texto Claro | `#F0FDF4` | Texto principal |
-| `--color-text-muted` | Texto Secundario | `#6EE7B7` | Subtítulos |
+| `--color-green-moss` | Verde Musgo | `#4A7C59` | Ancla, tierra fértil |
+| `--color-green-forest` | Verde Bosque | `#2D5A3D` | Profundidad, misterio |
+| `--color-green-sprout` | Verde Brote | `#8FBC8F` | Esperanza, crecimiento |
+| `--color-green-lime` | Verde Lima | `#C5E063` | Energía fotosintética |
 
-### Tipografías
-- **Display (títulos):** Space Grotesk (Google Fonts)
-- **Body (texto):** Inter (Google Fonts)
+#### Dorados Solares (Energía y calidez)
+| Variable | Color | Hex | Uso |
+|----------|-------|-----|-----|
+| `--color-solar-gold` | Dorado | `#FFD700` | El sol que alimenta todo |
+| `--color-solar-amber` | Ámbar | `#FFBF00` | Calidez de colmena |
+| `--color-solar-sunset` | Atardecer | `#FF8C42` | Celebración |
+| `--color-solar-copper` | Cobre | `#B87333` | Tech con gracia |
 
-### Tono de Comunicación
-- Cercano y accesible
-- Sin jerga técnica innecesaria
-- Enfocado en resultados para el cliente
+#### Colores Principales (Compatibilidad)
+| Variable | Color | Hex | Uso |
+|----------|-------|-----|-----|
+| `--color-primary` | Verde Esmeralda | `#10B981` | CTAs principales |
+| `--color-accent-cyan` | Cyan | `#06B6D4` | Tecnología, IA |
+| `--color-accent-solar` | Solar | `#FBBF24` | Destacados |
+| `--color-bg-dark` | Fondo | `#0F1F1A` | Background principal |
+| `--color-bg-card` | Cards | `#1A3D2E` | Contenedores |
+
+#### Modo Oscuro (Noche en el Bosque)
+| Variable | Color | Hex | Uso |
+|----------|-------|-----|-----|
+| `--color-night-deep` | Bosque Nocturno | `#1A2F1A` | Fondo primario |
+| `--color-night-clearing` | Claro de Luna | `#243524` | Elevaciones |
+| `--color-night-moss` | Musgo Penumbra | `#2D4A2D` | Superficies |
+| `--color-night-glow` | Bioluminiscencia | `#E8F5E8` | Texto claro |
+
+---
+
+## Tipografías Orgánicas
+
+### Fuentes Actuales
+- **Títulos:** Fraunces (serif con carácter orgánico, curvas generosas)
+- **Cuerpo:** Nunito (sans-serif cálida, redondeada, amigable)
+- **Código:** JetBrains Mono (para elementos técnicos)
+
+### Configuración en Layout.astro
+```html
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+```
 
 ---
 
@@ -47,14 +90,14 @@ Combinación de tecnología futurista con estética sostenible y optimista.
 Dmeter-official-website/
 ├── src/
 │   ├── components/
-│   │   ├── Header.astro           # Navegación responsive
-│   │   ├── Hero.astro             # Sección principal
-│   │   ├── Services.astro         # 6 servicios
-│   │   ├── Process.astro          # 4 pasos del proceso
+│   │   ├── Header.astro           # Nav con hoja decorativa + glass-warm
+│   │   ├── Hero.astro             # Ciudad Solarpunk SVG + luciérnagas
+│   │   ├── Services.astro         # Cards orgánicas con hojas
+│   │   ├── Process.astro          # Sendero jardín (semilla→árbol)
 │   │   ├── CaseStudies.astro      # Casos de éxito
 │   │   ├── WhyDmeter.astro        # Propuesta de valor
 │   │   ├── Contact.astro          # Formulario + info
-│   │   ├── Footer.astro           # Pie de página
+│   │   ├── Footer.astro           # Jardín nocturno + plantas SVG
 │   │   ├── LanguageSwitcher.astro # Selector de idioma
 │   │   └── WhatsAppButton.astro   # Botón flotante
 │   │
@@ -65,7 +108,7 @@ Dmeter-official-website/
 │   │   └── utils.ts               # Funciones de traducción
 │   │
 │   ├── layouts/
-│   │   └── Layout.astro           # Layout base + SEO
+│   │   └── Layout.astro           # Layout base + SEO + Fonts
 │   │
 │   ├── pages/
 │   │   ├── index.astro            # Página ES (/)
@@ -73,148 +116,196 @@ Dmeter-official-website/
 │   │   └── pt-br/index.astro      # Página PT (/pt-br/)
 │   │
 │   └── styles/
-│       └── global.css             # Estilos globales + Tailwind
+│       └── global.css             # Sistema de diseño Solarpunk completo
 │
 ├── public/
-│   ├── favicon.svg                # Favicon con gradiente
-│   └── images/                    # Imágenes (vacío)
+│   ├── favicon.svg                # Favicon gradiente verde
+│   └── images/                    # Imágenes
 │
 ├── docs/
 │   └── LANDING-PAGE.md            # Esta documentación
 │
-├── astro.config.mjs               # Configuración Astro
-├── netlify.toml                   # Configuración Netlify
+├── .github/
+│   └── workflows/
+│       └── deploy.yml             # GitHub Actions para Pages
+│
+├── astro.config.mjs               # Config Astro + GitHub Pages
+├── netlify.toml                   # Config Netlify (alternativa)
 ├── package.json                   # Dependencias
 └── tsconfig.json                  # TypeScript config
 ```
 
 ---
 
-## Secciones de la Landing
+## Componentes Transformados
 
-### 1. Header
-- Logo tipográfico "Dmeter" con icono gradiente
-- Navegación: Servicios | Proceso | Casos | Contacto
-- Selector de idioma (ES/EN/PT)
-- CTA "Hablemos"
-- Menú hamburguesa en mobile
+### 1. Header (Actualizado)
+- Logo con hoja decorativa animada
+- Fondo `glass-warm` con blur orgánico
+- Navegación con indicadores de hoja al hover
+- Botón CTA con icono de hoja que rota
+- Menú mobile con separadores orgánicos SVG
+- Sombra dinámica al hacer scroll
 
-### 2. Hero
-- Headline con gradiente animado
-- Subtítulo descriptivo
-- 2 CTAs: Principal (gradiente) + Secundario (outline)
-- Elementos flotantes animados (desktop)
-- Fondo con orbes de gradiente + grid pattern
+### 2. Hero (Revolución Completa)
+**Ilustración SVG Ciudad Solarpunk:**
+- Edificios con jardines verticales
+- Paneles solares en techos
+- Turbinas eólicas mini
+- Bio-domos con vegetación
+- Árboles con animación `sway`
+- Personas/comunidad (siluetas)
+- Pájaros en el cielo
+- Conexiones circuito-raíces subterráneas
 
-### 3. Servicios (6 cards)
-| Servicio | Icono | Descripción |
-|----------|-------|-------------|
-| Landing Pages | layout | Sitios que convierten |
-| Software a Medida | code | Soluciones personalizadas |
-| Dashboards | chart | Visualización de datos |
-| Soluciones con IA | brain | Chatbots, automatización |
-| Integraciones & APIs | plug | Conectar sistemas |
-| Consultoría Digital | compass | Transformación digital |
+**Elementos Atmosféricos:**
+- Orbes de energía solar (green, gold, cyan)
+- Luciérnagas flotantes (`animate-firefly`)
+- Hojas flotantes animadas (`animate-sway`)
+- Grid orgánico + puntos semilla
+- Sol con rayos rotando lentamente
 
-### 4. Proceso (4 pasos)
-1. **Conversamos** - Entender el negocio
-2. **Diseñamos** - Crear la solución
-3. **Desarrollamos** - Construir con mejores prácticas
-4. **Acompañamos** - Soporte continuo
+**Stats de Confianza:**
+- 50+ Proyectos
+- 3 Países
+- 100% Compromiso
 
-### 5. Casos de Éxito (3 cards)
-- **Logística** - Dashboard de operaciones
-- **Fintech** - Automatización de procesos
-- **Retail** - Plataforma e-commerce
+### 3. Services (Cards Orgánicas)
+- Clase `card-organic` con bordes redondeados 28px
+- Decoración de hoja SVG en esquina superior derecha
+- Iconos con gradiente y pulso de energía al hover
+- Línea de crecimiento en bottom al hover
+- Subtítulo badge "Soluciones que crecen contigo"
 
-*Nota: Son anónimos/confidenciales por diseño*
+### 4. Process (Sendero de Jardín)
+**Iconos SVG personalizados por etapa:**
+1. **Conversamos** - Semilla plantándose (verde brote)
+2. **Diseñamos** - Brote emergiendo (verde primario)
+3. **Desarrollamos** - Planta con raíces tech (cyan)
+4. **Acompañamos** - Árbol con frutos/energía (dorado solar)
 
-### 6. Por qué Dmeter
-- 3 propuestas de valor (Cercanía, Propósito, Acompañamiento)
-- Stack tecnológico (React, Node, Python, TypeScript, PostgreSQL, AWS, Docker, OpenAI)
+**Elementos visuales:**
+- Línea ondulada SVG como camino de jardín
+- Nodos de energía en la línea
+- Gradiente de colores progresivo
+- Pequeñas hojas decorativas animadas
+- CTA "Plantemos juntos"
 
-### 7. Contacto
-- Formulario Netlify Forms (nombre, email, tipo proyecto, mensaje)
-- Email de contacto
-- WhatsApp
-- Instagram (@dmeter2022)
-
-### 8. Footer
-- Logo + tagline
-- Links de navegación
-- Redes sociales
-- Copyright
-
-### Elementos Adicionales
-- **WhatsApp Button** - Flotante esquina inferior derecha
+### 5. Footer (Jardín Nocturno)
+- Fondo gradiente hacia `night-deep`
+- Plantas SVG decorativas en esquinas
+- Orbes de energía sutiles
+- Link Instagram con card orgánico
+- Separador SVG ondulado con nodos de energía
+- Mensaje: "Hecho con 🌱 para un futuro mejor"
+- Badge "Cultivando el futuro digital"
 
 ---
 
-## Internacionalización (i18n)
+## Sistema de Animaciones
 
-### Rutas por Idioma
-| Idioma | Ruta | Archivo |
-|--------|------|---------|
-| Español | `/` | `src/pages/index.astro` |
-| English | `/en/` | `src/pages/en/index.astro` |
-| Português | `/pt-br/` | `src/pages/pt-br/index.astro` |
+### Animaciones Definidas en global.css
 
-### Uso en Componentes
-```astro
----
-import { type Lang, useTranslations } from '../i18n/utils';
+| Clase | Efecto | Descripción |
+|-------|--------|-------------|
+| `.animate-float` | Flotación | Hoja en la brisa (4s) |
+| `.animate-grow` | Crecimiento | Planta brotando (0.8s) |
+| `.animate-sway` | Balanceo | Plantas moviéndose (6s) |
+| `.animate-breathe` | Respiración | Expansión suave (4s) |
+| `.animate-solar-pulse` | Pulso solar | Glow verde/dorado (3s) |
+| `.animate-bloom` | Florecimiento | Botones expandiendo (2s) |
+| `.animate-sprout` | Brote | Aparecer desde abajo (0.7s) |
+| `.animate-sun` | Rotación sol | 360° lento (30s) |
+| `.animate-firefly` | Luciérnaga | Parpadeo suave (3s) |
 
-interface Props {
-  lang?: Lang;
-}
-
-const { lang = 'es' } = Astro.props;
-const t = useTranslations(lang);
----
-
-<h1>{t.hero.title}</h1>
+### Delays para Escalonamiento
+```css
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
 ```
 
 ---
 
-## Animaciones CSS
+## Componentes CSS Reutilizables
 
-### Definidas en `global.css`
+### Botones
+```css
+.btn-bloom          /* Botón principal con gradiente y glow */
+.btn-outline-organic /* Botón outline con hover suave */
+```
 
-| Clase | Efecto |
-|-------|--------|
-| `.animate-float` | Flotación vertical suave |
-| `.animate-pulse-glow` | Pulso con glow verde |
-| `.animate-fade-in-up` | Aparecer desde abajo |
-| `.gradient-text` | Texto con gradiente |
-| `.gradient-solarpunk` | Fondo gradiente verde-cyan |
-| `.glass` | Efecto glassmorphism |
-| `.card-hover` | Elevación al hover |
+### Cards
+```css
+.card-organic       /* Card con bordes 28px y hover elevado */
+.card-hover         /* Hover genérico con sombra */
+```
+
+### Glass Effects
+```css
+.glass              /* Glassmorphism básico */
+.glass-warm         /* Glassmorphism cálido para header */
+```
+
+### Fondos
+```css
+.bg-grid-organic    /* Grid sutil verde */
+.bg-dots-seeds      /* Puntos como semillas */
+.bg-horizon         /* Gradiente de horizonte */
+```
+
+### Orbes de Energía
+```css
+.orb-solar          /* Base para orbes */
+.orb-solar-green    /* Orbe verde */
+.orb-solar-gold     /* Orbe dorado */
+.orb-solar-cyan     /* Orbe cyan */
+```
+
+### Inputs
+```css
+.input-organic      /* Input con bordes verdes suaves */
+```
 
 ---
 
-## Formulario de Contacto
+## Deploy
 
-### Netlify Forms
-El formulario usa `data-netlify="true"` para integración automática con Netlify.
+### GitHub Pages (Actual)
+**Repo:** https://github.com/DMETERS/Dmeter-official-website
+**URL:** https://dmeters.github.io/Dmeter-official-website/
 
-```html
-<form name="contact" method="POST" data-netlify="true">
-  <!-- campos -->
-</form>
+**Configuración en astro.config.mjs:**
+```javascript
+site: 'https://dmeters.github.io',
+base: '/Dmeter-official-website',
 ```
 
-### Honeypot Anti-spam
-```html
-<input type="hidden" name="form-name" value="contact" />
-<p class="hidden">
-  <label>Don't fill this out: <input name="bot-field" /></label>
-</p>
-```
+**GitHub Actions:** `.github/workflows/deploy.yml`
+
+### Netlify (Alternativa)
+El archivo `netlify.toml` está configurado para deploy automático.
 
 ---
 
-## Comandos Disponibles
+## Configuración Pendiente
+
+### Antes del Deploy Final
+1. **WhatsApp** (`src/components/WhatsAppButton.astro` y `Contact.astro`)
+   ```javascript
+   const WHATSAPP_NUMBER = 'TU_NUMERO_AQUI'; // ej: 5491123456789
+   ```
+
+2. **Email** (`src/components/Contact.astro`)
+   ```javascript
+   const CONTACT_EMAIL = 'tu@email.com';
+   ```
+
+---
+
+## Comandos
 
 ```bash
 # Desarrollo local
@@ -229,56 +320,35 @@ npm run preview
 
 ---
 
-## Configuración Pendiente
+## Historial de Cambios
 
-Antes del deploy, actualiza estos valores:
+### Diciembre 2025 - Revolución Solarpunk
+- **Paleta de colores:** Expandida con sistema completo (verdes, dorados, tierras, nocturnos)
+- **Tipografías:** Cambiadas a Fraunces + Nunito (más orgánicas)
+- **Hero:** Ilustración SVG de ciudad solarpunk completa
+- **Animaciones:** 9 nuevas animaciones naturales
+- **Header:** Rediseño con glass-warm y hoja decorativa
+- **Services:** Cards orgánicas con decoraciones de hojas
+- **Process:** Transformado en sendero de jardín con iconos de crecimiento
+- **Footer:** Convertido en jardín nocturno con plantas SVG
+- **Filosofía:** Integración completa de principios Solarpunk UX/UI
 
-### 1. WhatsApp (`src/components/WhatsAppButton.astro` y `Contact.astro`)
-```javascript
-const WHATSAPP_NUMBER = 'TU_NUMERO_AQUI'; // ej: 5491123456789
-```
-
-### 2. Email (`src/components/Contact.astro`)
-```javascript
-const CONTACT_EMAIL = 'tu@email.com';
-```
-
-### 3. Dominio (`astro.config.mjs`)
-```javascript
-site: 'https://tu-dominio.com',
-```
-
----
-
-## Deploy en Netlify
-
-### Opción 1: Desde GitHub
-1. Sube el proyecto a un repo de GitHub
-2. En Netlify: "Add new site" > "Import an existing project"
-3. Selecciona el repo
-4. Netlify detectará automáticamente la configuración del `netlify.toml`
-5. Click en "Deploy"
-
-### Opción 2: Drag & Drop
-1. Ejecuta `npm run build`
-2. Arrastra la carpeta `dist/` a Netlify
-
-### Configuración de Dominio
-1. En Netlify > Domain settings
-2. Agrega tu dominio personalizado
-3. Activa HTTPS (automático)
+### Diciembre 2025 - Versión Inicial
+- Setup inicial con Astro 5 + Tailwind CSS 4
+- Sistema i18n (ES/EN/PT-BR)
+- Componentes base
+- Deploy en GitHub Pages
 
 ---
 
-## Próximos Pasos Sugeridos
+## Próximos Pasos
 
 - [ ] Actualizar datos de contacto (WhatsApp, Email)
-- [ ] Probar en desarrollo local
 - [ ] Agregar casos de éxito reales (anónimos)
-- [ ] Deploy inicial en Netlify
-- [ ] Configurar dominio personalizado
+- [ ] Optimizar imágenes/assets
+- [ ] Testing responsive completo
 - [ ] Fase 2: Integrar chatbot de IA
-- [ ] Fase 2: Agregar sistema de reserva (Calendly)
+- [ ] Fase 2: Sistema de reserva (Calendly)
 - [ ] Fase 2: Blog/recursos
 
 ---
@@ -287,6 +357,7 @@ site: 'https://tu-dominio.com',
 
 - **Framework:** [Astro](https://astro.build/)
 - **Estilos:** [Tailwind CSS](https://tailwindcss.com/)
-- **Fuentes:** [Google Fonts](https://fonts.google.com/) (Inter, Space Grotesk)
-- **Iconos:** SVG inline (Heroicons style)
-- **Deploy:** [Netlify](https://netlify.com/)
+- **Fuentes:** [Google Fonts](https://fonts.google.com/) (Fraunces, Nunito)
+- **Iconos:** SVG inline personalizados (estilo Solarpunk)
+- **Filosofía:** Solarpunk Design System
+- **Deploy:** GitHub Pages / Netlify
