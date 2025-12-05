@@ -1,0 +1,57 @@
+---
+import { type Lang, defaultLang, useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section id="process" class="py-20 md:py-32 relative overflow-hidden">
+  <!-- Background -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-1/2 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-accent-cyan/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold">
+        {t.process.title}
+      </h2>
+      <p class="mt-4 text-lg text-text-muted">
+        {t.process.subtitle}
+      </p>
+    </div>
+
+    <!-- Process steps -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {t.process.steps.map((step, index) => (
+        <div class="relative group">
+          <!-- Connector line (hidden on mobile) -->
+          {index < 3 && (
+            <div class="hidden lg:block absolute top-10 left-full w-full h-0.5 bg-gradient-to-r from-primary/50 to-primary/10 -translate-x-4"></div>
+          )}
+
+          <div class="text-center lg:text-left">
+            <!-- Number -->
+            <div class="inline-flex items-center justify-center w-20 h-20 rounded-2xl glass mb-6 group-hover:scale-110 transition-transform">
+              <span class="text-3xl font-display font-bold gradient-text">{step.number}</span>
+            </div>
+
+            <!-- Content -->
+            <h3 class="text-xl font-semibold text-text-light mb-3">
+              {step.title}
+            </h3>
+            <p class="text-text-muted leading-relaxed">
+              {step.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

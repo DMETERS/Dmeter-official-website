@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "title": "Dmeter | Soluções de Software Sob Medida",
+    "description": "Transformamos ideias em software que impulsiona seu negócio. Landing pages, software sob medida, dashboards e inteligência artificial."
+  },
+  "nav": {
+    "services": "Serviços",
+    "process": "Processo",
+    "cases": "Cases",
+    "contact": "Contato",
+    "cta": "Vamos Conversar"
+  },
+  "hero": {
+    "title": "Transformamos ideias em",
+    "titleHighlight": "software que impulsiona",
+    "titleEnd": "seu negócio",
+    "subtitle": "Desenvolvemos soluções digitais sob medida: de landing pages a sistemas com inteligência artificial. Tecnologia com propósito, resultados reais.",
+    "cta": "Agende uma call gratuita",
+    "ctaSecondary": "Conheça nossos serviços"
+  },
+  "services": {
+    "title": "Nossos Serviços",
+    "subtitle": "Soluções digitais projetadas para fazer seu negócio crescer",
+    "items": [
+      {
+        "title": "Landing Pages",
+        "description": "Sites otimizados que convertem visitantes em clientes. Design moderno, carregamento rápido e SEO incluso.",
+        "icon": "layout"
+      },
+      {
+        "title": "Software Sob Medida",
+        "description": "Aplicações projetadas especificamente para sua operação. De sistemas internos a plataformas complexas.",
+        "icon": "code"
+      },
+      {
+        "title": "Dashboards",
+        "description": "Visualize seus dados de forma clara e tome melhores decisões. Relatórios em tempo real e métricas que importam.",
+        "icon": "chart"
+      },
+      {
+        "title": "Soluções com IA",
+        "description": "Chatbots inteligentes, automação de processos e análise preditiva. IA a serviço do seu negócio.",
+        "icon": "brain"
+      },
+      {
+        "title": "Integrações & APIs",
+        "description": "Conectamos todos os seus sistemas. Automatize fluxos de trabalho e elimine tarefas repetitivas.",
+        "icon": "plug"
+      },
+      {
+        "title": "Consultoria Digital",
+        "description": "Acompanhamos você na transformação digital da sua empresa. Estratégia, implementação e suporte.",
+        "icon": "compass"
+      }
+    ]
+  },
+  "process": {
+    "title": "Como Trabalhamos",
+    "subtitle": "Um processo simples e transparente, focado em resultados",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Conversamos",
+        "description": "Entendemos seu negócio, seus objetivos e os desafios que você enfrenta. Sem compromisso, só um café virtual."
+      },
+      {
+        "number": "02",
+        "title": "Projetamos",
+        "description": "Criamos juntos a solução ideal. Protótipos, fluxos e uma proposta clara antes de escrever código."
+      },
+      {
+        "number": "03",
+        "title": "Desenvolvemos",
+        "description": "Construímos com as melhores práticas. Mantemos você informado do progresso em cada etapa."
+      },
+      {
+        "number": "04",
+        "title": "Acompanhamos",
+        "description": "O lançamento é só o começo. Suporte contínuo, melhorias e evolução da sua solução."
+      }
+    ]
+  },
+  "cases": {
+    "title": "Cases de Sucesso",
+    "subtitle": "Projetos que entregaram resultados reais",
+    "items": [
+      {
+        "industry": "Logística",
+        "title": "Dashboard de Operações",
+        "description": "Sistema de monitoramento em tempo real que otimizou a gestão de frotas e reduziu tempos de entrega.",
+        "results": ["Visibilidade 360° das operações", "Decisões baseadas em dados", "Redução de custos operacionais"]
+      },
+      {
+        "industry": "Fintech",
+        "title": "Automação de Processos",
+        "description": "Plataforma que automatizou a validação de documentos e onboarding de clientes com IA.",
+        "results": ["Processo 10x mais rápido", "Menos erros humanos", "Melhor experiência do usuário"]
+      },
+      {
+        "industry": "Varejo",
+        "title": "Plataforma E-commerce",
+        "description": "Loja online personalizada com gestão de estoque e relatórios de vendas integrados.",
+        "results": ["Novo canal de vendas", "Gestão centralizada", "Crescimento sustentável"]
+      }
+    ]
+  },
+  "why": {
+    "title": "Por que Dmeter?",
+    "subtitle": "Mais que fornecedores, somos parceiros no seu crescimento",
+    "points": [
+      {
+        "title": "Proximidade Real",
+        "description": "Falamos sua língua, não jargão técnico. Entendemos que por trás de cada projeto há um negócio com objetivos claros."
+      },
+      {
+        "title": "Soluções com Propósito",
+        "description": "Não vendemos tecnologia por moda. Cada linha de código tem um objetivo: gerar valor real para seu negócio."
+      },
+      {
+        "title": "Acompanhamento Contínuo",
+        "description": "Não desaparecemos após o lançamento. Estamos com você para manter, melhorar e escalar sua solução."
+      }
+    ],
+    "techTitle": "Tecnologias que Dominamos"
+  },
+  "contact": {
+    "title": "Vamos Falar do Seu Projeto",
+    "subtitle": "Conte sua ideia e respondemos em menos de 24 horas",
+    "form": {
+      "name": "Seu nome",
+      "email": "Seu email",
+      "project": "Tipo de projeto",
+      "projectOptions": [
+        "Landing Page",
+        "Software Sob Medida",
+        "Dashboard",
+        "Solução com IA",
+        "Integração/API",
+        "Consultoria",
+        "Outro"
+      ],
+      "message": "Conte sobre seu projeto",
+      "submit": "Enviar mensagem"
+    },
+    "info": {
+      "email": "Email",
+      "whatsapp": "WhatsApp",
+      "social": "Siga-nos"
+    }
+  },
+  "footer": {
+    "tagline": "Tecnologia com propósito, resultados reais.",
+    "links": "Links",
+    "copyright": "© 2025 Dmeter. Todos os direitos reservados."
+  }
+}

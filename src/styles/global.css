@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  /* Solarpunk Color Palette */
+  --color-primary: #10B981;
+  --color-primary-dark: #059669;
+  --color-primary-light: #34D399;
+  --color-accent-cyan: #06B6D4;
+  --color-accent-solar: #FBBF24;
+  --color-bg-dark: #0C1A1A;
+  --color-bg-card: #134E4A;
+  --color-bg-card-hover: #1A6B64;
+  --color-text-light: #F0FDF4;
+  --color-text-muted: #6EE7B7;
+  --color-text-dim: #94A3B8;
+
+  /* Font Family */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+}
+
+/* Custom gradients */
+.gradient-solarpunk {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent-cyan) 100%);
+}
+
+.gradient-solar {
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-accent-solar) 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(16, 185, 129, 0.6); }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+/* Utility classes */
+.glass {
+  background: rgba(19, 78, 74, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+}

@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "title": "Dmeter | Custom Software Solutions",
+    "description": "We transform ideas into software that drives your business. Landing pages, custom software, dashboards and artificial intelligence."
+  },
+  "nav": {
+    "services": "Services",
+    "process": "Process",
+    "cases": "Cases",
+    "contact": "Contact",
+    "cta": "Let's Talk"
+  },
+  "hero": {
+    "title": "We transform ideas into",
+    "titleHighlight": "software that drives",
+    "titleEnd": "your business",
+    "subtitle": "We develop custom digital solutions: from landing pages to AI-powered systems. Technology with purpose, real results.",
+    "cta": "Schedule a free call",
+    "ctaSecondary": "Explore our services"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Digital solutions designed to grow your business",
+    "items": [
+      {
+        "title": "Landing Pages",
+        "description": "Optimized websites that convert visitors into customers. Modern design, fast loading and SEO included.",
+        "icon": "layout"
+      },
+      {
+        "title": "Custom Software",
+        "description": "Applications designed specifically for your operation. From internal systems to complex platforms.",
+        "icon": "code"
+      },
+      {
+        "title": "Dashboards",
+        "description": "Visualize your data clearly and make better decisions. Real-time reports and metrics that matter.",
+        "icon": "chart"
+      },
+      {
+        "title": "AI Solutions",
+        "description": "Intelligent chatbots, process automation and predictive analytics. AI at the service of your business.",
+        "icon": "brain"
+      },
+      {
+        "title": "Integrations & APIs",
+        "description": "We connect all your systems. Automate workflows and eliminate repetitive tasks.",
+        "icon": "plug"
+      },
+      {
+        "title": "Digital Consulting",
+        "description": "We guide you through your company's digital transformation. Strategy, implementation and support.",
+        "icon": "compass"
+      }
+    ]
+  },
+  "process": {
+    "title": "How We Work",
+    "subtitle": "A simple and transparent process, focused on results",
+    "steps": [
+      {
+        "number": "01",
+        "title": "We Talk",
+        "description": "We understand your business, your goals and the challenges you face. No commitment, just virtual coffee."
+      },
+      {
+        "number": "02",
+        "title": "We Design",
+        "description": "We create the ideal solution together. Prototypes, flows and a clear proposal before writing code."
+      },
+      {
+        "number": "03",
+        "title": "We Build",
+        "description": "We develop with best practices. We keep you updated on progress at every stage."
+      },
+      {
+        "number": "04",
+        "title": "We Support",
+        "description": "Launch is just the beginning. Continuous support, improvements and evolution of your solution."
+      }
+    ]
+  },
+  "cases": {
+    "title": "Success Stories",
+    "subtitle": "Projects that delivered real results",
+    "items": [
+      {
+        "industry": "Logistics",
+        "title": "Operations Dashboard",
+        "description": "Real-time monitoring system that optimized fleet management and reduced delivery times.",
+        "results": ["360° operations visibility", "Data-driven decisions", "Reduced operational costs"]
+      },
+      {
+        "industry": "Fintech",
+        "title": "Process Automation",
+        "description": "Platform that automated document validation and customer onboarding with AI.",
+        "results": ["10x faster process", "Fewer human errors", "Better user experience"]
+      },
+      {
+        "industry": "Retail",
+        "title": "E-commerce Platform",
+        "description": "Custom online store with inventory management and integrated sales reports.",
+        "results": ["New sales channel", "Centralized management", "Sustained growth"]
+      }
+    ]
+  },
+  "why": {
+    "title": "Why Dmeter?",
+    "subtitle": "More than providers, we are partners in your growth",
+    "points": [
+      {
+        "title": "Real Closeness",
+        "description": "We speak your language, not tech jargon. We understand that behind every project there's a business with clear goals."
+      },
+      {
+        "title": "Purposeful Solutions",
+        "description": "We don't sell technology for trends. Every line of code has one goal: generating real value for your business."
+      },
+      {
+        "title": "Continuous Support",
+        "description": "We don't disappear after launch. We're with you to maintain, improve and scale your solution."
+      }
+    ],
+    "techTitle": "Technologies We Master"
+  },
+  "contact": {
+    "title": "Let's Talk About Your Project",
+    "subtitle": "Tell us your idea and we'll respond within 24 hours",
+    "form": {
+      "name": "Your name",
+      "email": "Your email",
+      "project": "Project type",
+      "projectOptions": [
+        "Landing Page",
+        "Custom Software",
+        "Dashboard",
+        "AI Solution",
+        "Integration/API",
+        "Consulting",
+        "Other"
+      ],
+      "message": "Tell us about your project",
+      "submit": "Send message"
+    },
+    "info": {
+      "email": "Email",
+      "whatsapp": "WhatsApp",
+      "social": "Follow us"
+    }
+  },
+  "footer": {
+    "tagline": "Technology with purpose, real results.",
+    "links": "Links",
+    "copyright": "© 2025 Dmeter. All rights reserved."
+  }
+}

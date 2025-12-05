@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import Services from '../../components/Services.astro';
+import Process from '../../components/Process.astro';
+import CaseStudies from '../../components/CaseStudies.astro';
+import WhyDmeter from '../../components/WhyDmeter.astro';
+import Contact from '../../components/Contact.astro';
+import Footer from '../../components/Footer.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+
+const lang = 'pt-br';
+---
+
+<Layout lang={lang}>
+  <Header lang={lang} />
+  <main>
+    <Hero lang={lang} />
+    <Services lang={lang} />
+    <Process lang={lang} />
+    <CaseStudies lang={lang} />
+    <WhyDmeter lang={lang} />
+    <Contact lang={lang} />
+  </main>
+  <Footer lang={lang} />
+  <WhatsAppButton />
+</Layout>
