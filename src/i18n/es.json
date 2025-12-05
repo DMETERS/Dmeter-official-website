@@ -82,25 +82,61 @@
   },
   "cases": {
     "title": "Casos de Éxito",
-    "subtitle": "Proyectos que generaron resultados reales",
+    "subtitle": "Proyectos que generaron resultados reales para nuestros clientes",
     "items": [
       {
-        "industry": "Logística",
-        "title": "Dashboard de Operaciones",
-        "description": "Sistema de monitoreo en tiempo real que optimizó la gestión de flotas y redujo tiempos de entrega.",
-        "results": ["Visibilidad 360° de operaciones", "Decisiones basadas en datos", "Reducción de costos operativos"]
+        "industry": "Recruiting",
+        "title": "Plataforma SaaS de Recruiting",
+        "description": "Transformación de una aplicación de recruiting hacia un modelo SaaS escalable, integrada en un ecosistema mayor de productos HR.",
+        "results": ["Modelo SaaS escalable", "Integración con ecosistema existente", "Arquitectura preparada para crecimiento"]
+      },
+      {
+        "industry": "Automatización",
+        "title": "Sistema de Prospección Automatizado",
+        "description": "Plataforma completamente automatizada para conseguir clientes potenciales mediante scraping, jobs y procesos secuenciales complejos.",
+        "results": ["Generación automática de leads", "Procesos sin intervención manual", "Pipeline de ventas optimizado"]
+      },
+      {
+        "industry": "IA/Contenido",
+        "title": "Generador de Contenido Literario",
+        "description": "Sistema impulsado por IA para generar guías, libros y textos especializados, sirviendo a más de 2.000 autores.",
+        "results": ["+2.000 autores activos", "Generación de contenido escalable", "Personalización por autor"]
+      },
+      {
+        "industry": "Turismo",
+        "title": "Plataforma de Viajes",
+        "description": "Sistema integral de reservas con integraciones a Amadeus, Orbis, RateHawk y múltiples proveedores turísticos.",
+        "results": ["Múltiples proveedores integrados", "Reservas en tiempo real", "Comparación automática de precios"]
       },
       {
         "industry": "Fintech",
-        "title": "Automatización de Procesos",
-        "description": "Plataforma que automatizó la validación de documentos y onboarding de clientes con IA.",
-        "results": ["Proceso 10x más rápido", "Menos errores humanos", "Mejor experiencia de usuario"]
+        "title": "Pasarela de Pagos Multi-proveedor",
+        "description": "Integración unificada de múltiples pasarelas de pago: Stripe, Redsys y PayPal, con gestión centralizada.",
+        "results": ["3 pasarelas integradas", "Gestión unificada de pagos", "Reportes consolidados"]
       },
       {
-        "industry": "Retail",
-        "title": "Plataforma E-commerce",
-        "description": "Tienda online personalizada con gestión de inventario y reportes de ventas integrados.",
-        "results": ["Nuevo canal de ventas", "Gestión centralizada", "Crecimiento sostenido"]
+        "industry": "IA/Chatbots",
+        "title": "Chatbot para Autores Literarios",
+        "description": "Asistente virtual inteligente desarrollado para atender consultas de más de 2.000 autores de forma personalizada.",
+        "results": ["Atención 24/7 automatizada", "+2.000 usuarios atendidos", "Respuestas contextualizadas"]
+      },
+      {
+        "industry": "DevTools",
+        "title": "Agente MCP con IA",
+        "description": "Sistema que combina múltiples agentes de IA para automatizar tareas de desarrollo, reduciendo costos significativamente.",
+        "results": ["Reducción de costos operativos", "Automatización de tareas complejas", "Integración de múltiples modelos IA"]
+      },
+      {
+        "industry": "Healthcare",
+        "title": "Integración de Telemedicina",
+        "description": "Conexión de sistemas de salud con plataformas de telemedicina, incluyendo MeetingDoctors y otros proveedores.",
+        "results": ["Consultas médicas remotas", "Integración con sistemas existentes", "Mejora en accesibilidad"]
+      },
+      {
+        "industry": "E-commerce",
+        "title": "Plataforma E-commerce Avanzada",
+        "description": "Tienda online con múltiples integraciones: pagos, envíos, inventario y CRM, todo conectado y automatizado.",
+        "results": ["Operación 100% automatizada", "Múltiples canales de venta", "Analíticas en tiempo real"]
       }
     ]
   },

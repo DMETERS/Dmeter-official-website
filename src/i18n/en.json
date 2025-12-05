@@ -82,25 +82,61 @@
   },
   "cases": {
     "title": "Success Stories",
-    "subtitle": "Projects that delivered real results",
+    "subtitle": "Projects that delivered real results for our clients",
     "items": [
       {
-        "industry": "Logistics",
-        "title": "Operations Dashboard",
-        "description": "Real-time monitoring system that optimized fleet management and reduced delivery times.",
-        "results": ["360° operations visibility", "Data-driven decisions", "Reduced operational costs"]
+        "industry": "Recruiting",
+        "title": "Recruiting SaaS Platform",
+        "description": "Transformation of a recruiting application into a scalable SaaS model, integrated within a larger HR products ecosystem.",
+        "results": ["Scalable SaaS model", "Integration with existing ecosystem", "Growth-ready architecture"]
+      },
+      {
+        "industry": "Automation",
+        "title": "Automated Prospecting System",
+        "description": "Fully automated platform for acquiring potential clients through scraping, jobs and complex sequential processes.",
+        "results": ["Automatic lead generation", "No manual intervention needed", "Optimized sales pipeline"]
+      },
+      {
+        "industry": "AI/Content",
+        "title": "Literary Content Generator",
+        "description": "AI-powered system for generating guides, books and specialized texts, serving over 2,000 authors.",
+        "results": ["2,000+ active authors", "Scalable content generation", "Per-author personalization"]
+      },
+      {
+        "industry": "Tourism",
+        "title": "Travel Platform",
+        "description": "Comprehensive booking system with integrations to Amadeus, Orbis, RateHawk and multiple travel providers.",
+        "results": ["Multiple providers integrated", "Real-time bookings", "Automatic price comparison"]
       },
       {
         "industry": "Fintech",
-        "title": "Process Automation",
-        "description": "Platform that automated document validation and customer onboarding with AI.",
-        "results": ["10x faster process", "Fewer human errors", "Better user experience"]
+        "title": "Multi-provider Payment Gateway",
+        "description": "Unified integration of multiple payment gateways: Stripe, Redsys and PayPal, with centralized management.",
+        "results": ["3 gateways integrated", "Unified payment management", "Consolidated reports"]
       },
       {
-        "industry": "Retail",
-        "title": "E-commerce Platform",
-        "description": "Custom online store with inventory management and integrated sales reports.",
-        "results": ["New sales channel", "Centralized management", "Sustained growth"]
+        "industry": "AI/Chatbots",
+        "title": "Chatbot for Literary Authors",
+        "description": "Intelligent virtual assistant developed to handle queries from over 2,000 authors in a personalized way.",
+        "results": ["24/7 automated support", "2,000+ users served", "Contextual responses"]
+      },
+      {
+        "industry": "DevTools",
+        "title": "AI-Powered MCP Agent",
+        "description": "System that combines multiple AI agents to automate development tasks, significantly reducing costs.",
+        "results": ["Reduced operational costs", "Complex task automation", "Multiple AI models integration"]
+      },
+      {
+        "industry": "Healthcare",
+        "title": "Telemedicine Integration",
+        "description": "Connection of health systems with telemedicine platforms, including MeetingDoctors and other providers.",
+        "results": ["Remote medical consultations", "Integration with existing systems", "Improved accessibility"]
+      },
+      {
+        "industry": "E-commerce",
+        "title": "Advanced E-commerce Platform",
+        "description": "Online store with multiple integrations: payments, shipping, inventory and CRM, all connected and automated.",
+        "results": ["100% automated operation", "Multiple sales channels", "Real-time analytics"]
       }
     ]
   },

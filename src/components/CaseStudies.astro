@@ -8,72 +8,380 @@ interface Props {
 const { lang = defaultLang } = Astro.props;
 const t = useTranslations(lang);
 
+// Iconos por industria - estilo Solarpunk orgánico
 const industryIcons: Record<string, string> = {
-  'Logística': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />`,
-  'Logistics': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />`,
-  'Fintech': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />`,
-  'Retail': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />`,
-  'Varejo': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />`
+  // Recruiting - Personas/equipo
+  'Recruiting': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />`,
+
+  // Automatización - Engranajes/robot
+  'Automatización': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />`,
+  'Automation': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />`,
+  'Automação': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />`,
+
+  // IA/Contenido - Libro + cerebro
+  'IA/Contenido': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />`,
+  'AI/Content': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />`,
+  'IA/Conteúdo': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />`,
+
+  // Turismo - Avión/globo
+  'Turismo': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />`,
+  'Tourism': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />`,
+
+  // Fintech - Moneda/tarjeta
+  'Fintech': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />`,
+
+  // IA/Chatbots - Chat + IA
+  'IA/Chatbots': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />`,
+  'AI/Chatbots': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />`,
+
+  // DevTools - Terminal/código
+  'DevTools': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />`,
+
+  // Healthcare - Cruz médica/corazón
+  'Healthcare': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />`,
+
+  // E-commerce - Carrito
+  'E-commerce': `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />`
 };
 
-const cardColors = ['primary', 'accent-cyan', 'accent-solar'];
+// Estilos por card - clases completas para que Tailwind las detecte
+const cardStyles = [
+  { // 1. Recruiting - Verde
+    text: 'text-primary',
+    iconBg: 'bg-primary/20',
+    badgeBg: 'bg-primary/10'
+  },
+  { // 2. Automatización - Cyan
+    text: 'text-accent-cyan',
+    iconBg: 'bg-accent-cyan/20',
+    badgeBg: 'bg-accent-cyan/10'
+  },
+  { // 3. IA/Contenido - Dorado
+    text: 'text-solar-gold',
+    iconBg: 'bg-solar-gold/20',
+    badgeBg: 'bg-solar-gold/10'
+  },
+  { // 4. Turismo - Verde brote
+    text: 'text-green-sprout',
+    iconBg: 'bg-green-sprout/20',
+    badgeBg: 'bg-green-sprout/10'
+  },
+  { // 5. Fintech - Verde
+    text: 'text-primary',
+    iconBg: 'bg-primary/20',
+    badgeBg: 'bg-primary/10'
+  },
+  { // 6. IA/Chatbots - Cyan
+    text: 'text-accent-cyan',
+    iconBg: 'bg-accent-cyan/20',
+    badgeBg: 'bg-accent-cyan/10'
+  },
+  { // 7. DevTools - Dorado
+    text: 'text-solar-gold',
+    iconBg: 'bg-solar-gold/20',
+    badgeBg: 'bg-solar-gold/10'
+  },
+  { // 8. Healthcare - Verde brote
+    text: 'text-green-sprout',
+    iconBg: 'bg-green-sprout/20',
+    badgeBg: 'bg-green-sprout/10'
+  },
+  { // 9. E-commerce - Cyan
+    text: 'text-accent-cyan',
+    iconBg: 'bg-accent-cyan/20',
+    badgeBg: 'bg-accent-cyan/10'
+  }
+];
 ---
 
-<section id="cases" class="py-20 md:py-32 relative">
-  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-bg-card/30 to-transparent pointer-events-none"></div>
+<section id="cases" class="py-24 md:py-36 relative overflow-hidden">
+  <!-- Fondo orgánico -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute inset-0 bg-dots-seeds opacity-15"></div>
+    <div class="orb-solar orb-solar-green w-[400px] h-[400px] -top-32 -left-32 opacity-30"></div>
+    <div class="orb-solar orb-solar-cyan w-[300px] h-[300px] bottom-0 right-0 opacity-25"></div>
+    <div class="orb-solar orb-solar-gold w-[250px] h-[250px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-15"></div>
+  </div>
 
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Section header -->
+    <!-- Header -->
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold">
-        {t.cases.title}
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+        <svg class="w-4 h-4 text-solar-gold" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        <span class="text-sm text-primary font-medium">Proyectos que florecieron</span>
+      </div>
+
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+        <span class="text-text-light">{t.cases.title.split(' ').slice(0, -1).join(' ')}</span>
+        <span class="gradient-text-static"> {t.cases.title.split(' ').slice(-1)}</span>
       </h2>
-      <p class="mt-4 text-lg text-text-muted">
+
+      <p class="mt-6 text-lg text-text-muted leading-relaxed">
         {t.cases.subtitle}
       </p>
     </div>
 
-    <!-- Cases grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {t.cases.items.map((caseItem, index) => (
-        <article class={`group bg-bg-card border border-${cardColors[index]}/20 rounded-2xl overflow-hidden card-hover`}>
-          <!-- Header with icon -->
-          <div class={`h-32 bg-gradient-to-br from-${cardColors[index]}/20 to-transparent p-6 flex items-start justify-between`}>
-            <div>
-              <span class={`text-xs font-semibold uppercase tracking-wider text-${cardColors[index]}`}>
-                {caseItem.industry}
-              </span>
-              <h3 class="text-xl font-semibold text-text-light mt-2">
+    <!-- Carousel Container -->
+    <div class="carousel-container px-12 md:px-16" id="cases-carousel">
+      <!-- Botón Anterior -->
+      <button
+        class="carousel-btn carousel-btn-prev"
+        id="carousel-prev"
+        aria-label="Ver casos anteriores"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <!-- Track del Carousel -->
+      <div class="carousel-track" id="carousel-track">
+        {t.cases.items.map((caseItem, index) => {
+          const style = cardStyles[index % cardStyles.length];
+          return (
+          <article class="carousel-slide">
+            <div class="group h-full card-organic relative overflow-hidden">
+              <!-- Decoración de hoja en esquina -->
+              <div class="absolute -top-4 -right-4 w-24 h-24 opacity-10 group-hover:opacity-20 transition-opacity">
+                <svg viewBox="0 0 100 100" fill="currentColor" class="text-primary">
+                  <path d="M90 10 C60 20, 40 40, 30 70 C50 60, 70 50, 90 10 Z"/>
+                </svg>
+              </div>
+
+              <!-- Badge de industria -->
+              <div class="flex items-center justify-between mb-4">
+                <span class={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider ${style.badgeBg} ${style.text}`}>
+                  {caseItem.industry}
+                </span>
+                <div class={`w-10 h-10 rounded-xl ${style.iconBg} flex items-center justify-center group-hover:scale-110 transition-all duration-500`}>
+                  <svg class={`w-5 h-5 ${style.text}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={industryIcons[caseItem.industry] || industryIcons['E-commerce']} />
+                </div>
+              </div>
+
+              <!-- Título -->
+              <h3 class="text-lg font-bold text-text-light mb-3 group-hover:text-primary transition-colors leading-tight">
                 {caseItem.title}
               </h3>
-            </div>
-            <div class={`w-12 h-12 rounded-xl bg-${cardColors[index]}/20 flex items-center justify-center`}>
-              <svg class={`w-6 h-6 text-${cardColors[index]}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={industryIcons[caseItem.industry] || industryIcons['Retail']} />
-            </div>
-          </div>
 
-          <!-- Content -->
-          <div class="p-6">
-            <p class="text-text-muted leading-relaxed mb-6">
-              {caseItem.description}
-            </p>
+              <!-- Descripción -->
+              <p class="text-text-muted text-sm leading-relaxed mb-5 line-clamp-3">
+                {caseItem.description}
+              </p>
 
-            <!-- Results -->
-            <div class="space-y-2">
-              {caseItem.results.map((result) => (
-                <div class="flex items-center gap-3">
-                  <div class={`w-5 h-5 rounded-full bg-${cardColors[index]}/20 flex items-center justify-center flex-shrink-0`}>
-                    <svg class={`w-3 h-3 text-${cardColors[index]}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <!-- Resultados -->
+              <div class="space-y-2 mt-auto">
+                {caseItem.results.map((result) => (
+                  <div class="flex items-start gap-2">
+                    <svg class="w-4 h-4 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>
+                    <span class="text-xs text-text-muted leading-relaxed">{result}</span>
                   </div>
-                  <span class="text-sm text-text-muted">{result}</span>
-                </div>
-              ))}
+                ))}
+              </div>
+
+              <!-- Línea de crecimiento al hover -->
+              <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent-cyan to-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
-          </div>
-        </article>
+          </article>
+        )})}
+      </div>
+
+      <!-- Botón Siguiente -->
+      <button
+        class="carousel-btn carousel-btn-next"
+        id="carousel-next"
+        aria-label="Ver más casos"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Dots indicadores -->
+    <div class="carousel-dots" id="carousel-dots">
+      {t.cases.items.map((_, index) => (
+        <button
+          class={`carousel-dot ${index === 0 ? 'active' : ''}`}
+          data-index={index}
+          aria-label={`Ir al caso ${index + 1}`}
+        ></button>
       ))}
+    </div>
+
+    <!-- Contador y CTA -->
+    <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6">
+      <div class="flex items-center gap-2 text-text-dim">
+        <span class="text-2xl font-bold gradient-text-static">{t.cases.items.length}</span>
+        <span class="text-sm">proyectos exitosos</span>
+      </div>
+
+      <div class="hidden sm:block w-px h-6 bg-primary/20"></div>
+
+      <a
+        href="#contact"
+        class="inline-flex items-center gap-2 text-primary hover:text-primary-light transition-colors group"
+      >
+        <span class="font-medium">¿Quieres ser el próximo?</span>
+        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
     </div>
   </div>
 </section>
+
+<script>
+  // Carousel functionality
+  const track = document.getElementById('carousel-track');
+  const prevBtn = document.getElementById('carousel-prev');
+  const nextBtn = document.getElementById('carousel-next');
+  const dots = document.querySelectorAll('.carousel-dot');
+
+  if (track && prevBtn && nextBtn) {
+    let currentIndex = 0;
+    let autoplayInterval: ReturnType<typeof setInterval> | null = null;
+    const totalSlides = dots.length;
+
+    // Calcular slides visibles según viewport
+    function getSlidesPerView(): number {
+      if (window.innerWidth >= 1024) return 3;
+      if (window.innerWidth >= 768) return 2;
+      return 1;
+    }
+
+    // Obtener ancho de slide
+    function getSlideWidth(): number {
+      const slide = track.querySelector('.carousel-slide') as HTMLElement;
+      if (!slide) return 0;
+      const gap = 24; // 1.5rem gap
+      return slide.offsetWidth + gap;
+    }
+
+    // Scroll a índice específico
+    function scrollToIndex(index: number): void {
+      const slideWidth = getSlideWidth();
+      const maxIndex = Math.max(0, totalSlides - getSlidesPerView());
+      currentIndex = Math.max(0, Math.min(index, maxIndex));
+      track.scrollTo({
+        left: currentIndex * slideWidth,
+        behavior: 'smooth'
+      });
+      updateDots();
+    }
+
+    // Actualizar dots activos
+    function updateDots(): void {
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+    }
+
+    // Navegación
+    prevBtn.addEventListener('click', () => {
+      scrollToIndex(currentIndex - 1);
+      resetAutoplay();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      scrollToIndex(currentIndex + 1);
+      resetAutoplay();
+    });
+
+    // Click en dots
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        scrollToIndex(index);
+        resetAutoplay();
+      });
+    });
+
+    // Detectar scroll manual (swipe)
+    let isScrolling = false;
+    track.addEventListener('scroll', () => {
+      if (!isScrolling) {
+        isScrolling = true;
+        setTimeout(() => {
+          const slideWidth = getSlideWidth();
+          if (slideWidth > 0) {
+            currentIndex = Math.round(track.scrollLeft / slideWidth);
+            updateDots();
+          }
+          isScrolling = false;
+        }, 100);
+      }
+    });
+
+    // Autoplay - Como el ciclo natural (6 segundos)
+    function startAutoplay(): void {
+      // Respetar prefers-reduced-motion
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+      }
+
+      autoplayInterval = setInterval(() => {
+        const maxIndex = Math.max(0, totalSlides - getSlidesPerView());
+        if (currentIndex >= maxIndex) {
+          scrollToIndex(0);
+        } else {
+          scrollToIndex(currentIndex + 1);
+        }
+      }, 6000);
+    }
+
+    function stopAutoplay(): void {
+      if (autoplayInterval) {
+        clearInterval(autoplayInterval);
+        autoplayInterval = null;
+      }
+    }
+
+    function resetAutoplay(): void {
+      stopAutoplay();
+      startAutoplay();
+    }
+
+    // Pausar autoplay al hover
+    const container = document.getElementById('cases-carousel');
+    container?.addEventListener('mouseenter', stopAutoplay);
+    container?.addEventListener('mouseleave', startAutoplay);
+
+    // Pausar en touch
+    track.addEventListener('touchstart', stopAutoplay);
+    track.addEventListener('touchend', () => {
+      setTimeout(startAutoplay, 3000);
+    });
+
+    // Keyboard navigation
+    container?.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        scrollToIndex(currentIndex - 1);
+        resetAutoplay();
+      } else if (e.key === 'ArrowRight') {
+        scrollToIndex(currentIndex + 1);
+        resetAutoplay();
+      }
+    });
+
+    // Iniciar autoplay
+    startAutoplay();
+
+    // Re-calcular en resize
+    window.addEventListener('resize', () => {
+      updateDots();
+    });
+  }
+</script>
+
+<style>
+  /* Line clamp para descripciones */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
