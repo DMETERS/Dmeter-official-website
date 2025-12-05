@@ -10,116 +10,345 @@ const t = useTranslations(lang);
 ---
 
 <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
-  <!-- Background decoration -->
+  <!-- ═══════════════════════════════════════════════════════════════
+       BACKGROUND SOLARPUNK - El ecosistema digital
+       ═══════════════════════════════════════════════════════════════ -->
   <div class="absolute inset-0 overflow-hidden pointer-events-none">
-    <!-- Gradient orbs -->
-    <div class="absolute top-1/4 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
-    <div class="absolute bottom-1/4 -right-32 w-96 h-96 bg-accent-cyan/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl"></div>
 
-    <!-- Grid pattern -->
-    <div class="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.03)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
+    <!-- Orbes de energía solar - como soles en el horizonte -->
+    <div class="orb-solar orb-solar-green w-[500px] h-[500px] top-0 -left-48 animate-breathe"></div>
+    <div class="orb-solar orb-solar-gold w-[400px] h-[400px] top-20 right-0 animate-breathe" style="animation-delay: 1.5s;"></div>
+    <div class="orb-solar orb-solar-cyan w-[600px] h-[600px] bottom-0 left-1/3 animate-breathe" style="animation-delay: 0.8s;"></div>
+
+    <!-- Grid orgánico de fondo -->
+    <div class="absolute inset-0 bg-grid-organic opacity-60"></div>
+
+    <!-- Puntos como semillas dispersas -->
+    <div class="absolute inset-0 bg-dots-seeds opacity-30"></div>
+
+    <!-- Gradiente de horizonte forestal -->
+    <div class="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-bg-dark via-bg-dark/80 to-transparent"></div>
+
+    <!-- SVG Decorativo: Hojas flotantes -->
+    <svg class="absolute top-32 left-10 w-16 h-16 text-primary/20 animate-sway" viewBox="0 0 100 100" fill="currentColor">
+      <path d="M50 5 C20 25, 5 50, 15 75 C25 60, 40 50, 50 45 C60 50, 75 60, 85 75 C95 50, 80 25, 50 5 Z"/>
+    </svg>
+
+    <svg class="absolute top-48 right-20 w-12 h-12 text-green-sprout/30 animate-sway" style="animation-delay: 2s;" viewBox="0 0 100 100" fill="currentColor">
+      <path d="M50 5 C20 25, 5 50, 15 75 C25 60, 40 50, 50 45 C60 50, 75 60, 85 75 C95 50, 80 25, 50 5 Z"/>
+    </svg>
+
+    <svg class="absolute bottom-40 left-20 w-10 h-10 text-accent-cyan/20 animate-sway" style="animation-delay: 3s;" viewBox="0 0 100 100" fill="currentColor">
+      <path d="M50 5 C20 25, 5 50, 15 75 C25 60, 40 50, 50 45 C60 50, 75 60, 85 75 C95 50, 80 25, 50 5 Z"/>
+    </svg>
+
+    <!-- Luciérnagas / Partículas de energía -->
+    <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-solar-gold rounded-full animate-firefly"></div>
+    <div class="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-primary rounded-full animate-firefly" style="animation-delay: 1s;"></div>
+    <div class="absolute bottom-1/3 left-1/3 w-2 h-2 bg-accent-cyan rounded-full animate-firefly" style="animation-delay: 2s;"></div>
+    <div class="absolute top-1/2 right-1/4 w-1 h-1 bg-green-lime rounded-full animate-firefly" style="animation-delay: 0.5s;"></div>
+    <div class="absolute bottom-1/4 right-1/2 w-1.5 h-1.5 bg-solar-gold rounded-full animate-firefly" style="animation-delay: 1.5s;"></div>
   </div>
 
+  <!-- ═══════════════════════════════════════════════════════════════
+       CONTENIDO PRINCIPAL
+       ═══════════════════════════════════════════════════════════════ -->
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
     <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-      <!-- Text content -->
-      <div class="text-center lg:text-left">
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-tight">
-          {t.hero.title}
-          <span class="gradient-text block mt-2">
+
+      <!-- Texto con alma -->
+      <div class="text-center lg:text-left animate-sprout">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight">
+          <span class="text-text-light">{t.hero.title}</span>
+          <span class="gradient-text block mt-3">
             {t.hero.titleHighlight}
           </span>
-          <span class="block mt-2">{t.hero.titleEnd}</span>
+          <span class="text-text-light block mt-3">{t.hero.titleEnd}</span>
         </h1>
 
-        <p class="mt-6 text-lg sm:text-xl text-text-muted max-w-xl mx-auto lg:mx-0">
+        <p class="mt-8 text-lg sm:text-xl text-text-muted max-w-xl mx-auto lg:mx-0 leading-relaxed">
           {t.hero.subtitle}
         </p>
 
-        <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+        <!-- Botones que florecen -->
+        <div class="mt-12 flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
           <a
             href="#contact"
-            class="gradient-solarpunk text-white px-8 py-4 rounded-xl font-semibold text-lg hover:opacity-90 transition-all hover:scale-105 animate-pulse-glow inline-flex items-center justify-center gap-2"
+            class="btn-bloom text-white text-lg inline-flex items-center justify-center gap-3 group"
           >
-            {t.hero.cta}
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span>{t.hero.cta}</span>
+            <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
           <a
             href="#services"
-            class="border border-primary/30 text-text-light px-8 py-4 rounded-xl font-semibold text-lg hover:bg-primary/10 hover:border-primary transition-all inline-flex items-center justify-center gap-2"
+            class="btn-outline-organic text-lg inline-flex items-center justify-center gap-2 group"
           >
-            {t.hero.ctaSecondary}
+            <span>{t.hero.ctaSecondary}</span>
+            <svg class="w-5 h-5 transition-transform group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
           </a>
+        </div>
+
+        <!-- Indicadores de confianza / Stats -->
+        <div class="mt-12 pt-8 border-t border-primary/10">
+          <div class="flex flex-wrap gap-8 justify-center lg:justify-start">
+            <div class="text-center lg:text-left">
+              <div class="text-3xl font-bold gradient-text-static">50+</div>
+              <div class="text-text-dim text-sm mt-1">Proyectos</div>
+            </div>
+            <div class="text-center lg:text-left">
+              <div class="text-3xl font-bold gradient-text-static">3</div>
+              <div class="text-text-dim text-sm mt-1">Países</div>
+            </div>
+            <div class="text-center lg:text-left">
+              <div class="text-3xl font-bold gradient-text-static">100%</div>
+              <div class="text-text-dim text-sm mt-1">Compromiso</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Visual element -->
+      <!-- ═══════════════════════════════════════════════════════════════
+           ILUSTRACIÓN SOLARPUNK - Ciudad verde futurista
+           ═══════════════════════════════════════════════════════════════ -->
       <div class="relative hidden lg:block">
-        <div class="relative w-full aspect-square max-w-lg mx-auto">
-          <!-- Main floating card -->
-          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 glass rounded-3xl animate-float flex items-center justify-center">
-            <div class="text-center">
-              <div class="w-20 h-20 mx-auto rounded-2xl gradient-solarpunk flex items-center justify-center mb-4">
-                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                </svg>
-              </div>
-              <p class="text-text-light font-semibold">Software</p>
-              <p class="text-text-muted text-sm">a medida</p>
-            </div>
-          </div>
+        <div class="relative w-full aspect-square max-w-xl mx-auto">
 
-          <!-- Floating elements -->
-          <div class="absolute top-8 right-8 w-16 h-16 glass rounded-2xl animate-float flex items-center justify-center" style="animation-delay: 0.5s;">
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-            </svg>
-          </div>
-
-          <div class="absolute bottom-12 left-4 w-20 h-20 glass rounded-2xl animate-float flex items-center justify-center" style="animation-delay: 1s;">
-            <svg class="w-10 h-10 text-accent-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-            </svg>
-          </div>
-
-          <div class="absolute top-1/3 left-0 w-14 h-14 glass rounded-xl animate-float flex items-center justify-center" style="animation-delay: 1.5s;">
-            <svg class="w-7 h-7 text-accent-solar" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-          </div>
-
-          <div class="absolute bottom-1/4 right-0 w-12 h-12 glass rounded-xl animate-float flex items-center justify-center" style="animation-delay: 2s;">
-            <svg class="w-6 h-6 text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-
-          <!-- Connection lines (decorative) -->
-          <svg class="absolute inset-0 w-full h-full" viewBox="0 0 400 400">
+          <!-- Ilustración principal: Ciudad Solarpunk -->
+          <svg class="w-full h-full" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#10B981;stop-opacity:0.3" />
-                <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:0.1" />
+              <!-- Gradientes -->
+              <linearGradient id="building-grad" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop offset="0%" stop-color="#1A3D2E"/>
+                <stop offset="100%" stop-color="#245A42"/>
               </linearGradient>
+              <linearGradient id="glass-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#10B981" stop-opacity="0.3"/>
+                <stop offset="100%" stop-color="#06B6D4" stop-opacity="0.1"/>
+              </linearGradient>
+              <linearGradient id="sun-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FFD700"/>
+                <stop offset="50%" stop-color="#FFBF00"/>
+                <stop offset="100%" stop-color="#FF8C42"/>
+              </linearGradient>
+              <linearGradient id="leaf-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#10B981"/>
+                <stop offset="100%" stop-color="#4A7C59"/>
+              </linearGradient>
+              <linearGradient id="solar-panel-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#06B6D4"/>
+                <stop offset="100%" stop-color="#10B981"/>
+              </linearGradient>
+
+              <!-- Filtro de glow -->
+              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                <feMerge>
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
             </defs>
-            <path d="M200 200 L320 80" stroke="url(#line-gradient)" stroke-width="1" fill="none" stroke-dasharray="5,5" />
-            <path d="M200 200 L80 280" stroke="url(#line-gradient)" stroke-width="1" fill="none" stroke-dasharray="5,5" />
-            <path d="M200 200 L60 160" stroke="url(#line-gradient)" stroke-width="1" fill="none" stroke-dasharray="5,5" />
-            <path d="M200 200 L340 280" stroke="url(#line-gradient)" stroke-width="1" fill="none" stroke-dasharray="5,5" />
+
+            <!-- Sol con rayos -->
+            <g class="animate-sun" style="transform-origin: 400px 80px;">
+              <circle cx="400" cy="80" r="40" fill="url(#sun-grad)" filter="url(#glow)"/>
+              <!-- Rayos de sol -->
+              <g stroke="#FFD700" stroke-width="2" opacity="0.6">
+                <line x1="400" y1="30" x2="400" y2="15"/>
+                <line x1="430" y1="50" x2="445" y2="35"/>
+                <line x1="450" y1="80" x2="465" y2="80"/>
+                <line x1="430" y1="110" x2="445" y2="125"/>
+                <line x1="370" y1="50" x2="355" y2="35"/>
+                <line x1="350" y1="80" x2="335" y2="80"/>
+                <line x1="370" y1="110" x2="355" y2="125"/>
+              </g>
+            </g>
+
+            <!-- Edificio principal con jardín vertical -->
+            <g class="animate-float" style="animation-delay: 0.5s;">
+              <!-- Estructura -->
+              <rect x="180" y="160" width="140" height="240" rx="8" fill="url(#building-grad)" stroke="#10B981" stroke-width="1" stroke-opacity="0.3"/>
+
+              <!-- Ventanas/Paneles solares en fachada -->
+              <rect x="195" y="180" width="25" height="20" rx="4" fill="url(#solar-panel-grad)" opacity="0.8"/>
+              <rect x="230" y="180" width="25" height="20" rx="4" fill="url(#solar-panel-grad)" opacity="0.8"/>
+              <rect x="265" y="180" width="40" height="20" rx="4" fill="url(#solar-panel-grad)" opacity="0.8"/>
+
+              <rect x="195" y="210" width="25" height="20" rx="4" fill="url(#glass-grad)"/>
+              <rect x="230" y="210" width="25" height="20" rx="4" fill="url(#glass-grad)"/>
+              <rect x="265" y="210" width="40" height="20" rx="4" fill="url(#glass-grad)"/>
+
+              <rect x="195" y="240" width="25" height="20" rx="4" fill="url(#solar-panel-grad)" opacity="0.8"/>
+              <rect x="230" y="240" width="25" height="20" rx="4" fill="url(#solar-panel-grad)" opacity="0.8"/>
+              <rect x="265" y="240" width="40" height="20" rx="4" fill="url(#glass-grad)"/>
+
+              <!-- Plantas en balcones -->
+              <ellipse cx="210" cy="275" rx="20" ry="8" fill="url(#leaf-grad)" opacity="0.9"/>
+              <ellipse cx="250" cy="275" rx="15" ry="6" fill="#4A7C59" opacity="0.8"/>
+              <ellipse cx="290" cy="275" rx="18" ry="7" fill="url(#leaf-grad)" opacity="0.85"/>
+
+              <!-- Más vegetación -->
+              <ellipse cx="215" cy="305" rx="22" ry="9" fill="#4A7C59" opacity="0.8"/>
+              <ellipse cx="255" cy="305" rx="18" ry="7" fill="url(#leaf-grad)" opacity="0.9"/>
+              <ellipse cx="295" cy="305" rx="15" ry="6" fill="#2D5A3D" opacity="0.7"/>
+
+              <ellipse cx="205" cy="335" rx="18" ry="7" fill="url(#leaf-grad)" opacity="0.85"/>
+              <ellipse cx="245" cy="335" rx="20" ry="8" fill="#4A7C59" opacity="0.9"/>
+              <ellipse cx="285" cy="335" rx="22" ry="9" fill="url(#leaf-grad)" opacity="0.8"/>
+
+              <!-- Techo verde -->
+              <rect x="175" y="150" width="150" height="15" rx="4" fill="#2D5A3D"/>
+              <ellipse cx="200" cy="152" rx="15" ry="8" fill="url(#leaf-grad)"/>
+              <ellipse cx="230" cy="150" rx="20" ry="10" fill="#4A7C59"/>
+              <ellipse cx="265" cy="152" rx="18" ry="9" fill="url(#leaf-grad)"/>
+              <ellipse cx="300" cy="150" rx="15" ry="8" fill="#2D5A3D"/>
+
+              <!-- Panel solar en techo -->
+              <rect x="200" y="130" width="100" height="20" rx="2" fill="url(#solar-panel-grad)" transform="rotate(-5, 250, 140)"/>
+            </g>
+
+            <!-- Edificio secundario -->
+            <g class="animate-float" style="animation-delay: 1s;">
+              <rect x="80" y="220" width="80" height="180" rx="6" fill="url(#building-grad)" stroke="#10B981" stroke-width="1" stroke-opacity="0.2"/>
+
+              <!-- Ventanas -->
+              <rect x="90" y="235" width="20" height="15" rx="3" fill="url(#glass-grad)"/>
+              <rect x="120" y="235" width="30" height="15" rx="3" fill="url(#solar-panel-grad)" opacity="0.7"/>
+
+              <rect x="90" y="260" width="20" height="15" rx="3" fill="url(#solar-panel-grad)" opacity="0.7"/>
+              <rect x="120" y="260" width="30" height="15" rx="3" fill="url(#glass-grad)"/>
+
+              <rect x="90" y="285" width="20" height="15" rx="3" fill="url(#glass-grad)"/>
+              <rect x="120" y="285" width="30" height="15" rx="3" fill="url(#solar-panel-grad)" opacity="0.7"/>
+
+              <!-- Plantas colgantes -->
+              <path d="M85 310 Q75 340 90 370" stroke="url(#leaf-grad)" stroke-width="3" fill="none" opacity="0.8"/>
+              <ellipse cx="90" cy="375" rx="10" ry="5" fill="url(#leaf-grad)" opacity="0.9"/>
+
+              <path d="M155 310 Q165 335 150 365" stroke="#4A7C59" stroke-width="2" fill="none" opacity="0.7"/>
+              <ellipse cx="150" cy="370" rx="8" ry="4" fill="#4A7C59" opacity="0.8"/>
+
+              <!-- Techo con turbina eólica mini -->
+              <rect x="75" y="210" width="90" height="12" rx="3" fill="#2D5A3D"/>
+              <rect x="115" y="185" width="6" height="25" fill="#6B8E6B"/>
+              <g transform="translate(118, 185)">
+                <ellipse cx="0" cy="0" rx="15" ry="3" fill="#10B981" opacity="0.8" transform="rotate(0)"/>
+                <ellipse cx="0" cy="0" rx="15" ry="3" fill="#10B981" opacity="0.8" transform="rotate(60)"/>
+                <ellipse cx="0" cy="0" rx="15" ry="3" fill="#10B981" opacity="0.8" transform="rotate(120)"/>
+              </g>
+            </g>
+
+            <!-- Edificio terciario pequeño -->
+            <g class="animate-float" style="animation-delay: 1.5s;">
+              <rect x="340" y="280" width="70" height="120" rx="5" fill="url(#building-grad)" stroke="#10B981" stroke-width="1" stroke-opacity="0.2"/>
+
+              <!-- Bio-dome en techo -->
+              <ellipse cx="375" cy="280" rx="30" ry="15" fill="url(#glass-grad)" stroke="#10B981" stroke-width="1" stroke-opacity="0.3"/>
+              <ellipse cx="375" cy="278" rx="20" ry="8" fill="url(#leaf-grad)" opacity="0.7"/>
+
+              <!-- Ventanas con plantas -->
+              <rect x="350" y="300" width="20" height="15" rx="2" fill="url(#glass-grad)"/>
+              <rect x="380" y="300" width="20" height="15" rx="2" fill="url(#glass-grad)"/>
+              <ellipse cx="360" cy="320" rx="12" ry="5" fill="url(#leaf-grad)" opacity="0.8"/>
+              <ellipse cx="390" cy="320" rx="10" ry="4" fill="#4A7C59" opacity="0.7"/>
+
+              <rect x="350" y="340" width="20" height="15" rx="2" fill="url(#solar-panel-grad)" opacity="0.7"/>
+              <rect x="380" y="340" width="20" height="15" rx="2" fill="url(#solar-panel-grad)" opacity="0.7"/>
+            </g>
+
+            <!-- Suelo / Base con vegetación -->
+            <ellipse cx="250" cy="420" rx="200" ry="30" fill="#1A3D2E" opacity="0.6"/>
+
+            <!-- Árboles -->
+            <g class="animate-sway">
+              <!-- Árbol izquierdo -->
+              <rect x="55" y="370" width="8" height="40" fill="#4A7C59"/>
+              <ellipse cx="59" cy="355" rx="25" ry="30" fill="url(#leaf-grad)" opacity="0.9"/>
+              <ellipse cx="50" cy="365" rx="15" ry="18" fill="#2D5A3D" opacity="0.8"/>
+            </g>
+
+            <g class="animate-sway" style="animation-delay: 1s;">
+              <!-- Árbol derecho -->
+              <rect x="420" y="360" width="10" height="50" fill="#4A7C59"/>
+              <ellipse cx="425" cy="340" rx="30" ry="35" fill="url(#leaf-grad)" opacity="0.85"/>
+              <ellipse cx="440" cy="350" rx="20" ry="22" fill="#4A7C59" opacity="0.9"/>
+              <ellipse cx="415" cy="355" rx="18" ry="20" fill="#2D5A3D" opacity="0.7"/>
+            </g>
+
+            <!-- Plantas pequeñas en el suelo -->
+            <ellipse cx="150" cy="405" rx="12" ry="6" fill="url(#leaf-grad)" opacity="0.7"/>
+            <ellipse cx="180" cy="410" rx="8" ry="4" fill="#4A7C59" opacity="0.6"/>
+            <ellipse cx="320" cy="408" rx="10" ry="5" fill="url(#leaf-grad)" opacity="0.8"/>
+            <ellipse cx="350" cy="405" rx="15" ry="7" fill="#2D5A3D" opacity="0.6"/>
+
+            <!-- Conexiones de circuito/raíces tech (debajo de todo) -->
+            <g stroke="#10B981" stroke-width="1.5" stroke-opacity="0.2" fill="none">
+              <path d="M120 400 Q150 430 200 420 Q250 410 300 420 Q350 430 380 400" stroke-dasharray="5,5"/>
+              <path d="M80 410 Q120 440 180 430 Q240 420 320 435 Q380 445 420 415"/>
+            </g>
+
+            <!-- Nodos de energía en las conexiones -->
+            <circle cx="200" cy="420" r="4" fill="#10B981" opacity="0.6"/>
+            <circle cx="300" cy="420" r="3" fill="#06B6D4" opacity="0.5"/>
+            <circle cx="250" cy="425" r="5" fill="#FFD700" opacity="0.4"/>
+
+            <!-- Personas / Comunidad (siluetas simples) -->
+            <g fill="#A7D7A7" opacity="0.6">
+              <!-- Persona 1 -->
+              <circle cx="200" cy="385" r="5"/>
+              <rect x="197" y="390" width="6" height="15" rx="2"/>
+
+              <!-- Persona 2 -->
+              <circle cx="280" cy="388" r="4"/>
+              <rect x="278" y="392" width="5" height="12" rx="2"/>
+
+              <!-- Persona 3 caminando -->
+              <circle cx="240" cy="390" r="4"/>
+              <rect x="238" y="394" width="5" height="10" rx="2"/>
+            </g>
+
+            <!-- Pájaros en el cielo -->
+            <g stroke="#A7D7A7" stroke-width="1.5" fill="none" opacity="0.4">
+              <path d="M350 120 Q355 115 360 120 M360 120 Q365 115 370 120"/>
+              <path d="M320 140 Q324 136 328 140 M328 140 Q332 136 336 140"/>
+              <path d="M380 150 Q383 147 386 150 M386 150 Q389 147 392 150"/>
+            </g>
           </svg>
+
+          <!-- Cards flotantes con iconos tech -->
+          <div class="absolute -top-4 -right-4 w-20 h-20 glass-warm rounded-2xl animate-float flex items-center justify-center shadow-lg" style="animation-delay: 0.3s;">
+            <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+          </div>
+
+          <div class="absolute bottom-8 -left-4 w-16 h-16 glass-warm rounded-xl animate-float flex items-center justify-center shadow-lg" style="animation-delay: 1.2s;">
+            <svg class="w-8 h-8 text-accent-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+          </div>
+
+          <div class="absolute top-1/3 -left-8 w-14 h-14 glass-warm rounded-xl animate-float flex items-center justify-center shadow-lg" style="animation-delay: 0.8s;">
+            <svg class="w-7 h-7 text-solar-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+
         </div>
       </div>
     </div>
 
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
-      <a href="#services" class="text-text-muted hover:text-primary transition-colors">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
+    <!-- Indicador de scroll - como una semilla cayendo -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block">
+      <a href="#services" class="group flex flex-col items-center gap-2 text-text-dim hover:text-primary transition-colors">
+        <span class="text-sm font-medium opacity-60 group-hover:opacity-100 transition-opacity">Descubre más</span>
+        <div class="w-6 h-10 rounded-full border-2 border-current flex items-start justify-center p-1">
+          <div class="w-1.5 h-1.5 bg-current rounded-full animate-bounce"></div>
+        </div>
       </a>
     </div>
   </div>

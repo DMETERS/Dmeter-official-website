@@ -7,51 +7,190 @@ interface Props {
 
 const { lang = defaultLang } = Astro.props;
 const t = useTranslations(lang);
+
+// Iconos para cada paso del proceso - como etapas de crecimiento
+const stepIcons = [
+  // 1. Conversamos - Semilla plantándose
+  `<svg viewBox="0 0 60 60" fill="none" class="w-full h-full">
+    <circle cx="30" cy="30" r="8" fill="currentColor" opacity="0.3"/>
+    <path d="M30 38 L30 50" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <path d="M25 52 Q30 45 35 52" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M30 22 Q20 15 30 8 Q40 15 30 22" fill="currentColor" opacity="0.6"/>
+  </svg>`,
+  // 2. Diseñamos - Brote emergiendo
+  `<svg viewBox="0 0 60 60" fill="none" class="w-full h-full">
+    <path d="M30 50 L30 30" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M30 30 Q20 25 25 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M30 30 Q40 25 35 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <ellipse cx="22" cy="12" rx="8" ry="10" fill="currentColor" opacity="0.5" transform="rotate(-30 22 12)"/>
+    <ellipse cx="38" cy="12" rx="8" ry="10" fill="currentColor" opacity="0.5" transform="rotate(30 38 12)"/>
+    <circle cx="30" cy="50" r="4" fill="currentColor" opacity="0.3"/>
+  </svg>`,
+  // 3. Desarrollamos - Planta creciendo con raíces tech
+  `<svg viewBox="0 0 60 60" fill="none" class="w-full h-full">
+    <path d="M30 55 L30 25" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M30 35 Q15 30 18 18" stroke="currentColor" stroke-width="2" fill="none"/>
+    <path d="M30 35 Q45 30 42 18" stroke="currentColor" stroke-width="2" fill="none"/>
+    <path d="M30 28 Q22 22 28 12" stroke="currentColor" stroke-width="2" fill="none"/>
+    <ellipse cx="15" cy="15" rx="7" ry="9" fill="currentColor" opacity="0.5" transform="rotate(-20 15 15)"/>
+    <ellipse cx="45" cy="15" rx="7" ry="9" fill="currentColor" opacity="0.5" transform="rotate(20 45 15)"/>
+    <ellipse cx="30" cy="8" rx="6" ry="8" fill="currentColor" opacity="0.6"/>
+    <!-- Raíces como circuitos -->
+    <path d="M30 55 L25 58 L20 56" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2,2" opacity="0.4"/>
+    <path d="M30 55 L35 58 L40 56" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2,2" opacity="0.4"/>
+  </svg>`,
+  // 4. Acompañamos - Árbol floreciendo con frutos/energía
+  `<svg viewBox="0 0 60 60" fill="none" class="w-full h-full">
+    <path d="M30 58 L30 30" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    <!-- Copa del árbol -->
+    <ellipse cx="30" cy="18" rx="18" ry="14" fill="currentColor" opacity="0.4"/>
+    <ellipse cx="22" cy="22" rx="10" ry="8" fill="currentColor" opacity="0.3"/>
+    <ellipse cx="38" cy="22" rx="10" ry="8" fill="currentColor" opacity="0.3"/>
+    <ellipse cx="30" cy="12" rx="12" ry="9" fill="currentColor" opacity="0.5"/>
+    <!-- Frutos/Energía - como pequeños soles -->
+    <circle cx="22" cy="15" r="3" fill="currentColor"/>
+    <circle cx="38" cy="15" r="3" fill="currentColor"/>
+    <circle cx="30" cy="8" r="3.5" fill="currentColor"/>
+    <circle cx="18" cy="24" r="2.5" fill="currentColor" opacity="0.8"/>
+    <circle cx="42" cy="24" r="2.5" fill="currentColor" opacity="0.8"/>
+  </svg>`
+];
+
+// Colores para cada etapa (progresión de crecimiento)
+const stepColors = [
+  'text-green-sprout',    // Semilla - verde brote
+  'text-primary',         // Diseño - verde primario
+  'text-accent-cyan',     // Desarrollo - cyan tech
+  'text-solar-gold'       // Acompañamiento - dorado solar (frutos)
+];
+
+const stepBgColors = [
+  'from-green-sprout/20 to-green-sprout/5',
+  'from-primary/20 to-primary/5',
+  'from-accent-cyan/20 to-accent-cyan/5',
+  'from-solar-gold/20 to-solar-gold/5'
+];
 ---
 
-<section id="process" class="py-20 md:py-32 relative overflow-hidden">
-  <!-- Background -->
+<section id="process" class="py-24 md:py-36 relative overflow-hidden">
+  <!-- Fondo con sendero orgánico -->
   <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute top-1/2 left-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2"></div>
-    <div class="absolute bottom-0 right-0 w-96 h-96 bg-accent-cyan/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+    <!-- Orbes de energía -->
+    <div class="orb-solar orb-solar-green w-[500px] h-[500px] top-1/2 -left-64 -translate-y-1/2 opacity-30"></div>
+    <div class="orb-solar orb-solar-gold w-[400px] h-[400px] bottom-0 right-0 opacity-20"></div>
+
+    <!-- Patrón de puntos como camino de semillas -->
+    <div class="absolute inset-0 bg-dots-seeds opacity-15"></div>
   </div>
 
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Section header -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold">
-        {t.process.title}
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-20">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+        <svg class="w-4 h-4 text-primary animate-sway" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22 L12 8 M12 8 Q6 4 12 2 Q18 4 12 8" stroke-linecap="round"/>
+        </svg>
+        <span class="text-sm text-primary font-medium">Un camino de crecimiento</span>
+      </div>
+
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+        <span class="text-text-light">{t.process.title.split(' ').slice(0, 2).join(' ')}</span>
+        <span class="gradient-text-static"> {t.process.title.split(' ').slice(2).join(' ')}</span>
       </h2>
-      <p class="mt-4 text-lg text-text-muted">
+
+      <p class="mt-6 text-lg text-text-muted leading-relaxed max-w-2xl mx-auto">
         {t.process.subtitle}
       </p>
     </div>
 
-    <!-- Process steps -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {t.process.steps.map((step, index) => (
-        <div class="relative group">
-          <!-- Connector line (hidden on mobile) -->
-          {index < 3 && (
-            <div class="hidden lg:block absolute top-10 left-full w-full h-0.5 bg-gradient-to-r from-primary/50 to-primary/10 -translate-x-4"></div>
-          )}
+    <!-- Pasos del proceso - como plantas creciendo en un jardín -->
+    <div class="relative">
+      <!-- Línea de conexión orgánica (desktop) -->
+      <div class="hidden lg:block absolute top-24 left-0 right-0 h-1">
+        <svg class="w-full h-8" viewBox="0 0 1000 30" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="path-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#8FBC8F"/>
+              <stop offset="33%" stop-color="#10B981"/>
+              <stop offset="66%" stop-color="#06B6D4"/>
+              <stop offset="100%" stop-color="#FFD700"/>
+            </linearGradient>
+          </defs>
+          <!-- Línea ondulada como camino de jardín -->
+          <path
+            d="M0 15 Q125 5, 250 15 T500 15 T750 15 T1000 15"
+            stroke="url(#path-gradient)"
+            stroke-width="3"
+            fill="none"
+            stroke-linecap="round"
+            opacity="0.3"
+          />
+          <!-- Puntos en el camino -->
+          <circle cx="125" cy="15" r="6" fill="#8FBC8F" opacity="0.5"/>
+          <circle cx="375" cy="15" r="6" fill="#10B981" opacity="0.5"/>
+          <circle cx="625" cy="15" r="6" fill="#06B6D4" opacity="0.5"/>
+          <circle cx="875" cy="15" r="6" fill="#FFD700" opacity="0.5"/>
+        </svg>
+      </div>
 
-          <div class="text-center lg:text-left">
-            <!-- Number -->
-            <div class="inline-flex items-center justify-center w-20 h-20 rounded-2xl glass mb-6 group-hover:scale-110 transition-transform">
-              <span class="text-3xl font-display font-bold gradient-text">{step.number}</span>
+      <!-- Grid de pasos -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+        {t.process.steps.map((step, index) => (
+          <div class="relative group text-center">
+            <!-- Contenedor del icono -->
+            <div class="relative inline-block mb-8">
+              <!-- Fondo con gradiente -->
+              <div class={`w-28 h-28 rounded-[2rem] bg-gradient-to-br ${stepBgColors[index]} flex items-center justify-center mx-auto group-hover:scale-110 transition-all duration-500 relative overflow-hidden`}>
+                <!-- Icono de la planta -->
+                <div class={`w-16 h-16 ${stepColors[index]}`} set:html={stepIcons[index]} />
+
+                <!-- Efecto de brillo al hover -->
+                <div class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              </div>
+
+              <!-- Número flotante -->
+              <div class={`absolute -bottom-2 -right-2 w-10 h-10 rounded-xl bg-bg-dark border-2 border-${stepColors[index].replace('text-', '')} flex items-center justify-center`}>
+                <span class={`text-lg font-bold ${stepColors[index]}`}>{step.number}</span>
+              </div>
+
+              <!-- Animación de pulso solar -->
+              <div class={`absolute inset-0 rounded-[2rem] animate-ping opacity-0 group-hover:opacity-20 ${stepColors[index].replace('text-', 'bg-')}`}></div>
             </div>
 
-            <!-- Content -->
-            <h3 class="text-xl font-semibold text-text-light mb-3">
+            <!-- Contenido -->
+            <h3 class="text-xl font-bold text-text-light mb-3 group-hover:text-primary transition-colors">
               {step.title}
             </h3>
-            <p class="text-text-muted leading-relaxed">
+
+            <p class="text-text-muted leading-relaxed text-sm">
               {step.description}
             </p>
+
+            <!-- Pequeña decoración de hoja -->
+            <div class="mt-4 flex justify-center">
+              <svg class={`w-6 h-6 ${stepColors[index]} opacity-40 group-hover:opacity-80 transition-opacity animate-sway`} style={`animation-delay: ${index * 0.5}s`} viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2 C6 6, 4 12, 6 18 C8 14, 10 10, 12 8 C14 10, 16 14, 18 18 C20 12, 18 6, 12 2 Z"/>
+              </svg>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA al final del camino -->
+    <div class="mt-20 text-center">
+      <div class="inline-flex flex-col items-center gap-4">
+        <p class="text-text-muted">¿Listo para comenzar tu proyecto?</p>
+        <a
+          href="#contact"
+          class="btn-bloom text-white inline-flex items-center justify-center gap-2 group"
+        >
+          <span>Plantemos juntos</span>
+          <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 </section>

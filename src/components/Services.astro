@@ -8,49 +8,118 @@ interface Props {
 const { lang = defaultLang } = Astro.props;
 const t = useTranslations(lang);
 
+// Iconos SVG con estilo orgánico Solarpunk
 const icons: Record<string, string> = {
-  layout: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />`,
-  code: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />`,
-  chart: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />`,
-  brain: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />`,
-  plug: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />`,
-  compass: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />`
+  // Landing Pages - como una semilla germinando
+  layout: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />`,
+  // Software - código como raíces conectadas
+  code: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />`,
+  // Dashboards - como paneles solares captando datos
+  chart: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />`,
+  // IA - como una mente floreciendo
+  brain: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />`,
+  // APIs - como raíces interconectadas
+  plug: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />`,
+  // Consultoría - brújula hacia el futuro sostenible
+  compass: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />`
 };
 
-const colors = ['primary', 'accent-cyan', 'accent-solar', 'primary-light', 'primary-dark', 'accent-cyan'];
+// Colores orgánicos para cada servicio
+const serviceStyles = [
+  { color: 'primary', bgClass: 'from-primary/20 to-primary/5' },
+  { color: 'accent-cyan', bgClass: 'from-accent-cyan/20 to-accent-cyan/5' },
+  { color: 'solar-gold', bgClass: 'from-solar-gold/20 to-solar-gold/5' },
+  { color: 'green-sprout', bgClass: 'from-green-sprout/20 to-green-sprout/5' },
+  { color: 'accent-cyan', bgClass: 'from-accent-cyan/20 to-accent-cyan/5' },
+  { color: 'primary', bgClass: 'from-primary/20 to-primary/5' }
+];
 ---
 
-<section id="services" class="py-20 md:py-32 relative">
-  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none"></div>
+<section id="services" class="py-24 md:py-36 relative overflow-hidden">
+  <!-- Fondo con patrón orgánico -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute inset-0 bg-dots-seeds opacity-20"></div>
+    <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-bg-dark to-transparent"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-bg-dark to-transparent"></div>
+
+    <!-- Orbes de energía sutiles -->
+    <div class="orb-solar orb-solar-green w-[400px] h-[400px] -top-48 -right-48 opacity-40"></div>
+    <div class="orb-solar orb-solar-cyan w-[300px] h-[300px] bottom-0 -left-32 opacity-30"></div>
+  </div>
 
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Section header -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold">
-        {t.services.title}
+    <!-- Header con decoración de hojas -->
+    <div class="text-center max-w-3xl mx-auto mb-20">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+        <svg class="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+        <span class="text-sm text-primary font-medium">Soluciones que crecen contigo</span>
+      </div>
+
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+        <span class="text-text-light">{t.services.title.split(' ').slice(0, -1).join(' ')}</span>
+        <span class="gradient-text-static"> {t.services.title.split(' ').slice(-1)}</span>
       </h2>
-      <p class="mt-4 text-lg text-text-muted">
+
+      <p class="mt-6 text-lg text-text-muted leading-relaxed">
         {t.services.subtitle}
       </p>
     </div>
 
-    <!-- Services grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Grid de servicios -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {t.services.items.map((service, index) => (
-        <article class="group bg-bg-card/50 border border-primary/10 rounded-2xl p-6 md:p-8 card-hover hover:border-primary/30">
-          <div class={`w-14 h-14 rounded-xl bg-${colors[index]}/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
-            <svg class={`w-7 h-7 text-${colors[index]}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={icons[service.icon]} />
+        <article
+          class="group card-organic relative overflow-hidden"
+          style={`animation-delay: ${index * 0.1}s`}
+        >
+          <!-- Decoración de hoja en esquina -->
+          <div class="absolute -top-4 -right-4 w-24 h-24 opacity-10 group-hover:opacity-20 transition-opacity">
+            <svg viewBox="0 0 100 100" fill="currentColor" class="text-primary">
+              <path d="M90 10 C60 20, 40 40, 30 70 C50 60, 70 50, 90 10 Z"/>
+            </svg>
           </div>
 
-          <h3 class="text-xl font-semibold text-text-light mb-3">
+          <!-- Icono con fondo gradiente -->
+          <div class={`w-16 h-16 rounded-2xl bg-gradient-to-br ${serviceStyles[index].bgClass} flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-500 relative`}>
+            <svg
+              class={`w-8 h-8 text-${serviceStyles[index].color}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              set:html={icons[service.icon]}
+            />
+            <!-- Pequeño pulso de energía -->
+            <div class="absolute inset-0 rounded-2xl bg-primary/20 animate-ping opacity-0 group-hover:opacity-30"></div>
+          </div>
+
+          <h3 class="text-xl font-bold text-text-light mb-4 group-hover:text-primary transition-colors">
             {service.title}
           </h3>
 
           <p class="text-text-muted leading-relaxed">
             {service.description}
           </p>
+
+          <!-- Línea de crecimiento al hover -->
+          <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent-cyan to-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
         </article>
       ))}
+    </div>
+
+    <!-- CTA flotante -->
+    <div class="mt-16 text-center">
+      <a
+        href="#contact"
+        class="inline-flex items-center gap-3 text-text-muted hover:text-primary transition-colors group"
+      >
+        <span class="text-lg">¿Tienes un proyecto en mente?</span>
+        <span class="font-semibold text-primary group-hover:underline">Conversemos</span>
+        <svg class="w-5 h-5 text-primary transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
     </div>
   </div>
 </section>

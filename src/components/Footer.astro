@@ -18,31 +18,73 @@ const footerLinks = [
 ];
 ---
 
-<footer class="bg-bg-card/50 border-t border-primary/10 py-12 md:py-16">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid md:grid-cols-3 gap-8 md:gap-12 mb-12">
-      <!-- Brand -->
-      <div>
-        <a href={getPathWithLang('/', lang)} class="flex items-center gap-2 mb-4">
-          <div class="w-8 h-8 rounded-lg gradient-solarpunk flex items-center justify-center">
-            <span class="text-white font-bold text-lg">D</span>
+<footer class="relative overflow-hidden bg-gradient-to-b from-bg-dark to-night-deep border-t border-primary/10">
+  <!-- Decoración de fondo - como un jardín nocturno -->
+  <div class="absolute inset-0 pointer-events-none">
+    <!-- Patrón de puntos sutiles -->
+    <div class="absolute inset-0 bg-dots-seeds opacity-10"></div>
+
+    <!-- Orbes sutiles -->
+    <div class="orb-solar orb-solar-green w-[300px] h-[300px] -bottom-32 -left-32 opacity-20"></div>
+    <div class="orb-solar orb-solar-cyan w-[200px] h-[200px] bottom-0 right-20 opacity-15"></div>
+
+    <!-- Plantas decorativas en las esquinas -->
+    <svg class="absolute bottom-0 left-0 w-32 h-32 text-primary/10" viewBox="0 0 100 100" fill="currentColor">
+      <path d="M0 100 L0 60 Q20 50 30 70 Q25 45 40 35 Q30 50 35 70 Q45 40 60 50 L50 100 Z"/>
+    </svg>
+
+    <svg class="absolute bottom-0 right-0 w-24 h-24 text-accent-cyan/10 transform scale-x-[-1]" viewBox="0 0 100 100" fill="currentColor">
+      <path d="M0 100 L0 70 Q15 60 25 75 Q30 55 45 60 L35 100 Z"/>
+    </svg>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+    <div class="grid md:grid-cols-12 gap-12 md:gap-8 mb-16">
+      <!-- Brand - Mayor espacio -->
+      <div class="md:col-span-5">
+        <a href={getPathWithLang('/', lang)} class="inline-flex items-center gap-3 mb-6 group">
+          <!-- Logo con animación de brillo -->
+          <div class="relative w-12 h-12 rounded-2xl gradient-solarpunk flex items-center justify-center overflow-hidden">
+            <span class="text-white font-bold text-2xl relative z-10">D</span>
+            <div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </div>
-          <span class="text-xl font-display font-bold text-text-light">
+          <span class="text-2xl font-bold text-text-light group-hover:text-primary transition-colors">
             Dmeter
           </span>
         </a>
-        <p class="text-text-muted">
+
+        <p class="text-text-muted text-lg leading-relaxed mb-6 max-w-sm">
           {t.footer.tagline}
         </p>
+
+        <!-- Mensaje inspirador Solarpunk -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
+          <svg class="w-4 h-4 text-solar-gold" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" fill="none"/>
+          </svg>
+          <span class="text-sm text-text-muted">Cultivando el futuro digital</span>
+        </div>
       </div>
 
-      <!-- Links -->
-      <div>
-        <h4 class="font-semibold text-text-light mb-4">{t.footer.links}</h4>
-        <ul class="space-y-2">
+      <!-- Links de navegación -->
+      <div class="md:col-span-3">
+        <h4 class="font-bold text-text-light mb-6 flex items-center gap-2">
+          <svg class="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22 L12 8 M8 12 L12 8 L16 12"/>
+          </svg>
+          {t.footer.links}
+        </h4>
+        <ul class="space-y-3">
           {footerLinks.map((link) => (
             <li>
-              <a href={link.href} class="text-text-muted hover:text-primary transition-colors">
+              <a
+                href={link.href}
+                class="text-text-muted hover:text-primary transition-colors inline-flex items-center gap-2 group"
+              >
+                <svg class="w-3 h-3 text-primary/40 group-hover:text-primary transition-colors" viewBox="0 0 24 24" fill="currentColor">
+                  <circle cx="12" cy="12" r="4"/>
+                </svg>
                 {link.label}
               </a>
             </li>
@@ -50,29 +92,74 @@ const footerLinks = [
         </ul>
       </div>
 
-      <!-- Social -->
-      <div>
-        <h4 class="font-semibold text-text-light mb-4">{t.contact.info.social}</h4>
-        <div class="flex gap-4">
-          <a
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="w-10 h-10 rounded-lg bg-primary/10 hover:bg-primary/20 flex items-center justify-center text-text-muted hover:text-primary transition-all"
-            aria-label="Instagram"
-          >
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+      <!-- Conecta con nosotros -->
+      <div class="md:col-span-4">
+        <h4 class="font-bold text-text-light mb-6 flex items-center gap-2">
+          <svg class="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          {t.contact.info.social}
+        </h4>
+
+        <!-- Instagram con estilo orgánico -->
+        <a
+          href={INSTAGRAM_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-4 px-5 py-3 rounded-2xl bg-bg-card hover:bg-bg-card-hover border border-primary/10 hover:border-primary/30 transition-all group"
+          aria-label="Instagram"
+        >
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/20 to-accent-cyan/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+            <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
             </svg>
-          </a>
-        </div>
+          </div>
+          <div>
+            <span class="block text-text-light font-medium group-hover:text-primary transition-colors">@dmeter2022</span>
+            <span class="block text-sm text-text-dim">Síguenos en Instagram</span>
+          </div>
+          <svg class="w-4 h-4 text-text-dim group-hover:text-primary group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
       </div>
     </div>
 
-    <!-- Bottom bar -->
-    <div class="pt-8 border-t border-primary/10 text-center">
+    <!-- Separador con línea orgánica -->
+    <div class="relative py-8">
+      <svg class="w-full h-4" viewBox="0 0 1200 20" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="footer-line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#10B981" stop-opacity="0"/>
+            <stop offset="20%" stop-color="#10B981" stop-opacity="0.3"/>
+            <stop offset="50%" stop-color="#06B6D4" stop-opacity="0.5"/>
+            <stop offset="80%" stop-color="#FFD700" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#FFD700" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <path d="M0 10 Q300 5, 600 10 T1200 10" stroke="url(#footer-line-grad)" stroke-width="2" fill="none"/>
+        <!-- Pequeños nodos de energía -->
+        <circle cx="300" cy="10" r="3" fill="#10B981" opacity="0.5"/>
+        <circle cx="600" cy="10" r="4" fill="#06B6D4" opacity="0.6"/>
+        <circle cx="900" cy="10" r="3" fill="#FFD700" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <!-- Bottom bar con mensaje esperanzador -->
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
       <p class="text-text-dim text-sm">
         {t.footer.copyright}
+      </p>
+
+      <!-- Pequeño toque de esperanza -->
+      <p class="text-text-dim text-sm flex items-center gap-2">
+        <span>Hecho con</span>
+        <svg class="w-4 h-4 text-primary animate-breathe" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2 C6 6, 4 12, 6 18 C8 14, 10 10, 12 8 C14 10, 16 14, 18 18 C20 12, 18 6, 12 2 Z"/>
+        </svg>
+        <span>para un futuro mejor</span>
       </p>
     </div>
   </div>

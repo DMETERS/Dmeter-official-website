@@ -1,25 +1,70 @@
 @import "tailwindcss";
 
 @theme {
-  /* Solarpunk Color Palette */
+  /* ═══════════════════════════════════════════════════════════════
+     SOLARPUNK COLOR SYSTEM
+     "Cada color es una semilla de esperanza plantada en el futuro"
+     ═══════════════════════════════════════════════════════════════ */
+
+  /* 🌿 Verdes Vitales - El corazón del ecosistema */
+  --color-green-moss: #4A7C59;      /* Ancla, tierra fértil */
+  --color-green-forest: #2D5A3D;    /* Profundidad, misterio natural */
+  --color-green-sprout: #8FBC8F;    /* Esperanza, crecimiento */
+  --color-green-lime: #C5E063;      /* Energía fotosintética */
+
+  /* ☀️ Dorados Solares - Energía y calidez */
+  --color-solar-gold: #FFD700;      /* El sol que alimenta todo */
+  --color-solar-amber: #FFBF00;     /* Calidez de colmena */
+  --color-solar-sunset: #FF8C42;    /* Celebración del día */
+  --color-solar-copper: #B87333;    /* Tech que envejece con gracia */
+
+  /* 🏔️ Tierras Orgánicas - Fundamentos */
+  --color-earth-terracotta: #E07A5F; /* Arcilla comunitaria */
+  --color-earth-sand: #F4E4BE;       /* Neutralidad acogedora */
+  --color-earth-wood: #DEB887;       /* Artesanía y tradición */
+  --color-earth-stone: #A0937D;      /* Permanencia serena */
+
+  /* 💧 Cielos y Aguas - Respiración */
+  --color-sky-clear: #87CEEB;       /* Aire limpio */
+  --color-water-turquoise: #40E0D0; /* Río corriendo libre */
+  --color-sky-lavender: #B8A9C9;    /* Transiciones suaves */
+
+  /* 🌙 Modo Oscuro - Noche en el Bosque */
+  --color-night-deep: #1A2F1A;      /* Bosque nocturno */
+  --color-night-clearing: #243524;  /* Claros de luna */
+  --color-night-moss: #2D4A2D;      /* Musgo en penumbra */
+  --color-night-glow: #E8F5E8;      /* Bioluminiscencia */
+
+  /* Colores principales del tema (manteniendo compatibilidad) */
   --color-primary: #10B981;
   --color-primary-dark: #059669;
   --color-primary-light: #34D399;
   --color-accent-cyan: #06B6D4;
   --color-accent-solar: #FBBF24;
-  --color-bg-dark: #0C1A1A;
-  --color-bg-card: #134E4A;
-  --color-bg-card-hover: #1A6B64;
+  --color-bg-dark: #0F1F1A;
+  --color-bg-card: #1A3D2E;
+  --color-bg-card-hover: #245A42;
   --color-text-light: #F0FDF4;
-  --color-text-muted: #6EE7B7;
-  --color-text-dim: #94A3B8;
+  --color-text-muted: #A7D7A7;
+  --color-text-dim: #6B8E6B;
 
-  /* Font Family */
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  /* 🌱 Tipografías Orgánicas */
+  --font-display: 'Fraunces', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Nunito', 'Quicksand', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* 🌊 Bordes Orgánicos */
+  --radius-organic-sm: 12px;
+  --radius-organic: 20px;
+  --radius-organic-lg: 28px;
+  --radius-organic-xl: 40px;
+  --radius-blob: 60% 40% 50% 50% / 50% 60% 40% 50%;
 }
 
-/* Base styles */
+/* ═══════════════════════════════════════════════════════════════
+   BASE STYLES - Los cimientos del jardín digital
+   ═══════════════════════════════════════════════════════════════ */
+
 html {
   scroll-behavior: smooth;
 }
@@ -28,70 +73,618 @@ body {
   font-family: var(--font-sans);
   background-color: var(--color-bg-dark);
   color: var(--color-text-light);
+  line-height: 1.7;
+  font-weight: 400;
 }
 
-/* Custom gradients */
+/* Títulos con alma orgánica */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GRADIENTES SOLARPUNK - Luz natural atravesando follaje
+   ═══════════════════════════════════════════════════════════════ */
+
 .gradient-solarpunk {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent-cyan) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-green-moss) 50%,
+    var(--color-accent-cyan) 100%
+  );
+}
+
+.gradient-sunrise {
+  background: linear-gradient(
+    135deg,
+    var(--color-solar-gold) 0%,
+    var(--color-solar-sunset) 50%,
+    var(--color-primary) 100%
+  );
+}
+
+.gradient-forest {
+  background: linear-gradient(
+    180deg,
+    var(--color-night-deep) 0%,
+    var(--color-green-forest) 50%,
+    var(--color-night-moss) 100%
+  );
 }
 
 .gradient-solar {
-  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-accent-solar) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-dark) 0%,
+    var(--color-accent-solar) 100%
+  );
 }
 
 .gradient-text {
+  background: linear-gradient(
+    135deg,
+    var(--color-green-lime) 0%,
+    var(--color-primary) 30%,
+    var(--color-accent-cyan) 70%,
+    var(--color-solar-gold) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-flow 4s ease infinite;
+}
+
+.gradient-text-static {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent-cyan) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Animations */
+/* ═══════════════════════════════════════════════════════════════
+   ANIMACIONES NATURALES - Todo movimiento emula la naturaleza
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes gradient-flow {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+/* Flotación como hoja en la brisa */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+  75% {
+    transform: translateY(-4px) rotate(-1deg);
+  }
 }
 
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(16, 185, 129, 0.6); }
+/* Crecimiento de planta */
+@keyframes grow {
+  0% {
+    transform: scale(0.8) translateY(20px);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05) translateY(-5px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
 }
 
-@keyframes fade-in-up {
+/* Brisa moviendo hojas */
+@keyframes sway {
+  0%, 100% {
+    transform: rotate(-2deg) translateX(0);
+  }
+  50% {
+    transform: rotate(2deg) translateX(5px);
+  }
+}
+
+/* Respiración natural */
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 1;
+  }
+}
+
+/* Pulso de energía solar */
+@keyframes solar-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 20px rgba(16, 185, 129, 0.2),
+      0 0 40px rgba(255, 215, 0, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 30px rgba(16, 185, 129, 0.4),
+      0 0 60px rgba(255, 215, 0, 0.2);
+  }
+}
+
+/* Florecimiento para botones */
+@keyframes bloom {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 8px 30px rgba(16, 185, 129, 0.4);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+  }
+}
+
+/* Aparición desde abajo como brote */
+@keyframes sprout {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px) scale(0.95);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
+/* Ondulación como agua */
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Rotación suave del sol */
+@keyframes sun-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Parpadeo de luciérnaga */
+@keyframes firefly {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+/* Clases de animación */
 .animate-float {
-  animation: float 3s ease-in-out infinite;
+  animation: float 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
+.animate-grow {
+  animation: grow 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-.animate-fade-in-up {
-  animation: fade-in-up 0.6s ease-out forwards;
+.animate-sway {
+  animation: sway 6s ease-in-out infinite;
 }
 
-/* Utility classes */
+.animate-breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+.animate-solar-pulse {
+  animation: solar-pulse 3s ease-in-out infinite;
+}
+
+.animate-bloom {
+  animation: bloom 2s ease-in-out infinite;
+}
+
+.animate-sprout {
+  animation: sprout 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.animate-sun {
+  animation: sun-rotate 30s linear infinite;
+}
+
+.animate-firefly {
+  animation: firefly 3s ease-in-out infinite;
+}
+
+/* Delays para animaciones escalonadas */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* ═══════════════════════════════════════════════════════════════
+   COMPONENTES ORGÁNICOS - Cada elemento es parte del ecosistema
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Glass con calidez orgánica */
 .glass {
-  background: rgba(19, 78, 74, 0.4);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  background: linear-gradient(
+    135deg,
+    rgba(26, 61, 46, 0.6) 0%,
+    rgba(36, 90, 66, 0.4) 100%
+  );
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  border-radius: var(--radius-organic);
 }
 
+.glass-warm {
+  background: linear-gradient(
+    135deg,
+    rgba(74, 124, 89, 0.3) 0%,
+    rgba(45, 90, 61, 0.2) 100%
+  );
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(167, 215, 167, 0.1);
+  border-radius: var(--radius-organic-lg);
+}
+
+/* Cards que flotan sobre musgo */
+.card-organic {
+  background: linear-gradient(
+    145deg,
+    var(--color-bg-card) 0%,
+    rgba(26, 61, 46, 0.8) 100%
+  );
+  border-radius: var(--radius-organic-lg);
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  padding: 2rem;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card-organic:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: rgba(16, 185, 129, 0.3);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 60px rgba(16, 185, 129, 0.1);
+}
+
+/* Card hover legacy */
 .card-hover {
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+  transform: translateY(-6px);
+  box-shadow:
+    0 25px 50px rgba(16, 185, 129, 0.15),
+    0 0 0 1px rgba(16, 185, 129, 0.2);
+}
+
+/* Botones que florecen */
+.btn-bloom {
+  position: relative;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-organic);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-bloom::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-green-moss) 50%,
+    var(--color-accent-cyan) 100%
+  );
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.btn-bloom::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    135deg,
+    var(--color-solar-gold) 0%,
+    var(--color-primary) 50%,
+    var(--color-accent-cyan) 100%
+  );
+  border-radius: var(--radius-organic);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  filter: blur(8px);
+}
+
+.btn-bloom:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+.btn-bloom:hover::after {
+  opacity: 0.6;
+}
+
+.btn-bloom span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Botón outline orgánico */
+.btn-outline-organic {
+  padding: 1rem 2rem;
+  border-radius: var(--radius-organic);
+  border: 2px solid rgba(16, 185, 129, 0.4);
+  background: transparent;
+  color: var(--color-text-light);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-outline-organic:hover {
+  border-color: var(--color-primary);
+  background: rgba(16, 185, 129, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+}
+
+/* Inputs amigables como tierra fértil */
+.input-organic {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: rgba(26, 61, 46, 0.5);
+  border: 2px solid rgba(16, 185, 129, 0.2);
+  border-radius: var(--radius-organic-sm);
+  color: var(--color-text-light);
+  font-family: var(--font-sans);
+  transition: all 0.3s ease;
+}
+
+.input-organic::placeholder {
+  color: var(--color-text-dim);
+}
+
+.input-organic:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background: rgba(26, 61, 46, 0.7);
+  box-shadow:
+    0 0 0 4px rgba(16, 185, 129, 0.1),
+    0 0 20px rgba(16, 185, 129, 0.1);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PATRONES DE FONDO - Texturas del ecosistema
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Grid orgánico */
+.bg-grid-organic {
+  background-image:
+    linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Puntos como semillas */
+.bg-dots-seeds {
+  background-image: radial-gradient(
+    rgba(16, 185, 129, 0.15) 1px,
+    transparent 1px
+  );
+  background-size: 30px 30px;
+}
+
+/* Gradiente de horizonte */
+.bg-horizon {
+  background: linear-gradient(
+    180deg,
+    var(--color-bg-dark) 0%,
+    rgba(26, 61, 46, 0.3) 50%,
+    var(--color-bg-dark) 100%
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DECORACIONES SOLARPUNK - Elementos visuales del futuro verde
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Orbe de energía solar */
+.orb-solar {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.orb-solar-green {
+  background: radial-gradient(
+    circle,
+    rgba(16, 185, 129, 0.4) 0%,
+    rgba(16, 185, 129, 0) 70%
+  );
+}
+
+.orb-solar-gold {
+  background: radial-gradient(
+    circle,
+    rgba(255, 215, 0, 0.3) 0%,
+    rgba(255, 215, 0, 0) 70%
+  );
+}
+
+.orb-solar-cyan {
+  background: radial-gradient(
+    circle,
+    rgba(6, 182, 212, 0.3) 0%,
+    rgba(6, 182, 212, 0) 70%
+  );
+}
+
+/* Línea de crecimiento */
+.line-grow {
+  position: relative;
+  overflow: hidden;
+}
+
+.line-grow::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-primary),
+    var(--color-accent-cyan),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.line-grow:hover::after {
+  transform: translateX(0);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECCIÓN ESPECIAL - Timeline del Proceso como sendero en jardín
+   ═══════════════════════════════════════════════════════════════ */
+
+.timeline-path {
+  position: relative;
+}
+
+.timeline-path::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(
+    180deg,
+    var(--color-primary) 0%,
+    var(--color-green-moss) 50%,
+    var(--color-accent-cyan) 100%
+  );
+  transform: translateX(-50%);
+  border-radius: 3px;
+}
+
+.timeline-node {
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-node::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ACCESIBILIDAD - El Solarpunk es inherentemente inclusivo
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus visible para navegación por teclado */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Skip link para accesibilidad */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem 2rem;
+  background: var(--color-primary);
+  color: var(--color-bg-dark);
+  border-radius: var(--radius-organic);
+  z-index: 9999;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SELECCIÓN DE TEXTO - Hasta lo más pequeño cuenta
+   ═══════════════════════════════════════════════════════════════ */
+
+::selection {
+  background: rgba(16, 185, 129, 0.3);
+  color: var(--color-text-light);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLLBAR PERSONALIZADO - Detalles que importan
+   ═══════════════════════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--color-primary) 0%,
+    var(--color-green-moss) 100%
+  );
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    var(--color-primary-light) 0%,
+    var(--color-primary) 100%
+  );
 }

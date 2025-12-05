@@ -17,46 +17,71 @@ const navItems = [
 ];
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 glass">
-  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-16 md:h-20">
-      <!-- Logo -->
-      <a href={getPathWithLang('/', lang)} class="flex items-center gap-2 group">
-        <div class="w-8 h-8 rounded-lg gradient-solarpunk flex items-center justify-center">
-          <span class="text-white font-bold text-lg">D</span>
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="main-header">
+  <!-- Fondo con blur y gradiente orgánico -->
+  <div class="absolute inset-0 glass-warm opacity-95"></div>
+
+  <nav class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-18 md:h-22 py-3">
+      <!-- Logo con icono de hoja/planta -->
+      <a href={getPathWithLang('/', lang)} class="flex items-center gap-3 group">
+        <!-- Logo container con animación de florecimiento -->
+        <div class="relative w-10 h-10 md:w-11 md:h-11 rounded-2xl gradient-solarpunk flex items-center justify-center overflow-hidden shadow-lg shadow-primary/20">
+          <!-- Letra D -->
+          <span class="text-white font-bold text-xl md:text-2xl relative z-10">D</span>
+
+          <!-- Efecto de brillo al hover -->
+          <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform -translate-x-full group-hover:translate-x-full"></div>
+
+          <!-- Pequeña hoja decorativa -->
+          <svg class="absolute -top-1 -right-1 w-4 h-4 text-green-lime opacity-80" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2 C6 6, 5 10, 7 14 C9 11, 10 8, 12 6 C14 8, 15 11, 17 14 C19 10, 18 6, 12 2 Z"/>
+          </svg>
         </div>
-        <span class="text-xl font-display font-bold text-text-light group-hover:text-primary transition-colors">
-          Dmeter
-        </span>
+
+        <div class="flex flex-col">
+          <span class="text-xl md:text-2xl font-bold text-text-light group-hover:text-primary transition-colors leading-none">
+            Dmeter
+          </span>
+          <span class="text-[10px] text-text-dim font-medium tracking-wider uppercase hidden sm:block">
+            Software Solutions
+          </span>
+        </div>
       </a>
 
       <!-- Desktop Navigation -->
-      <div class="hidden md:flex items-center gap-8">
+      <div class="hidden md:flex items-center gap-1">
         {navItems.map((item) => (
           <a
             href={item.href}
-            class="text-text-muted hover:text-primary transition-colors text-sm font-medium"
+            class="relative px-4 py-2 text-text-muted hover:text-primary transition-colors text-sm font-medium rounded-xl hover:bg-primary/5 group"
           >
             {item.label}
+            <!-- Indicador de hover tipo hoja/punto -->
+            <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></span>
           </a>
         ))}
       </div>
 
       <!-- Right side: Language + CTA -->
-      <div class="hidden md:flex items-center gap-4">
+      <div class="hidden md:flex items-center gap-3">
         <LanguageSwitcher lang={lang} />
+
         <a
           href="#contact"
-          class="gradient-solarpunk text-white px-5 py-2.5 rounded-lg font-medium text-sm hover:opacity-90 transition-opacity"
+          class="btn-bloom text-white text-sm inline-flex items-center gap-2 group"
         >
-          {t.nav.cta}
+          <span>{t.nav.cta}</span>
+          <svg class="w-4 h-4 transform group-hover:rotate-12 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2 C6 6, 4 12, 6 18 C8 14, 10 10, 12 8 C14 10, 16 14, 18 18 C20 12, 18 6, 12 2 Z"/>
+          </svg>
         </a>
       </div>
 
       <!-- Mobile menu button -->
       <button
         type="button"
-        class="md:hidden p-2 text-text-muted hover:text-primary transition-colors"
+        class="md:hidden p-2.5 text-text-muted hover:text-primary transition-colors rounded-xl hover:bg-primary/10"
         id="mobile-menu-button"
         aria-label="Toggle menu"
       >
@@ -69,24 +94,44 @@ const navItems = [
 
     <!-- Mobile Navigation -->
     <div class="md:hidden hidden" id="mobile-menu">
-      <div class="px-2 pt-2 pb-4 space-y-1 border-t border-primary/20">
-        {navItems.map((item) => (
+      <div class="px-2 pt-2 pb-6 space-y-2 border-t border-primary/10">
+        <!-- Links de navegación -->
+        {navItems.map((item, index) => (
           <a
             href={item.href}
-            class="block px-3 py-3 text-text-muted hover:text-primary hover:bg-primary/10 rounded-lg transition-colors"
+            class="flex items-center gap-3 px-4 py-3 text-text-muted hover:text-primary hover:bg-primary/5 rounded-2xl transition-all group"
+            style={`animation-delay: ${index * 0.05}s`}
           >
-            {item.label}
+            <!-- Icono de hoja pequeña -->
+            <svg class="w-4 h-4 text-primary/40 group-hover:text-primary transition-colors" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2 C8 5, 6 9, 8 14 C9 11, 10 8, 12 6 C14 8, 15 11, 16 14 C18 9, 16 5, 12 2 Z"/>
+            </svg>
+            <span class="font-medium">{item.label}</span>
           </a>
         ))}
-        <div class="pt-4 px-3">
+
+        <!-- Separador orgánico -->
+        <div class="py-3">
+          <svg class="w-full h-2" viewBox="0 0 200 10">
+            <path d="M0 5 Q50 0, 100 5 T200 5" stroke="#10B981" stroke-width="1" fill="none" opacity="0.3"/>
+          </svg>
+        </div>
+
+        <!-- Language switcher -->
+        <div class="px-4 py-2">
           <LanguageSwitcher lang={lang} />
         </div>
-        <div class="pt-2 px-3">
+
+        <!-- CTA Button -->
+        <div class="px-4 pt-2">
           <a
             href="#contact"
-            class="block w-full text-center gradient-solarpunk text-white px-5 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity"
+            class="btn-bloom w-full text-white text-center inline-flex items-center justify-center gap-2"
           >
-            {t.nav.cta}
+            <span>{t.nav.cta}</span>
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2 C6 6, 4 12, 6 18 C8 14, 10 10, 12 8 C14 10, 16 14, 18 18 C20 12, 18 6, 12 2 Z"/>
+            </svg>
           </a>
         </div>
       </div>
@@ -99,7 +144,9 @@ const navItems = [
   const mobileMenu = document.getElementById('mobile-menu');
   const iconOpen = document.getElementById('menu-icon-open');
   const iconClose = document.getElementById('menu-icon-close');
+  const header = document.getElementById('main-header');
 
+  // Toggle mobile menu
   menuButton?.addEventListener('click', () => {
     const isOpen = mobileMenu?.classList.contains('hidden');
     mobileMenu?.classList.toggle('hidden');
@@ -114,5 +161,19 @@ const navItems = [
       iconOpen?.classList.remove('hidden');
       iconClose?.classList.add('hidden');
     });
+  });
+
+  // Header background on scroll
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+
+    if (currentScroll > 50) {
+      header?.classList.add('shadow-lg', 'shadow-primary/5');
+    } else {
+      header?.classList.remove('shadow-lg', 'shadow-primary/5');
+    }
+
+    lastScroll = currentScroll;
   });
 </script>
