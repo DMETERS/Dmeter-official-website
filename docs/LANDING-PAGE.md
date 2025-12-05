@@ -191,7 +191,29 @@ Dmeter-official-website/
 - Pequeñas hojas decorativas animadas
 - CTA "Plantemos juntos"
 
-### 5. Footer (Jardín Nocturno)
+### 5. CaseStudies (Carousel de 9 Casos)
+**Carousel CSS nativo + JavaScript vanilla:**
+- 9 casos de éxito basados en experiencia real (anónimos)
+- Autoplay cada 6 segundos (respeta prefers-reduced-motion)
+- Navegación: flechas, dots indicadores, swipe táctil
+- Responsive: 1 card (mobile), 2 cards (tablet), 3 cards (desktop)
+- Accesibilidad: keyboard navigation, aria-labels
+- Estilo Solarpunk: card-organic, hojas decorativas, colores por industria
+
+**Casos incluidos:**
+| # | Industria | Proyecto |
+|---|-----------|----------|
+| 1 | Recruiting | Plataforma SaaS de Recruiting |
+| 2 | Automatización | Sistema de Prospección Automatizado |
+| 3 | IA/Contenido | Generador de Contenido Literario (+2000 autores) |
+| 4 | Turismo | Plataforma de Viajes (Amadeus, Orbis, RateHawk) |
+| 5 | Fintech | Gateway de Pagos Multi-proveedor (Stripe, Redsys, PayPal) |
+| 6 | IA/Chatbots | Chatbot para Autores Literarios |
+| 7 | DevTools | Agente MCP con IA |
+| 8 | Healthcare | Integración de Telemedicina |
+| 9 | E-commerce | Plataforma E-commerce Avanzada |
+
+### 6. Footer (Jardín Nocturno)
 - Fondo gradiente hacia `night-deep`
 - Plantas SVG decorativas en esquinas
 - Orbes de energía sutiles
@@ -321,6 +343,15 @@ npm run preview
 ---
 
 ## Historial de Cambios
+
+### Diciembre 2025 - Carousel de Casos de Éxito
+- **CaseStudies:** Transformado de 3 cards estáticas a carousel con 9 casos
+- **Carousel:** CSS nativo + JavaScript vanilla (sin dependencias)
+- **Casos reales:** 9 proyectos basados en experiencia real (anónimos)
+- **Autoplay:** 6 segundos, respeta prefers-reduced-motion
+- **Accesibilidad:** Keyboard navigation, aria-labels, pause on hover
+- **i18n:** Traducciones completas en ES/EN/PT-BR
+- **Estilos:** Cards con estilo card-organic consistente con Services
 
 ### Diciembre 2025 - Revolución Solarpunk
 - **Paleta de colores:** Expandida con sistema completo (verdes, dorados, tierras, nocturnos)

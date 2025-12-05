@@ -117,35 +117,53 @@ const t = useTranslations(lang);
       <div class="relative hidden lg:block">
         <div class="relative w-full aspect-square max-w-xl mx-auto">
 
-          <!-- Ilustración principal: Ciudad Solarpunk -->
+          <!-- Ilustración principal: Torre Solarpunk AI -->
           <svg class="w-full h-full" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <!-- Gradientes -->
-              <linearGradient id="building-grad" x1="0%" y1="100%" x2="0%" y2="0%">
-                <stop offset="0%" stop-color="#1A3D2E"/>
+              <!-- Gradientes principales -->
+              <linearGradient id="tower-grad" x1="0%" y1="100%" x2="0%" y2="0%">
+                <stop offset="0%" stop-color="#0F1F1A"/>
+                <stop offset="50%" stop-color="#1A3D2E"/>
                 <stop offset="100%" stop-color="#245A42"/>
               </linearGradient>
-              <linearGradient id="glass-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#10B981" stop-opacity="0.3"/>
-                <stop offset="100%" stop-color="#06B6D4" stop-opacity="0.1"/>
+              <linearGradient id="ai-core-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#10B981"/>
+                <stop offset="50%" stop-color="#06B6D4"/>
+                <stop offset="100%" stop-color="#10B981"/>
               </linearGradient>
-              <linearGradient id="sun-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <linearGradient id="energy-grad" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#FFD700"/>
-                <stop offset="50%" stop-color="#FFBF00"/>
-                <stop offset="100%" stop-color="#FF8C42"/>
+                <stop offset="50%" stop-color="#10B981"/>
+                <stop offset="100%" stop-color="#06B6D4"/>
+              </linearGradient>
+              <linearGradient id="glass-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#10B981" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#06B6D4" stop-opacity="0.2"/>
               </linearGradient>
               <linearGradient id="leaf-grad" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#10B981"/>
                 <stop offset="100%" stop-color="#4A7C59"/>
               </linearGradient>
-              <linearGradient id="solar-panel-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#06B6D4"/>
-                <stop offset="100%" stop-color="#10B981"/>
+              <linearGradient id="neural-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.8"/>
+                <stop offset="100%" stop-color="#10B981" stop-opacity="0.4"/>
               </linearGradient>
+              <radialGradient id="core-glow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#06B6D4"/>
+                <stop offset="50%" stop-color="#10B981" stop-opacity="0.6"/>
+                <stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
+              </radialGradient>
 
-              <!-- Filtro de glow -->
-              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+              <!-- Filtros -->
+              <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+                <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+                <feMerge>
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+              <filter id="glow-strong" x="-100%" y="-100%" width="300%" height="300%">
+                <feGaussianBlur stdDeviation="12" result="coloredBlur"/>
                 <feMerge>
                   <feMergeNode in="coloredBlur"/>
                   <feMergeNode in="SourceGraphic"/>
@@ -153,170 +171,202 @@ const t = useTranslations(lang);
               </filter>
             </defs>
 
-            <!-- Sol con rayos -->
-            <g class="animate-sun" style="transform-origin: 400px 80px;">
-              <circle cx="400" cy="80" r="40" fill="url(#sun-grad)" filter="url(#glow)"/>
-              <!-- Rayos de sol -->
-              <g stroke="#FFD700" stroke-width="2" opacity="0.6">
-                <line x1="400" y1="30" x2="400" y2="15"/>
-                <line x1="430" y1="50" x2="445" y2="35"/>
-                <line x1="450" y1="80" x2="465" y2="80"/>
-                <line x1="430" y1="110" x2="445" y2="125"/>
-                <line x1="370" y1="50" x2="355" y2="35"/>
-                <line x1="350" y1="80" x2="335" y2="80"/>
-                <line x1="370" y1="110" x2="355" y2="125"/>
+            <!-- ═══ FONDO: Red neuronal sutil ═══ -->
+            <g class="animate-breathe" stroke="url(#neural-grad)" stroke-width="0.5" fill="none" opacity="0.3">
+              <path d="M50 100 Q150 150 250 120 Q350 90 450 140"/>
+              <path d="M30 200 Q130 180 230 220 Q330 260 430 200"/>
+              <path d="M60 300 Q160 280 260 320 Q360 360 460 300"/>
+              <circle cx="150" cy="140" r="3" fill="#06B6D4" opacity="0.5"/>
+              <circle cx="250" cy="120" r="2" fill="#10B981" opacity="0.6"/>
+              <circle cx="350" cy="130" r="3" fill="#06B6D4" opacity="0.4"/>
+              <circle cx="130" cy="200" r="2" fill="#10B981" opacity="0.5"/>
+              <circle cx="330" cy="220" r="3" fill="#06B6D4" opacity="0.4"/>
+            </g>
+
+            <!-- ═══ TORRE PRINCIPAL SOLARPUNK AI ═══ -->
+            <g class="animate-float" style="animation-delay: 0.2s;">
+              <!-- Base de la torre - forma orgánica -->
+              <path d="M200 420
+                       Q190 380 195 340
+                       Q200 300 210 260
+                       Q220 220 230 180
+                       Q240 140 250 100
+                       Q260 140 270 180
+                       Q280 220 290 260
+                       Q300 300 305 340
+                       Q310 380 300 420
+                       Z"
+                    fill="url(#tower-grad)"
+                    stroke="#10B981"
+                    stroke-width="1"
+                    stroke-opacity="0.4"/>
+
+              <!-- Estructura interna - niveles -->
+              <path d="M215 380 Q220 360 225 340 Q240 320 250 300 Q260 320 275 340 Q280 360 285 380"
+                    fill="none" stroke="#10B981" stroke-width="1" stroke-opacity="0.3"/>
+              <path d="M225 320 Q235 300 250 280 Q265 300 275 320"
+                    fill="none" stroke="#06B6D4" stroke-width="1" stroke-opacity="0.3"/>
+              <path d="M235 260 Q245 240 250 220 Q255 240 265 260"
+                    fill="none" stroke="#10B981" stroke-width="1" stroke-opacity="0.3"/>
+
+              <!-- Ventanas/Paneles tech -->
+              <rect x="225" y="350" width="20" height="12" rx="3" fill="url(#glass-grad)"/>
+              <rect x="255" y="350" width="20" height="12" rx="3" fill="url(#glass-grad)"/>
+              <rect x="230" y="310" width="18" height="10" rx="2" fill="url(#glass-grad)"/>
+              <rect x="252" y="310" width="18" height="10" rx="2" fill="url(#glass-grad)"/>
+              <rect x="237" y="270" width="12" height="8" rx="2" fill="url(#glass-grad)"/>
+              <rect x="251" y="270" width="12" height="8" rx="2" fill="url(#glass-grad)"/>
+              <rect x="242" y="230" width="16" height="8" rx="2" fill="url(#glass-grad)"/>
+
+              <!-- Jardines verticales en cascada -->
+              <ellipse cx="210" cy="390" rx="18" ry="8" fill="url(#leaf-grad)" opacity="0.9"/>
+              <ellipse cx="290" cy="390" rx="18" ry="8" fill="url(#leaf-grad)" opacity="0.9"/>
+              <ellipse cx="205" cy="350" rx="15" ry="6" fill="#4A7C59" opacity="0.85"/>
+              <ellipse cx="295" cy="350" rx="15" ry="6" fill="#4A7C59" opacity="0.85"/>
+              <ellipse cx="212" cy="310" rx="12" ry="5" fill="url(#leaf-grad)" opacity="0.8"/>
+              <ellipse cx="288" cy="310" rx="12" ry="5" fill="url(#leaf-grad)" opacity="0.8"/>
+              <ellipse cx="220" cy="270" rx="10" ry="4" fill="#2D5A3D" opacity="0.7"/>
+              <ellipse cx="280" cy="270" rx="10" ry="4" fill="#2D5A3D" opacity="0.7"/>
+              <ellipse cx="228" cy="235" rx="8" ry="3" fill="url(#leaf-grad)" opacity="0.6"/>
+              <ellipse cx="272" cy="235" rx="8" ry="3" fill="url(#leaf-grad)" opacity="0.6"/>
+
+              <!-- Corona verde en la cima -->
+              <ellipse cx="250" cy="105" rx="25" ry="12" fill="url(#leaf-grad)" opacity="0.9"/>
+              <ellipse cx="240" cy="100" rx="15" ry="8" fill="#4A7C59" opacity="0.8"/>
+              <ellipse cx="260" cy="100" rx="15" ry="8" fill="#2D5A3D" opacity="0.7"/>
+            </g>
+
+            <!-- ═══ NÚCLEO DE IA - El corazón brillante ═══ -->
+            <g class="animate-solar-pulse">
+              <!-- Glow externo -->
+              <circle cx="250" cy="180" r="50" fill="url(#core-glow)" opacity="0.4"/>
+
+              <!-- Anillos de energía -->
+              <circle cx="250" cy="180" r="35" fill="none" stroke="url(#ai-core-grad)" stroke-width="1" opacity="0.6" stroke-dasharray="8,4"/>
+              <circle cx="250" cy="180" r="28" fill="none" stroke="#06B6D4" stroke-width="0.5" opacity="0.5"/>
+
+              <!-- Núcleo central -->
+              <circle cx="250" cy="180" r="20" fill="url(#ai-core-grad)" filter="url(#glow-strong)" opacity="0.9"/>
+              <circle cx="250" cy="180" r="12" fill="#06B6D4" opacity="0.8"/>
+              <circle cx="250" cy="180" r="6" fill="#ffffff" opacity="0.9"/>
+
+              <!-- Partículas de datos orbitando -->
+              <g class="animate-sun" style="transform-origin: 250px 180px;">
+                <circle cx="250" cy="145" r="3" fill="#FFD700" opacity="0.8"/>
+                <circle cx="285" cy="180" r="2" fill="#10B981" opacity="0.7"/>
+                <circle cx="250" cy="215" r="3" fill="#06B6D4" opacity="0.8"/>
+                <circle cx="215" cy="180" r="2" fill="#FFD700" opacity="0.7"/>
               </g>
             </g>
 
-            <!-- Edificio principal con jardín vertical -->
-            <g class="animate-float" style="animation-delay: 0.5s;">
-              <!-- Estructura -->
-              <rect x="180" y="160" width="140" height="240" rx="8" fill="url(#building-grad)" stroke="#10B981" stroke-width="1" stroke-opacity="0.3"/>
-
-              <!-- Ventanas/Paneles solares en fachada -->
-              <rect x="195" y="180" width="25" height="20" rx="4" fill="url(#solar-panel-grad)" opacity="0.8"/>
-              <rect x="230" y="180" width="25" height="20" rx="4" fill="url(#solar-panel-grad)" opacity="0.8"/>
-              <rect x="265" y="180" width="40" height="20" rx="4" fill="url(#solar-panel-grad)" opacity="0.8"/>
-
-              <rect x="195" y="210" width="25" height="20" rx="4" fill="url(#glass-grad)"/>
-              <rect x="230" y="210" width="25" height="20" rx="4" fill="url(#glass-grad)"/>
-              <rect x="265" y="210" width="40" height="20" rx="4" fill="url(#glass-grad)"/>
-
-              <rect x="195" y="240" width="25" height="20" rx="4" fill="url(#solar-panel-grad)" opacity="0.8"/>
-              <rect x="230" y="240" width="25" height="20" rx="4" fill="url(#solar-panel-grad)" opacity="0.8"/>
-              <rect x="265" y="240" width="40" height="20" rx="4" fill="url(#glass-grad)"/>
-
-              <!-- Plantas en balcones -->
-              <ellipse cx="210" cy="275" rx="20" ry="8" fill="url(#leaf-grad)" opacity="0.9"/>
-              <ellipse cx="250" cy="275" rx="15" ry="6" fill="#4A7C59" opacity="0.8"/>
-              <ellipse cx="290" cy="275" rx="18" ry="7" fill="url(#leaf-grad)" opacity="0.85"/>
-
-              <!-- Más vegetación -->
-              <ellipse cx="215" cy="305" rx="22" ry="9" fill="#4A7C59" opacity="0.8"/>
-              <ellipse cx="255" cy="305" rx="18" ry="7" fill="url(#leaf-grad)" opacity="0.9"/>
-              <ellipse cx="295" cy="305" rx="15" ry="6" fill="#2D5A3D" opacity="0.7"/>
-
-              <ellipse cx="205" cy="335" rx="18" ry="7" fill="url(#leaf-grad)" opacity="0.85"/>
-              <ellipse cx="245" cy="335" rx="20" ry="8" fill="#4A7C59" opacity="0.9"/>
-              <ellipse cx="285" cy="335" rx="22" ry="9" fill="url(#leaf-grad)" opacity="0.8"/>
-
-              <!-- Techo verde -->
-              <rect x="175" y="150" width="150" height="15" rx="4" fill="#2D5A3D"/>
-              <ellipse cx="200" cy="152" rx="15" ry="8" fill="url(#leaf-grad)"/>
-              <ellipse cx="230" cy="150" rx="20" ry="10" fill="#4A7C59"/>
-              <ellipse cx="265" cy="152" rx="18" ry="9" fill="url(#leaf-grad)"/>
-              <ellipse cx="300" cy="150" rx="15" ry="8" fill="#2D5A3D"/>
-
-              <!-- Panel solar en techo -->
-              <rect x="200" y="130" width="100" height="20" rx="2" fill="url(#solar-panel-grad)" transform="rotate(-5, 250, 140)"/>
-            </g>
-
-            <!-- Edificio secundario -->
-            <g class="animate-float" style="animation-delay: 1s;">
-              <rect x="80" y="220" width="80" height="180" rx="6" fill="url(#building-grad)" stroke="#10B981" stroke-width="1" stroke-opacity="0.2"/>
-
-              <!-- Ventanas -->
-              <rect x="90" y="235" width="20" height="15" rx="3" fill="url(#glass-grad)"/>
-              <rect x="120" y="235" width="30" height="15" rx="3" fill="url(#solar-panel-grad)" opacity="0.7"/>
-
-              <rect x="90" y="260" width="20" height="15" rx="3" fill="url(#solar-panel-grad)" opacity="0.7"/>
-              <rect x="120" y="260" width="30" height="15" rx="3" fill="url(#glass-grad)"/>
-
-              <rect x="90" y="285" width="20" height="15" rx="3" fill="url(#glass-grad)"/>
-              <rect x="120" y="285" width="30" height="15" rx="3" fill="url(#solar-panel-grad)" opacity="0.7"/>
-
-              <!-- Plantas colgantes -->
-              <path d="M85 310 Q75 340 90 370" stroke="url(#leaf-grad)" stroke-width="3" fill="none" opacity="0.8"/>
-              <ellipse cx="90" cy="375" rx="10" ry="5" fill="url(#leaf-grad)" opacity="0.9"/>
-
-              <path d="M155 310 Q165 335 150 365" stroke="#4A7C59" stroke-width="2" fill="none" opacity="0.7"/>
-              <ellipse cx="150" cy="370" rx="8" ry="4" fill="#4A7C59" opacity="0.8"/>
-
-              <!-- Techo con turbina eólica mini -->
-              <rect x="75" y="210" width="90" height="12" rx="3" fill="#2D5A3D"/>
-              <rect x="115" y="185" width="6" height="25" fill="#6B8E6B"/>
-              <g transform="translate(118, 185)">
-                <ellipse cx="0" cy="0" rx="15" ry="3" fill="#10B981" opacity="0.8" transform="rotate(0)"/>
-                <ellipse cx="0" cy="0" rx="15" ry="3" fill="#10B981" opacity="0.8" transform="rotate(60)"/>
-                <ellipse cx="0" cy="0" rx="15" ry="3" fill="#10B981" opacity="0.8" transform="rotate(120)"/>
-              </g>
-            </g>
-
-            <!-- Edificio terciario pequeño -->
-            <g class="animate-float" style="animation-delay: 1.5s;">
-              <rect x="340" y="280" width="70" height="120" rx="5" fill="url(#building-grad)" stroke="#10B981" stroke-width="1" stroke-opacity="0.2"/>
-
-              <!-- Bio-dome en techo -->
-              <ellipse cx="375" cy="280" rx="30" ry="15" fill="url(#glass-grad)" stroke="#10B981" stroke-width="1" stroke-opacity="0.3"/>
-              <ellipse cx="375" cy="278" rx="20" ry="8" fill="url(#leaf-grad)" opacity="0.7"/>
-
-              <!-- Ventanas con plantas -->
-              <rect x="350" y="300" width="20" height="15" rx="2" fill="url(#glass-grad)"/>
-              <rect x="380" y="300" width="20" height="15" rx="2" fill="url(#glass-grad)"/>
-              <ellipse cx="360" cy="320" rx="12" ry="5" fill="url(#leaf-grad)" opacity="0.8"/>
-              <ellipse cx="390" cy="320" rx="10" ry="4" fill="#4A7C59" opacity="0.7"/>
-
-              <rect x="350" y="340" width="20" height="15" rx="2" fill="url(#solar-panel-grad)" opacity="0.7"/>
-              <rect x="380" y="340" width="20" height="15" rx="2" fill="url(#solar-panel-grad)" opacity="0.7"/>
-            </g>
-
-            <!-- Suelo / Base con vegetación -->
-            <ellipse cx="250" cy="420" rx="200" ry="30" fill="#1A3D2E" opacity="0.6"/>
-
-            <!-- Árboles -->
-            <g class="animate-sway">
-              <!-- Árbol izquierdo -->
-              <rect x="55" y="370" width="8" height="40" fill="#4A7C59"/>
-              <ellipse cx="59" cy="355" rx="25" ry="30" fill="url(#leaf-grad)" opacity="0.9"/>
-              <ellipse cx="50" cy="365" rx="15" ry="18" fill="#2D5A3D" opacity="0.8"/>
-            </g>
-
-            <g class="animate-sway" style="animation-delay: 1s;">
-              <!-- Árbol derecho -->
-              <rect x="420" y="360" width="10" height="50" fill="#4A7C59"/>
-              <ellipse cx="425" cy="340" rx="30" ry="35" fill="url(#leaf-grad)" opacity="0.85"/>
-              <ellipse cx="440" cy="350" rx="20" ry="22" fill="#4A7C59" opacity="0.9"/>
-              <ellipse cx="415" cy="355" rx="18" ry="20" fill="#2D5A3D" opacity="0.7"/>
-            </g>
-
-            <!-- Plantas pequeñas en el suelo -->
-            <ellipse cx="150" cy="405" rx="12" ry="6" fill="url(#leaf-grad)" opacity="0.7"/>
-            <ellipse cx="180" cy="410" rx="8" ry="4" fill="#4A7C59" opacity="0.6"/>
-            <ellipse cx="320" cy="408" rx="10" ry="5" fill="url(#leaf-grad)" opacity="0.8"/>
-            <ellipse cx="350" cy="405" rx="15" ry="7" fill="#2D5A3D" opacity="0.6"/>
-
-            <!-- Conexiones de circuito/raíces tech (debajo de todo) -->
-            <g stroke="#10B981" stroke-width="1.5" stroke-opacity="0.2" fill="none">
-              <path d="M120 400 Q150 430 200 420 Q250 410 300 420 Q350 430 380 400" stroke-dasharray="5,5"/>
-              <path d="M80 410 Q120 440 180 430 Q240 420 320 435 Q380 445 420 415"/>
+            <!-- ═══ CONEXIONES DE ENERGÍA/DATOS ═══ -->
+            <g stroke="url(#energy-grad)" stroke-width="2" fill="none" opacity="0.6">
+              <!-- Líneas que fluyen desde el núcleo -->
+              <path d="M250 200 Q230 250 210 300 Q190 350 180 400" stroke-dasharray="6,4" class="animate-breathe"/>
+              <path d="M250 200 Q270 250 290 300 Q310 350 320 400" stroke-dasharray="6,4" class="animate-breathe" style="animation-delay: 0.5s;"/>
+              <path d="M230 180 Q180 200 130 220 Q90 240 60 260" stroke-dasharray="4,6" class="animate-breathe" style="animation-delay: 1s;"/>
+              <path d="M270 180 Q320 200 370 220 Q410 240 440 260" stroke-dasharray="4,6" class="animate-breathe" style="animation-delay: 1.5s;"/>
             </g>
 
             <!-- Nodos de energía en las conexiones -->
-            <circle cx="200" cy="420" r="4" fill="#10B981" opacity="0.6"/>
-            <circle cx="300" cy="420" r="3" fill="#06B6D4" opacity="0.5"/>
-            <circle cx="250" cy="425" r="5" fill="#FFD700" opacity="0.4"/>
-
-            <!-- Personas / Comunidad (siluetas simples) -->
-            <g fill="#A7D7A7" opacity="0.6">
-              <!-- Persona 1 -->
-              <circle cx="200" cy="385" r="5"/>
-              <rect x="197" y="390" width="6" height="15" rx="2"/>
-
-              <!-- Persona 2 -->
-              <circle cx="280" cy="388" r="4"/>
-              <rect x="278" y="392" width="5" height="12" rx="2"/>
-
-              <!-- Persona 3 caminando -->
-              <circle cx="240" cy="390" r="4"/>
-              <rect x="238" y="394" width="5" height="10" rx="2"/>
+            <g filter="url(#glow)">
+              <circle cx="210" cy="300" r="4" fill="#10B981" class="animate-firefly"/>
+              <circle cx="290" cy="300" r="4" fill="#06B6D4" class="animate-firefly" style="animation-delay: 0.3s;"/>
+              <circle cx="130" cy="220" r="3" fill="#FFD700" class="animate-firefly" style="animation-delay: 0.6s;"/>
+              <circle cx="370" cy="220" r="3" fill="#FFD700" class="animate-firefly" style="animation-delay: 0.9s;"/>
             </g>
 
-            <!-- Pájaros en el cielo -->
-            <g stroke="#A7D7A7" stroke-width="1.5" fill="none" opacity="0.4">
-              <path d="M350 120 Q355 115 360 120 M360 120 Q365 115 370 120"/>
-              <path d="M320 140 Q324 136 328 140 M328 140 Q332 136 336 140"/>
-              <path d="M380 150 Q383 147 386 150 M386 150 Q389 147 392 150"/>
+            <!-- ═══ ESTRUCTURAS SATELITALES ═══ -->
+            <!-- Edificio izquierdo con domo -->
+            <g class="animate-float" style="animation-delay: 0.8s;">
+              <rect x="60" y="300" width="60" height="120" rx="8" fill="url(#tower-grad)" stroke="#10B981" stroke-width="1" stroke-opacity="0.3"/>
+              <!-- Bio-domo -->
+              <ellipse cx="90" cy="300" rx="25" ry="12" fill="url(#glass-grad)" stroke="#06B6D4" stroke-width="1" stroke-opacity="0.4"/>
+              <ellipse cx="90" cy="298" rx="18" ry="8" fill="url(#leaf-grad)" opacity="0.7"/>
+              <!-- Ventanas -->
+              <rect x="70" y="320" width="15" height="10" rx="2" fill="url(#glass-grad)"/>
+              <rect x="95" y="320" width="15" height="10" rx="2" fill="url(#glass-grad)"/>
+              <rect x="70" y="350" width="15" height="10" rx="2" fill="url(#glass-grad)"/>
+              <rect x="95" y="350" width="15" height="10" rx="2" fill="url(#glass-grad)"/>
+              <!-- Plantas -->
+              <ellipse cx="70" cy="380" rx="12" ry="5" fill="url(#leaf-grad)" opacity="0.8"/>
+              <ellipse cx="110" cy="385" rx="10" ry="4" fill="#4A7C59" opacity="0.7"/>
             </g>
+
+            <!-- Edificio derecho con antena IA -->
+            <g class="animate-float" style="animation-delay: 1.2s;">
+              <rect x="380" y="320" width="55" height="100" rx="6" fill="url(#tower-grad)" stroke="#10B981" stroke-width="1" stroke-opacity="0.3"/>
+              <!-- Antena/Receptor IA -->
+              <rect x="405" y="280" width="4" height="40" fill="#245A42"/>
+              <circle cx="407" cy="275" r="8" fill="url(#ai-core-grad)" opacity="0.7" filter="url(#glow)"/>
+              <circle cx="407" cy="275" r="4" fill="#06B6D4"/>
+              <!-- Ventanas -->
+              <rect x="390" y="340" width="12" height="8" rx="2" fill="url(#glass-grad)"/>
+              <rect x="412" y="340" width="12" height="8" rx="2" fill="url(#glass-grad)"/>
+              <rect x="390" y="370" width="12" height="8" rx="2" fill="url(#glass-grad)"/>
+              <rect x="412" y="370" width="12" height="8" rx="2" fill="url(#glass-grad)"/>
+              <!-- Plantas -->
+              <ellipse cx="385" cy="400" rx="10" ry="4" fill="url(#leaf-grad)" opacity="0.8"/>
+              <ellipse cx="430" cy="395" rx="12" ry="5" fill="#4A7C59" opacity="0.7"/>
+            </g>
+
+            <!-- ═══ DRONES / AGENTES IA ═══ -->
+            <g class="animate-float" style="animation-delay: 0.3s;">
+              <!-- Drone 1 -->
+              <ellipse cx="350" cy="140" rx="12" ry="4" fill="#245A42" opacity="0.9"/>
+              <rect x="346" y="136" width="8" height="3" rx="1" fill="#06B6D4" opacity="0.8"/>
+              <circle cx="350" cy="134" r="2" fill="#10B981" class="animate-firefly"/>
+            </g>
+            <g class="animate-float" style="animation-delay: 1s;">
+              <!-- Drone 2 -->
+              <ellipse cx="150" cy="180" rx="10" ry="3" fill="#245A42" opacity="0.8"/>
+              <rect x="147" y="177" width="6" height="2" rx="1" fill="#06B6D4" opacity="0.7"/>
+              <circle cx="150" cy="175" r="1.5" fill="#FFD700" class="animate-firefly" style="animation-delay: 0.5s;"/>
+            </g>
+
+            <!-- ═══ SUELO Y VEGETACIÓN ═══ -->
+            <ellipse cx="250" cy="430" rx="220" ry="35" fill="#0F1F1A" opacity="0.7"/>
+
+            <!-- Árboles tech-orgánicos -->
+            <g class="animate-sway">
+              <rect x="40" y="380" width="6" height="35" fill="#2D5A3D"/>
+              <ellipse cx="43" cy="365" rx="22" ry="25" fill="url(#leaf-grad)" opacity="0.9"/>
+              <ellipse cx="35" cy="375" rx="12" ry="15" fill="#4A7C59" opacity="0.8"/>
+              <!-- Bioluminiscencia en árbol -->
+              <circle cx="43" cy="365" r="3" fill="#06B6D4" opacity="0.5" class="animate-firefly"/>
+            </g>
+
+            <g class="animate-sway" style="animation-delay: 0.8s;">
+              <rect x="450" y="370" width="8" height="45" fill="#2D5A3D"/>
+              <ellipse cx="454" cy="350" rx="28" ry="32" fill="url(#leaf-grad)" opacity="0.85"/>
+              <ellipse cx="468" cy="360" rx="18" ry="20" fill="#4A7C59" opacity="0.9"/>
+              <ellipse cx="445" cy="365" rx="15" ry="18" fill="#2D5A3D" opacity="0.7"/>
+              <circle cx="454" cy="350" r="4" fill="#10B981" opacity="0.5" class="animate-firefly" style="animation-delay: 0.3s;"/>
+            </g>
+
+            <!-- Plantas pequeñas con glow -->
+            <ellipse cx="160" cy="415" rx="14" ry="6" fill="url(#leaf-grad)" opacity="0.8"/>
+            <ellipse cx="340" cy="418" rx="12" ry="5" fill="url(#leaf-grad)" opacity="0.75"/>
+            <ellipse cx="200" cy="425" rx="8" ry="3" fill="#4A7C59" opacity="0.6"/>
+            <ellipse cx="300" cy="422" rx="10" ry="4" fill="#2D5A3D" opacity="0.65"/>
+
+            <!-- ═══ RAÍCES TECH / CIRCUITOS SUBTERRÁNEOS ═══ -->
+            <g stroke="#10B981" stroke-width="1.5" stroke-opacity="0.25" fill="none">
+              <path d="M100 420 Q150 445 200 435 Q250 425 300 435 Q350 445 400 420"/>
+              <path d="M80 430 Q130 450 200 445 Q270 440 340 450 Q410 460 420 435"/>
+            </g>
+            <!-- Nodos de datos en raíces -->
+            <circle cx="200" cy="435" r="4" fill="#06B6D4" opacity="0.4"/>
+            <circle cx="300" cy="435" r="3" fill="#10B981" opacity="0.5"/>
+            <circle cx="250" cy="430" r="5" fill="#FFD700" opacity="0.35"/>
+
+            <!-- ═══ PARTÍCULAS ATMOSFÉRICAS ═══ -->
+            <circle cx="100" cy="100" r="1.5" fill="#FFD700" opacity="0.6" class="animate-firefly"/>
+            <circle cx="400" cy="90" r="2" fill="#10B981" opacity="0.5" class="animate-firefly" style="animation-delay: 0.7s;"/>
+            <circle cx="80" cy="250" r="1" fill="#06B6D4" opacity="0.6" class="animate-firefly" style="animation-delay: 1.2s;"/>
+            <circle cx="420" cy="300" r="1.5" fill="#FFD700" opacity="0.5" class="animate-firefly" style="animation-delay: 0.4s;"/>
+            <circle cx="180" cy="120" r="1" fill="#10B981" opacity="0.5" class="animate-firefly" style="animation-delay: 1.5s;"/>
+            <circle cx="320" cy="80" r="1.5" fill="#06B6D4" opacity="0.6" class="animate-firefly" style="animation-delay: 0.9s;"/>
           </svg>
 
           <!-- Cards flotantes con iconos tech -->
