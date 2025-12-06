@@ -117,256 +117,306 @@ const t = useTranslations(lang);
       <div class="relative hidden lg:block">
         <div class="relative w-full aspect-square max-w-xl mx-auto">
 
-          <!-- Ilustración principal: Torre Solarpunk AI -->
+          <!-- Ilustración: Robot Humanoide Futurista estilo Tesla Optimus -->
           <svg class="w-full h-full" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <!-- Gradientes principales -->
-              <linearGradient id="tower-grad" x1="0%" y1="100%" x2="0%" y2="0%">
-                <stop offset="0%" stop-color="#0F1F1A"/>
-                <stop offset="50%" stop-color="#1A3D2E"/>
-                <stop offset="100%" stop-color="#245A42"/>
+              <!-- Gradientes para el robot -->
+              <linearGradient id="metal-body" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1F2937"/>
+                <stop offset="50%" stop-color="#374151"/>
+                <stop offset="100%" stop-color="#1F2937"/>
               </linearGradient>
-              <linearGradient id="ai-core-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <linearGradient id="metal-light" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#4B5563"/>
+                <stop offset="50%" stop-color="#6B7280"/>
+                <stop offset="100%" stop-color="#4B5563"/>
+              </linearGradient>
+              <linearGradient id="metal-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#111827"/>
+                <stop offset="100%" stop-color="#1F2937"/>
+              </linearGradient>
+              <linearGradient id="accent-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#06B6D4"/>
+                <stop offset="100%" stop-color="#0891B2"/>
+              </linearGradient>
+              <linearGradient id="accent-green" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#10B981"/>
-                <stop offset="50%" stop-color="#06B6D4"/>
-                <stop offset="100%" stop-color="#10B981"/>
+                <stop offset="100%" stop-color="#059669"/>
               </linearGradient>
-              <linearGradient id="energy-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#FFD700"/>
+              <linearGradient id="visor-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.3"/>
                 <stop offset="50%" stop-color="#10B981"/>
-                <stop offset="100%" stop-color="#06B6D4"/>
-              </linearGradient>
-              <linearGradient id="glass-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#10B981" stop-opacity="0.4"/>
-                <stop offset="100%" stop-color="#06B6D4" stop-opacity="0.2"/>
-              </linearGradient>
-              <linearGradient id="leaf-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#10B981"/>
-                <stop offset="100%" stop-color="#4A7C59"/>
-              </linearGradient>
-              <linearGradient id="neural-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.8"/>
-                <stop offset="100%" stop-color="#10B981" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#06B6D4" stop-opacity="0.3"/>
               </linearGradient>
               <radialGradient id="core-glow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#06B6D4"/>
-                <stop offset="50%" stop-color="#10B981" stop-opacity="0.6"/>
+                <stop offset="0%" stop-color="#10B981"/>
+                <stop offset="70%" stop-color="#10B981" stop-opacity="0.3"/>
                 <stop offset="100%" stop-color="#10B981" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="eye-glow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#06B6D4"/>
+                <stop offset="100%" stop-color="#06B6D4" stop-opacity="0"/>
               </radialGradient>
 
               <!-- Filtros -->
-              <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
-                <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
                 <feMerge>
-                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="blur"/>
                   <feMergeNode in="SourceGraphic"/>
                 </feMerge>
               </filter>
-              <filter id="glow-strong" x="-100%" y="-100%" width="300%" height="300%">
-                <feGaussianBlur stdDeviation="12" result="coloredBlur"/>
+              <filter id="soft-glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="6" result="blur"/>
                 <feMerge>
-                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="blur"/>
                   <feMergeNode in="SourceGraphic"/>
                 </feMerge>
               </filter>
             </defs>
 
-            <!-- ═══ FONDO: Red neuronal sutil ═══ -->
-            <g class="animate-breathe" stroke="url(#neural-grad)" stroke-width="0.5" fill="none" opacity="0.3">
-              <path d="M50 100 Q150 150 250 120 Q350 90 450 140"/>
-              <path d="M30 200 Q130 180 230 220 Q330 260 430 200"/>
-              <path d="M60 300 Q160 280 260 320 Q360 360 460 300"/>
-              <circle cx="150" cy="140" r="3" fill="#06B6D4" opacity="0.5"/>
-              <circle cx="250" cy="120" r="2" fill="#10B981" opacity="0.6"/>
-              <circle cx="350" cy="130" r="3" fill="#06B6D4" opacity="0.4"/>
-              <circle cx="130" cy="200" r="2" fill="#10B981" opacity="0.5"/>
-              <circle cx="330" cy="220" r="3" fill="#06B6D4" opacity="0.4"/>
+            <!-- ═══════════════════════════════════════════════════════════
+                 ROBOT HUMANOIDE - CUERPO COMPLETO
+                 ═══════════════════════════════════════════════════════════ -->
+
+            <!-- CABEZA -->
+            <g class="animate-float" style="animation-delay: 0.1s;">
+              <!-- Cráneo principal - forma ovalada elegante -->
+              <ellipse cx="250" cy="72" rx="42" ry="52" fill="url(#metal-body)"/>
+
+              <!-- Panel frontal de la cara -->
+              <path d="M215 55 Q250 45 285 55 L282 95 Q250 105 218 95 Z" fill="url(#metal-light)"/>
+
+              <!-- Visor/Pantalla facial - línea horizontal iluminada -->
+              <rect x="218" y="65" width="64" height="12" rx="6" fill="url(#metal-dark)"/>
+              <rect x="222" y="68" width="56" height="6" rx="3" fill="url(#visor-glow)" filter="url(#glow)" class="animate-breathe"/>
+
+              <!-- Ojos LED -->
+              <circle cx="235" cy="71" r="3" fill="#06B6D4" filter="url(#glow)" class="animate-firefly"/>
+              <circle cx="265" cy="71" r="3" fill="#06B6D4" filter="url(#glow)" class="animate-firefly" style="animation-delay: 0.3s;"/>
+
+              <!-- Detalles laterales de la cabeza -->
+              <rect x="207" y="60" width="4" height="25" rx="2" fill="url(#metal-dark)"/>
+              <rect x="289" y="60" width="4" height="25" rx="2" fill="url(#metal-dark)"/>
+
+              <!-- Antena/Sensor superior -->
+              <rect x="248" y="18" width="4" height="12" rx="2" fill="url(#metal-light)"/>
+              <circle cx="250" cy="15" r="5" fill="url(#accent-cyan)" filter="url(#glow)" class="animate-breathe"/>
             </g>
 
-            <!-- ═══ TORRE PRINCIPAL SOLARPUNK AI ═══ -->
+            <!-- CUELLO -->
+            <g>
+              <!-- Estructura del cuello - segmentos articulados -->
+              <rect x="235" y="120" width="30" height="8" rx="2" fill="url(#metal-dark)"/>
+              <rect x="238" y="130" width="24" height="6" rx="2" fill="url(#metal-body)"/>
+              <rect x="240" y="138" width="20" height="5" rx="2" fill="url(#metal-dark)"/>
+
+              <!-- Cables/conexiones visibles -->
+              <line x1="242" y1="124" x2="242" y2="140" stroke="#10B981" stroke-width="1.5" opacity="0.6"/>
+              <line x1="258" y1="124" x2="258" y2="140" stroke="#10B981" stroke-width="1.5" opacity="0.6"/>
+            </g>
+
+            <!-- TORSO SUPERIOR (Pecho) -->
             <g class="animate-float" style="animation-delay: 0.2s;">
-              <!-- Base de la torre - forma orgánica -->
-              <path d="M200 420
-                       Q190 380 195 340
-                       Q200 300 210 260
-                       Q220 220 230 180
-                       Q240 140 250 100
-                       Q260 140 270 180
-                       Q280 220 290 260
-                       Q300 300 305 340
-                       Q310 380 300 420
-                       Z"
-                    fill="url(#tower-grad)"
-                    stroke="#10B981"
-                    stroke-width="1"
-                    stroke-opacity="0.4"/>
+              <!-- Pecho principal - forma trapezoidal -->
+              <path d="M200 145 L300 145 L310 200 Q310 220 300 230 L200 230 Q190 220 190 200 Z" fill="url(#metal-body)"/>
 
-              <!-- Estructura interna - niveles -->
-              <path d="M215 380 Q220 360 225 340 Q240 320 250 300 Q260 320 275 340 Q280 360 285 380"
-                    fill="none" stroke="#10B981" stroke-width="1" stroke-opacity="0.3"/>
-              <path d="M225 320 Q235 300 250 280 Q265 300 275 320"
-                    fill="none" stroke="#06B6D4" stroke-width="1" stroke-opacity="0.3"/>
-              <path d="M235 260 Q245 240 250 220 Q255 240 265 260"
-                    fill="none" stroke="#10B981" stroke-width="1" stroke-opacity="0.3"/>
+              <!-- Panel central del pecho -->
+              <path d="M220 155 L280 155 L288 200 Q288 215 280 220 L220 220 Q212 215 212 200 Z" fill="url(#metal-light)"/>
 
-              <!-- Ventanas/Paneles tech -->
-              <rect x="225" y="350" width="20" height="12" rx="3" fill="url(#glass-grad)"/>
-              <rect x="255" y="350" width="20" height="12" rx="3" fill="url(#glass-grad)"/>
-              <rect x="230" y="310" width="18" height="10" rx="2" fill="url(#glass-grad)"/>
-              <rect x="252" y="310" width="18" height="10" rx="2" fill="url(#glass-grad)"/>
-              <rect x="237" y="270" width="12" height="8" rx="2" fill="url(#glass-grad)"/>
-              <rect x="251" y="270" width="12" height="8" rx="2" fill="url(#glass-grad)"/>
-              <rect x="242" y="230" width="16" height="8" rx="2" fill="url(#glass-grad)"/>
+              <!-- Núcleo de energía central (Reactor/Core) -->
+              <circle cx="250" cy="185" r="25" fill="url(#metal-dark)"/>
+              <circle cx="250" cy="185" r="20" fill="url(#core-glow)" filter="url(#soft-glow)" class="animate-breathe"/>
+              <circle cx="250" cy="185" r="12" fill="url(#accent-green)" filter="url(#glow)"/>
+              <circle cx="250" cy="185" r="6" fill="#34D399"/>
+              <circle cx="250" cy="185" r="3" fill="#FFFFFF" opacity="0.9"/>
 
-              <!-- Jardines verticales en cascada -->
-              <ellipse cx="210" cy="390" rx="18" ry="8" fill="url(#leaf-grad)" opacity="0.9"/>
-              <ellipse cx="290" cy="390" rx="18" ry="8" fill="url(#leaf-grad)" opacity="0.9"/>
-              <ellipse cx="205" cy="350" rx="15" ry="6" fill="#4A7C59" opacity="0.85"/>
-              <ellipse cx="295" cy="350" rx="15" ry="6" fill="#4A7C59" opacity="0.85"/>
-              <ellipse cx="212" cy="310" rx="12" ry="5" fill="url(#leaf-grad)" opacity="0.8"/>
-              <ellipse cx="288" cy="310" rx="12" ry="5" fill="url(#leaf-grad)" opacity="0.8"/>
-              <ellipse cx="220" cy="270" rx="10" ry="4" fill="#2D5A3D" opacity="0.7"/>
-              <ellipse cx="280" cy="270" rx="10" ry="4" fill="#2D5A3D" opacity="0.7"/>
-              <ellipse cx="228" cy="235" rx="8" ry="3" fill="url(#leaf-grad)" opacity="0.6"/>
-              <ellipse cx="272" cy="235" rx="8" ry="3" fill="url(#leaf-grad)" opacity="0.6"/>
+              <!-- Anillo del reactor -->
+              <circle cx="250" cy="185" r="18" fill="none" stroke="#10B981" stroke-width="1.5" opacity="0.5" stroke-dasharray="4,2" class="animate-sun" style="transform-origin: 250px 185px;"/>
 
-              <!-- Corona verde en la cima -->
-              <ellipse cx="250" cy="105" rx="25" ry="12" fill="url(#leaf-grad)" opacity="0.9"/>
-              <ellipse cx="240" cy="100" rx="15" ry="8" fill="#4A7C59" opacity="0.8"/>
-              <ellipse cx="260" cy="100" rx="15" ry="8" fill="#2D5A3D" opacity="0.7"/>
+              <!-- Líneas de ventilación/detalle -->
+              <rect x="200" y="160" width="15" height="3" rx="1" fill="url(#metal-dark)"/>
+              <rect x="200" y="168" width="12" height="3" rx="1" fill="url(#metal-dark)"/>
+              <rect x="200" y="176" width="15" height="3" rx="1" fill="url(#metal-dark)"/>
+
+              <rect x="285" y="160" width="15" height="3" rx="1" fill="url(#metal-dark)"/>
+              <rect x="288" y="168" width="12" height="3" rx="1" fill="url(#metal-dark)"/>
+              <rect x="285" y="176" width="15" height="3" rx="1" fill="url(#metal-dark)"/>
+
+              <!-- Luces de estado -->
+              <circle cx="208" y="200" r="3" fill="#10B981" filter="url(#glow)" class="animate-firefly" style="animation-delay: 0.5s;"/>
+              <circle cx="292" y="200" r="3" fill="#10B981" filter="url(#glow)" class="animate-firefly" style="animation-delay: 0.8s;"/>
             </g>
 
-            <!-- ═══ NÚCLEO DE IA - El corazón brillante ═══ -->
-            <g class="animate-solar-pulse">
-              <!-- Glow externo -->
-              <circle cx="250" cy="180" r="50" fill="url(#core-glow)" opacity="0.4"/>
+            <!-- TORSO INFERIOR (Abdomen) -->
+            <g>
+              <!-- Abdomen - segmentado -->
+              <path d="M205 230 L295 230 L290 280 L210 280 Z" fill="url(#metal-body)"/>
 
-              <!-- Anillos de energía -->
-              <circle cx="250" cy="180" r="35" fill="none" stroke="url(#ai-core-grad)" stroke-width="1" opacity="0.6" stroke-dasharray="8,4"/>
-              <circle cx="250" cy="180" r="28" fill="none" stroke="#06B6D4" stroke-width="0.5" opacity="0.5"/>
+              <!-- Segmentos abdominales -->
+              <rect x="215" y="238" width="70" height="8" rx="2" fill="url(#metal-dark)"/>
+              <rect x="218" y="252" width="64" height="8" rx="2" fill="url(#metal-light)"/>
+              <rect x="215" y="266" width="70" height="8" rx="2" fill="url(#metal-dark)"/>
 
-              <!-- Núcleo central -->
-              <circle cx="250" cy="180" r="20" fill="url(#ai-core-grad)" filter="url(#glow-strong)" opacity="0.9"/>
-              <circle cx="250" cy="180" r="12" fill="#06B6D4" opacity="0.8"/>
-              <circle cx="250" cy="180" r="6" fill="#ffffff" opacity="0.9"/>
-
-              <!-- Partículas de datos orbitando -->
-              <g class="animate-sun" style="transform-origin: 250px 180px;">
-                <circle cx="250" cy="145" r="3" fill="#FFD700" opacity="0.8"/>
-                <circle cx="285" cy="180" r="2" fill="#10B981" opacity="0.7"/>
-                <circle cx="250" cy="215" r="3" fill="#06B6D4" opacity="0.8"/>
-                <circle cx="215" cy="180" r="2" fill="#FFD700" opacity="0.7"/>
-              </g>
+              <!-- Líneas de conexión -->
+              <line x1="230" y1="230" x2="225" y2="280" stroke="#06B6D4" stroke-width="1" opacity="0.4"/>
+              <line x1="270" y1="230" x2="275" y2="280" stroke="#06B6D4" stroke-width="1" opacity="0.4"/>
             </g>
 
-            <!-- ═══ CONEXIONES DE ENERGÍA/DATOS ═══ -->
-            <g stroke="url(#energy-grad)" stroke-width="2" fill="none" opacity="0.6">
-              <!-- Líneas que fluyen desde el núcleo -->
-              <path d="M250 200 Q230 250 210 300 Q190 350 180 400" stroke-dasharray="6,4" class="animate-breathe"/>
-              <path d="M250 200 Q270 250 290 300 Q310 350 320 400" stroke-dasharray="6,4" class="animate-breathe" style="animation-delay: 0.5s;"/>
-              <path d="M230 180 Q180 200 130 220 Q90 240 60 260" stroke-dasharray="4,6" class="animate-breathe" style="animation-delay: 1s;"/>
-              <path d="M270 180 Q320 200 370 220 Q410 240 440 260" stroke-dasharray="4,6" class="animate-breathe" style="animation-delay: 1.5s;"/>
+            <!-- PELVIS/CADERA -->
+            <g>
+              <path d="M210 280 L290 280 L305 310 Q310 325 295 330 L205 330 Q190 325 195 310 Z" fill="url(#metal-body)"/>
+
+              <!-- Panel central de cadera -->
+              <rect x="225" y="290" width="50" height="25" rx="4" fill="url(#metal-dark)"/>
+              <rect x="235" y="295" width="30" height="15" rx="3" fill="url(#metal-light)"/>
+
+              <!-- Indicador de energía -->
+              <rect x="240" y="300" width="20" height="5" rx="2" fill="url(#accent-green)" opacity="0.8"/>
             </g>
 
-            <!-- Nodos de energía en las conexiones -->
+            <!-- BRAZO IZQUIERDO -->
+            <g class="animate-float" style="animation-delay: 0.4s;">
+              <!-- Hombro -->
+              <ellipse cx="185" cy="155" rx="18" ry="15" fill="url(#metal-body)"/>
+              <circle cx="185" cy="155" r="10" fill="url(#metal-dark)"/>
+              <circle cx="185" cy="155" r="5" fill="url(#accent-cyan)" opacity="0.6"/>
+
+              <!-- Brazo superior -->
+              <rect x="170" y="165" width="25" height="55" rx="8" fill="url(#metal-body)"/>
+              <rect x="175" y="175" width="15" height="35" rx="4" fill="url(#metal-light)"/>
+
+              <!-- Codo -->
+              <ellipse cx="182" cy="225" rx="14" ry="12" fill="url(#metal-body)"/>
+              <circle cx="182" cy="225" r="7" fill="url(#metal-dark)"/>
+              <circle cx="182" cy="225" r="4" fill="#06B6D4" opacity="0.5"/>
+
+              <!-- Antebrazo -->
+              <rect x="168" y="235" width="22" height="50" rx="6" fill="url(#metal-body)"/>
+              <rect x="172" y="245" width="14" height="30" rx="3" fill="url(#metal-light)"/>
+
+              <!-- Muñeca -->
+              <ellipse cx="179" cy="290" rx="12" ry="8" fill="url(#metal-dark)"/>
+
+              <!-- Mano -->
+              <rect x="165" y="295" width="28" height="22" rx="5" fill="url(#metal-body)"/>
+              <!-- Dedos -->
+              <rect x="167" y="317" width="5" height="18" rx="2" fill="url(#metal-light)"/>
+              <rect x="174" y="317" width="5" height="22" rx="2" fill="url(#metal-light)"/>
+              <rect x="181" y="317" width="5" height="20" rx="2" fill="url(#metal-light)"/>
+              <rect x="188" y="317" width="5" height="16" rx="2" fill="url(#metal-light)"/>
+              <!-- Pulgar -->
+              <rect x="160" y="302" width="6" height="14" rx="2" fill="url(#metal-light)" transform="rotate(-20 160 302)"/>
+
+              <!-- Detalles de articulación en dedos -->
+              <circle cx="169" cy="325" r="1.5" fill="url(#accent-cyan)" opacity="0.5"/>
+              <circle cx="176" cy="327" r="1.5" fill="url(#accent-cyan)" opacity="0.5"/>
+              <circle cx="183" cy="326" r="1.5" fill="url(#accent-cyan)" opacity="0.5"/>
+            </g>
+
+            <!-- BRAZO DERECHO -->
+            <g class="animate-float" style="animation-delay: 0.6s;">
+              <!-- Hombro -->
+              <ellipse cx="315" cy="155" rx="18" ry="15" fill="url(#metal-body)"/>
+              <circle cx="315" cy="155" r="10" fill="url(#metal-dark)"/>
+              <circle cx="315" cy="155" r="5" fill="url(#accent-cyan)" opacity="0.6"/>
+
+              <!-- Brazo superior -->
+              <rect x="305" y="165" width="25" height="55" rx="8" fill="url(#metal-body)"/>
+              <rect x="310" y="175" width="15" height="35" rx="4" fill="url(#metal-light)"/>
+
+              <!-- Codo -->
+              <ellipse cx="318" cy="225" rx="14" ry="12" fill="url(#metal-body)"/>
+              <circle cx="318" cy="225" r="7" fill="url(#metal-dark)"/>
+              <circle cx="318" cy="225" r="4" fill="#06B6D4" opacity="0.5"/>
+
+              <!-- Antebrazo -->
+              <rect x="310" y="235" width="22" height="50" rx="6" fill="url(#metal-body)"/>
+              <rect x="314" y="245" width="14" height="30" rx="3" fill="url(#metal-light)"/>
+
+              <!-- Muñeca -->
+              <ellipse cx="321" cy="290" rx="12" ry="8" fill="url(#metal-dark)"/>
+
+              <!-- Mano -->
+              <rect x="307" y="295" width="28" height="22" rx="5" fill="url(#metal-body)"/>
+              <!-- Dedos -->
+              <rect x="309" y="317" width="5" height="16" rx="2" fill="url(#metal-light)"/>
+              <rect x="316" y="317" width="5" height="20" rx="2" fill="url(#metal-light)"/>
+              <rect x="323" y="317" width="5" height="22" rx="2" fill="url(#metal-light)"/>
+              <rect x="330" y="317" width="5" height="18" rx="2" fill="url(#metal-light)"/>
+              <!-- Pulgar -->
+              <rect x="337" y="302" width="6" height="14" rx="2" fill="url(#metal-light)" transform="rotate(20 337 302)"/>
+
+              <!-- Detalles de articulación en dedos -->
+              <circle cx="311" cy="324" r="1.5" fill="url(#accent-cyan)" opacity="0.5"/>
+              <circle cx="318" cy="326" r="1.5" fill="url(#accent-cyan)" opacity="0.5"/>
+              <circle cx="325" cy="327" r="1.5" fill="url(#accent-cyan)" opacity="0.5"/>
+            </g>
+
+            <!-- PIERNA IZQUIERDA -->
+            <g>
+              <!-- Muslo -->
+              <path d="M210 330 L235 330 Q240 335 238 345 L235 400 Q235 410 230 415 L215 415 Q210 410 210 400 L207 345 Q205 335 210 330 Z" fill="url(#metal-body)"/>
+              <rect x="213" y="345" width="18" height="50" rx="4" fill="url(#metal-light)"/>
+
+              <!-- Rodilla -->
+              <ellipse cx="222" cy="420" rx="15" ry="12" fill="url(#metal-body)"/>
+              <circle cx="222" cy="420" r="8" fill="url(#metal-dark)"/>
+              <circle cx="222" cy="420" r="4" fill="url(#accent-green)" opacity="0.6"/>
+
+              <!-- Pantorrilla -->
+              <rect x="210" y="432" width="24" height="45" rx="6" fill="url(#metal-body)"/>
+              <rect x="214" y="440" width="16" height="30" rx="4" fill="url(#metal-light)"/>
+
+              <!-- Tobillo -->
+              <ellipse cx="222" cy="480" rx="12" ry="6" fill="url(#metal-dark)"/>
+
+              <!-- Pie -->
+              <path d="M205 483 L240 483 L245 490 Q248 498 240 500 L200 500 Q192 498 195 490 Z" fill="url(#metal-body)"/>
+              <rect x="208" y="488" width="28" height="6" rx="2" fill="url(#metal-light)"/>
+            </g>
+
+            <!-- PIERNA DERECHA -->
+            <g>
+              <!-- Muslo -->
+              <path d="M265 330 L290 330 Q295 335 293 345 L290 400 Q290 410 285 415 L270 415 Q265 410 265 400 L262 345 Q260 335 265 330 Z" fill="url(#metal-body)"/>
+              <rect x="269" y="345" width="18" height="50" rx="4" fill="url(#metal-light)"/>
+
+              <!-- Rodilla -->
+              <ellipse cx="278" cy="420" rx="15" ry="12" fill="url(#metal-body)"/>
+              <circle cx="278" cy="420" r="8" fill="url(#metal-dark)"/>
+              <circle cx="278" cy="420" r="4" fill="url(#accent-green)" opacity="0.6"/>
+
+              <!-- Pantorrilla -->
+              <rect x="266" y="432" width="24" height="45" rx="6" fill="url(#metal-body)"/>
+              <rect x="270" y="440" width="16" height="30" rx="4" fill="url(#metal-light)"/>
+
+              <!-- Tobillo -->
+              <ellipse cx="278" cy="480" rx="12" ry="6" fill="url(#metal-dark)"/>
+
+              <!-- Pie -->
+              <path d="M260 483 L295 483 L300 490 Q303 498 295 500 L255 500 Q247 498 250 490 Z" fill="url(#metal-body)"/>
+              <rect x="263" y="488" width="28" height="6" rx="2" fill="url(#metal-light)"/>
+            </g>
+
+            <!-- EFECTOS DE LUZ Y PARTÍCULAS -->
             <g filter="url(#glow)">
-              <circle cx="210" cy="300" r="4" fill="#10B981" class="animate-firefly"/>
-              <circle cx="290" cy="300" r="4" fill="#06B6D4" class="animate-firefly" style="animation-delay: 0.3s;"/>
-              <circle cx="130" cy="220" r="3" fill="#FFD700" class="animate-firefly" style="animation-delay: 0.6s;"/>
-              <circle cx="370" cy="220" r="3" fill="#FFD700" class="animate-firefly" style="animation-delay: 0.9s;"/>
+              <!-- Partículas de energía alrededor del robot -->
+              <circle cx="150" cy="180" r="2" fill="#10B981" opacity="0.6" class="animate-firefly"/>
+              <circle cx="350" cy="200" r="2" fill="#06B6D4" opacity="0.6" class="animate-firefly" style="animation-delay: 0.4s;"/>
+              <circle cx="170" cy="280" r="1.5" fill="#10B981" opacity="0.5" class="animate-firefly" style="animation-delay: 0.7s;"/>
+              <circle cx="330" cy="300" r="1.5" fill="#06B6D4" opacity="0.5" class="animate-firefly" style="animation-delay: 1s;"/>
+              <circle cx="140" cy="350" r="2" fill="#10B981" opacity="0.5" class="animate-firefly" style="animation-delay: 0.3s;"/>
+              <circle cx="360" cy="380" r="2" fill="#06B6D4" opacity="0.5" class="animate-firefly" style="animation-delay: 0.6s;"/>
+              <circle cx="200" cy="100" r="1.5" fill="#FFD700" opacity="0.4" class="animate-firefly" style="animation-delay: 0.9s;"/>
+              <circle cx="300" cy="120" r="1.5" fill="#FFD700" opacity="0.4" class="animate-firefly" style="animation-delay: 1.2s;"/>
             </g>
 
-            <!-- ═══ ESTRUCTURAS SATELITALES ═══ -->
-            <!-- Edificio izquierdo con domo -->
-            <g class="animate-float" style="animation-delay: 0.8s;">
-              <rect x="60" y="300" width="60" height="120" rx="8" fill="url(#tower-grad)" stroke="#10B981" stroke-width="1" stroke-opacity="0.3"/>
-              <!-- Bio-domo -->
-              <ellipse cx="90" cy="300" rx="25" ry="12" fill="url(#glass-grad)" stroke="#06B6D4" stroke-width="1" stroke-opacity="0.4"/>
-              <ellipse cx="90" cy="298" rx="18" ry="8" fill="url(#leaf-grad)" opacity="0.7"/>
-              <!-- Ventanas -->
-              <rect x="70" y="320" width="15" height="10" rx="2" fill="url(#glass-grad)"/>
-              <rect x="95" y="320" width="15" height="10" rx="2" fill="url(#glass-grad)"/>
-              <rect x="70" y="350" width="15" height="10" rx="2" fill="url(#glass-grad)"/>
-              <rect x="95" y="350" width="15" height="10" rx="2" fill="url(#glass-grad)"/>
-              <!-- Plantas -->
-              <ellipse cx="70" cy="380" rx="12" ry="5" fill="url(#leaf-grad)" opacity="0.8"/>
-              <ellipse cx="110" cy="385" rx="10" ry="4" fill="#4A7C59" opacity="0.7"/>
+            <!-- Líneas de conexión de energía sutiles -->
+            <g opacity="0.3">
+              <path d="M250 210 Q200 250 182 290" stroke="url(#accent-green)" stroke-width="1" fill="none" stroke-dasharray="3,3" class="animate-breathe"/>
+              <path d="M250 210 Q300 250 318 290" stroke="url(#accent-green)" stroke-width="1" fill="none" stroke-dasharray="3,3" class="animate-breathe" style="animation-delay: 0.5s;"/>
             </g>
-
-            <!-- Edificio derecho con antena IA -->
-            <g class="animate-float" style="animation-delay: 1.2s;">
-              <rect x="380" y="320" width="55" height="100" rx="6" fill="url(#tower-grad)" stroke="#10B981" stroke-width="1" stroke-opacity="0.3"/>
-              <!-- Antena/Receptor IA -->
-              <rect x="405" y="280" width="4" height="40" fill="#245A42"/>
-              <circle cx="407" cy="275" r="8" fill="url(#ai-core-grad)" opacity="0.7" filter="url(#glow)"/>
-              <circle cx="407" cy="275" r="4" fill="#06B6D4"/>
-              <!-- Ventanas -->
-              <rect x="390" y="340" width="12" height="8" rx="2" fill="url(#glass-grad)"/>
-              <rect x="412" y="340" width="12" height="8" rx="2" fill="url(#glass-grad)"/>
-              <rect x="390" y="370" width="12" height="8" rx="2" fill="url(#glass-grad)"/>
-              <rect x="412" y="370" width="12" height="8" rx="2" fill="url(#glass-grad)"/>
-              <!-- Plantas -->
-              <ellipse cx="385" cy="400" rx="10" ry="4" fill="url(#leaf-grad)" opacity="0.8"/>
-              <ellipse cx="430" cy="395" rx="12" ry="5" fill="#4A7C59" opacity="0.7"/>
-            </g>
-
-            <!-- ═══ DRONES / AGENTES IA ═══ -->
-            <g class="animate-float" style="animation-delay: 0.3s;">
-              <!-- Drone 1 -->
-              <ellipse cx="350" cy="140" rx="12" ry="4" fill="#245A42" opacity="0.9"/>
-              <rect x="346" y="136" width="8" height="3" rx="1" fill="#06B6D4" opacity="0.8"/>
-              <circle cx="350" cy="134" r="2" fill="#10B981" class="animate-firefly"/>
-            </g>
-            <g class="animate-float" style="animation-delay: 1s;">
-              <!-- Drone 2 -->
-              <ellipse cx="150" cy="180" rx="10" ry="3" fill="#245A42" opacity="0.8"/>
-              <rect x="147" y="177" width="6" height="2" rx="1" fill="#06B6D4" opacity="0.7"/>
-              <circle cx="150" cy="175" r="1.5" fill="#FFD700" class="animate-firefly" style="animation-delay: 0.5s;"/>
-            </g>
-
-            <!-- ═══ SUELO Y VEGETACIÓN ═══ -->
-            <ellipse cx="250" cy="430" rx="220" ry="35" fill="#0F1F1A" opacity="0.7"/>
-
-            <!-- Árboles tech-orgánicos -->
-            <g class="animate-sway">
-              <rect x="40" y="380" width="6" height="35" fill="#2D5A3D"/>
-              <ellipse cx="43" cy="365" rx="22" ry="25" fill="url(#leaf-grad)" opacity="0.9"/>
-              <ellipse cx="35" cy="375" rx="12" ry="15" fill="#4A7C59" opacity="0.8"/>
-              <!-- Bioluminiscencia en árbol -->
-              <circle cx="43" cy="365" r="3" fill="#06B6D4" opacity="0.5" class="animate-firefly"/>
-            </g>
-
-            <g class="animate-sway" style="animation-delay: 0.8s;">
-              <rect x="450" y="370" width="8" height="45" fill="#2D5A3D"/>
-              <ellipse cx="454" cy="350" rx="28" ry="32" fill="url(#leaf-grad)" opacity="0.85"/>
-              <ellipse cx="468" cy="360" rx="18" ry="20" fill="#4A7C59" opacity="0.9"/>
-              <ellipse cx="445" cy="365" rx="15" ry="18" fill="#2D5A3D" opacity="0.7"/>
-              <circle cx="454" cy="350" r="4" fill="#10B981" opacity="0.5" class="animate-firefly" style="animation-delay: 0.3s;"/>
-            </g>
-
-            <!-- Plantas pequeñas con glow -->
-            <ellipse cx="160" cy="415" rx="14" ry="6" fill="url(#leaf-grad)" opacity="0.8"/>
-            <ellipse cx="340" cy="418" rx="12" ry="5" fill="url(#leaf-grad)" opacity="0.75"/>
-            <ellipse cx="200" cy="425" rx="8" ry="3" fill="#4A7C59" opacity="0.6"/>
-            <ellipse cx="300" cy="422" rx="10" ry="4" fill="#2D5A3D" opacity="0.65"/>
-
-            <!-- ═══ RAÍCES TECH / CIRCUITOS SUBTERRÁNEOS ═══ -->
-            <g stroke="#10B981" stroke-width="1.5" stroke-opacity="0.25" fill="none">
-              <path d="M100 420 Q150 445 200 435 Q250 425 300 435 Q350 445 400 420"/>
-              <path d="M80 430 Q130 450 200 445 Q270 440 340 450 Q410 460 420 435"/>
-            </g>
-            <!-- Nodos de datos en raíces -->
-            <circle cx="200" cy="435" r="4" fill="#06B6D4" opacity="0.4"/>
-            <circle cx="300" cy="435" r="3" fill="#10B981" opacity="0.5"/>
-            <circle cx="250" cy="430" r="5" fill="#FFD700" opacity="0.35"/>
-
-            <!-- ═══ PARTÍCULAS ATMOSFÉRICAS ═══ -->
-            <circle cx="100" cy="100" r="1.5" fill="#FFD700" opacity="0.6" class="animate-firefly"/>
-            <circle cx="400" cy="90" r="2" fill="#10B981" opacity="0.5" class="animate-firefly" style="animation-delay: 0.7s;"/>
-            <circle cx="80" cy="250" r="1" fill="#06B6D4" opacity="0.6" class="animate-firefly" style="animation-delay: 1.2s;"/>
-            <circle cx="420" cy="300" r="1.5" fill="#FFD700" opacity="0.5" class="animate-firefly" style="animation-delay: 0.4s;"/>
-            <circle cx="180" cy="120" r="1" fill="#10B981" opacity="0.5" class="animate-firefly" style="animation-delay: 1.5s;"/>
-            <circle cx="320" cy="80" r="1.5" fill="#06B6D4" opacity="0.6" class="animate-firefly" style="animation-delay: 0.9s;"/>
           </svg>
 
           <!-- Cards flotantes con iconos tech -->
