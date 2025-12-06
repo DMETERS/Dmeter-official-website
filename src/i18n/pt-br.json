@@ -200,5 +200,13 @@
     "tagline": "Tecnologia com propósito, resultados reais.",
     "links": "Links",
     "copyright": "© 2025 Dmeter. Todos os direitos reservados."
+  },
+  "sos": {
+    "trigger": "Sistema fora do ar? Emergência técnica →",
+    "title": "S.O.S Técnico",
+    "subtitle": "Entraremos em contato em menos de 1 hora",
+    "phone": "WhatsApp ou Telefone",
+    "problem": "O que está acontecendo?",
+    "submit": "Enviar S.O.S"
   }
 }

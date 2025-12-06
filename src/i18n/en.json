@@ -200,5 +200,13 @@
     "tagline": "Technology with purpose, real results.",
     "links": "Links",
     "copyright": "© 2025 Dmeter. All rights reserved."
+  },
+  "sos": {
+    "trigger": "System down? Technical emergency →",
+    "title": "Technical S.O.S",
+    "subtitle": "We'll contact you within 1 hour",
+    "phone": "WhatsApp or Phone",
+    "problem": "What's happening?",
+    "submit": "Send S.O.S"
   }
 }

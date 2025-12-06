@@ -5,7 +5,7 @@
 Landing page profesional para **Dmeter**, consultora de servicios de software, desarrollada con estilo visual **Solarpunk** - una estética que combina tecnología futurista con naturaleza, sostenibilidad y esperanza radical.
 
 **Fecha de creación:** Diciembre 2025
-**Última actualización:** Diciembre 2025 (Dmetercito + Páginas Legales)
+**Última actualización:** Diciembre 2025 (S.O.S + Robot interactivo)
 **Tech Stack:** Astro 5 + Tailwind CSS 4
 **Idiomas:** Español (default), English, Português (Brasil)
 **Deploy:** GitHub Pages / Netlify
@@ -153,6 +153,13 @@ Dmeter-official-website/
 - Sombra dinámica al hacer scroll
 
 ### 2. Hero (Revolución Completa)
+**Interactividad del Robot:**
+- La cabeza del robot sigue al cursor del mouse después de 0.5s de inactividad
+- Movimiento sutil y suave (±15° horizontal, ±10° vertical)
+- Se resetea cuando el mouse sale de la ventana
+- Solo funciona en desktop (donde el robot es visible)
+- Estructura SVG: grupo externo con animación CSS float, grupo interno con transform JS
+
 **Ilustración SVG Robot Humanoide (estilo Tesla Optimus + Solarpunk):**
 - Robot de cuerpo completo con proporciones humanas
 - Cabeza ovalada con visor LED horizontal iluminado y ojos cyan
@@ -241,13 +248,24 @@ Dmeter-official-website/
 - Fade en los bordes para efecto de loop continuo
 - Pausa al hover
 
-### 7. Contact (Formulario + Video Background)
+### 7. Contact (Formulario + Video Background + S.O.S)
 - Formulario centrado con campos: nombre, email, tipo de proyecto, mensaje
 - **Video de Demeter** como fondo sutil (opacidad 10%)
 - Filtro CSS para integrar con paleta Solarpunk
 - Overlay gradiente para legibilidad
 - Redes de contacto en fila horizontal debajo del formulario
 - Envío via Netlify Forms
+
+**S.O.S de Emergencia Técnica:**
+- Enlace discreto debajo de las redes (40% opacidad, hover 60%)
+- Texto: "¿Sistema caído? Emergencia técnica →"
+- Modal fullscreen al hacer click con animaciones fade + scale
+- Icono con pulso verde Solarpunk (sin rojos de alarma)
+- Formulario ultra mínimo: teléfono/WhatsApp + descripción breve (280 chars)
+- Campo oculto `priority: urgent` para filtrar en Netlify
+- Cierra con X, Escape, o click en backdrop
+- Soporte 3 idiomas (ES, EN, PT-BR)
+- Envío como formulario "sos" separado en Netlify
 
 ### 8. Footer (Jardín Nocturno)
 - Fondo gradiente hacia `night-deep`
@@ -376,7 +394,10 @@ El archivo `netlify.toml` está configurado para deploy automático.
    const CONTACT_EMAIL = 'hola@dmeter.dev';  // Ya configurado
    ```
 
-2. **Netlify Forms** - Los formularios (Contact y Dmetercito) ya están configurados para Netlify
+2. **Netlify Forms** - 3 formularios configurados:
+   - `contact` - Formulario principal de contacto
+   - `dmetercito` - Chatbot de flujo guiado
+   - `sos` - Emergencias técnicas (campo `priority: urgent`)
 
 ---
 
@@ -396,6 +417,21 @@ npm run preview
 ---
 
 ## Historial de Cambios
+
+### Diciembre 2025 - S.O.S + Robot Interactivo
+- **Robot Hero:** La cabeza sigue al cursor después de 0.5s de inactividad
+  - Estructura dual: grupo CSS (animación float) + grupo JS (seguimiento mouse)
+  - Rotación limitada ±15° horizontal, ±10° vertical
+  - Transición suave 0.3s
+  - Solo desktop (donde robot es visible)
+- **S.O.S Emergencia:** Modal para urgencias técnicas
+  - Enlace discreto bajo redes de contacto (40% opacidad)
+  - Modal fullscreen con animaciones fade + scale
+  - Formulario ultra mínimo: teléfono + descripción (280 chars)
+  - Icono con pulso verde Solarpunk
+  - Campo `priority: urgent` para Netlify
+  - Soporte 3 idiomas
+  - Formulario separado "sos" en Netlify
 
 ### Diciembre 2025 - Dmetercito + Video Contact + Páginas Legales
 - **Dmetercito:** Chatbot de flujo guiado reemplazando botón WhatsApp
