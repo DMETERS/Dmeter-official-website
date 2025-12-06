@@ -148,22 +148,27 @@ Dmeter-official-website/
 - Sombra dinámica al hacer scroll
 
 ### 2. Hero (Revolución Completa)
-**Ilustración SVG Ciudad Solarpunk:**
-- Edificios con jardines verticales
-- Paneles solares en techos
-- Turbinas eólicas mini
-- Bio-domos con vegetación
-- Árboles con animación `sway`
-- Personas/comunidad (siluetas)
-- Pájaros en el cielo
-- Conexiones circuito-raíces subterráneas
+**Ilustración SVG Robot Humanoide (estilo Tesla Optimus):**
+- Robot de cuerpo completo con proporciones humanas
+- Cabeza ovalada con visor LED horizontal iluminado y ojos cyan
+- Antena/sensor superior con luz pulsante
+- Cuello articulado con segmentos y cables visibles
+- Torso con núcleo de energía verde brillante (reactor central con anillo giratorio)
+- Paneles de ventilación y luces de estado
+- Abdomen segmentado con líneas de conexión
+- Brazos completos: hombros esféricos, codos articulados, manos con 5 dedos detallados
+- Piernas completas: muslos, rodillas con luces LED, pies
+- Acabado metálico (gradientes gris oscuro a claro)
+- Acentos en colores de marca (cyan #06B6D4, verde #10B981)
+- Sin fondo (transparente, se integra con el Hero)
 
 **Elementos Atmosféricos:**
 - Orbes de energía solar (green, gold, cyan)
 - Luciérnagas flotantes (`animate-firefly`)
 - Hojas flotantes animadas (`animate-sway`)
 - Grid orgánico + puntos semilla
-- Sol con rayos rotando lentamente
+- Partículas de energía alrededor del robot
+- Líneas de conexión de energía sutiles desde el reactor a los brazos
 
 **Stats de Confianza:**
 - 50+ Proyectos
@@ -212,6 +217,8 @@ Dmeter-official-website/
 | 7 | DevTools | Agente MCP con IA |
 | 8 | Healthcare | Integración de Telemedicina |
 | 9 | E-commerce | Plataforma E-commerce Avanzada |
+| 10 | PyME/SMB | Sistema de Gestión Integral (migración MS-DOS a web) |
+| 11 | Turismo/Software | Generador de Presupuestos con API de Vuelos en tiempo real |
 
 ### 6. Footer (Jardín Nocturno)
 - Fondo gradiente hacia `night-deep`
@@ -343,6 +350,14 @@ npm run preview
 ---
 
 ## Historial de Cambios
+
+### Diciembre 2025 - Robot Humanoide + Nuevos Casos
+- **Hero:** Nueva ilustración SVG de robot humanoide estilo Tesla Optimus
+- **Robot:** Cuerpo completo detallado con reactor de energía, articulaciones, manos con dedos
+- **Colores robot:** Metálico (grises) con acentos cyan y verde de la marca
+- **CaseStudies:** Agregados 2 nuevos casos (11 total):
+  - Sistema de Gestión Integral para PyME (migración MS-DOS a web moderna)
+  - Generador de Presupuestos con API de Vuelos en tiempo real
 
 ### Diciembre 2025 - Carousel de Casos de Éxito
 - **CaseStudies:** Transformado de 3 cards estáticas a carousel con 9 casos

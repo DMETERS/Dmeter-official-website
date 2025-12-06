@@ -417,6 +417,80 @@ const t = useTranslations(lang);
               <path d="M250 210 Q200 250 182 290" stroke="url(#accent-green)" stroke-width="1" fill="none" stroke-dasharray="3,3" class="animate-breathe"/>
               <path d="M250 210 Q300 250 318 290" stroke="url(#accent-green)" stroke-width="1" fill="none" stroke-dasharray="3,3" class="animate-breathe" style="animation-delay: 0.5s;"/>
             </g>
+
+            <!-- ═══════════════════════════════════════════════════════════
+                 VEGETACIÓN SOLARPUNK - Naturaleza integrada al robot
+                 ═══════════════════════════════════════════════════════════ -->
+
+            <!-- Hojas en hombro izquierdo -->
+            <g class="animate-sway" style="animation-delay: 0.2s;">
+              <ellipse cx="175" cy="148" rx="6" ry="3" fill="#10B981" opacity="0.85" transform="rotate(-30 175 148)"/>
+              <ellipse cx="180" cy="143" rx="5" ry="2.5" fill="#34D399" opacity="0.8" transform="rotate(-45 180 143)"/>
+              <ellipse cx="172" cy="152" rx="4" ry="2" fill="#059669" opacity="0.75" transform="rotate(-15 172 152)"/>
+            </g>
+
+            <!-- Hojas en hombro derecho -->
+            <g class="animate-sway" style="animation-delay: 0.5s;">
+              <ellipse cx="325" cy="148" rx="6" ry="3" fill="#10B981" opacity="0.85" transform="rotate(30 325 148)"/>
+              <ellipse cx="320" cy="143" rx="5" ry="2.5" fill="#34D399" opacity="0.8" transform="rotate(45 320 143)"/>
+              <ellipse cx="328" cy="152" rx="4" ry="2" fill="#059669" opacity="0.75" transform="rotate(15 328 152)"/>
+            </g>
+
+            <!-- Brote pequeño en hombro derecho (planta creciendo) -->
+            <g class="animate-float" style="animation-delay: 0.8s;">
+              <!-- Tallo -->
+              <path d="M322 145 Q325 138 323 130" stroke="#059669" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <!-- Hojas del brote -->
+              <ellipse cx="320" cy="132" rx="5" ry="3" fill="#34D399" opacity="0.9" transform="rotate(-40 320 132)"/>
+              <ellipse cx="326" cy="133" rx="5" ry="3" fill="#10B981" opacity="0.85" transform="rotate(35 326 133)"/>
+              <!-- Punta del brote -->
+              <ellipse cx="323" cy="128" rx="2" ry="3" fill="#6EE7B7" opacity="0.9"/>
+            </g>
+
+            <!-- Enredadera en brazo izquierdo -->
+            <g class="animate-sway" style="animation-delay: 0.3s;">
+              <!-- Tallo principal de la enredadera -->
+              <path d="M178 170 Q172 190 175 210 Q178 230 174 250 Q170 270 175 285"
+                    stroke="#059669" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.7"/>
+              <!-- Hojas a lo largo de la enredadera -->
+              <ellipse cx="174" cy="185" rx="4" ry="2" fill="#10B981" opacity="0.8" transform="rotate(-25 174 185)"/>
+              <ellipse cx="176" cy="215" rx="3.5" ry="2" fill="#34D399" opacity="0.75" transform="rotate(20 176 215)"/>
+              <ellipse cx="172" cy="245" rx="4" ry="2" fill="#10B981" opacity="0.8" transform="rotate(-30 172 245)"/>
+              <ellipse cx="175" cy="275" rx="3" ry="1.5" fill="#059669" opacity="0.7" transform="rotate(15 175 275)"/>
+            </g>
+
+            <!-- Musgo en codo izquierdo -->
+            <g opacity="0.5">
+              <ellipse cx="180" cy="228" rx="5" ry="3" fill="#4A7C59"/>
+              <ellipse cx="184" cy="226" rx="3" ry="2" fill="#2D5A3D"/>
+              <ellipse cx="178" cy="230" rx="4" ry="2" fill="#4A7C59"/>
+            </g>
+
+            <!-- Musgo en codo derecho -->
+            <g opacity="0.5">
+              <ellipse cx="320" cy="228" rx="5" ry="3" fill="#4A7C59"/>
+              <ellipse cx="316" cy="226" rx="3" ry="2" fill="#2D5A3D"/>
+              <ellipse cx="322" cy="230" rx="4" ry="2" fill="#4A7C59"/>
+            </g>
+
+            <!-- Musgo en rodilla izquierda -->
+            <g opacity="0.45">
+              <ellipse cx="220" cy="423" rx="4" ry="2.5" fill="#4A7C59"/>
+              <ellipse cx="224" cy="421" rx="3" ry="1.5" fill="#2D5A3D"/>
+            </g>
+
+            <!-- Musgo en rodilla derecha -->
+            <g opacity="0.45">
+              <ellipse cx="280" cy="423" rx="4" ry="2.5" fill="#4A7C59"/>
+              <ellipse cx="276" cy="421" rx="3" ry="1.5" fill="#2D5A3D"/>
+            </g>
+
+            <!-- Pequeñas hojas flotando cerca del robot -->
+            <g class="animate-float" opacity="0.6">
+              <ellipse cx="145" cy="200" rx="4" ry="2" fill="#10B981" transform="rotate(-20 145 200)"/>
+              <ellipse cx="355" cy="250" rx="3.5" ry="1.8" fill="#34D399" transform="rotate(25 355 250)"/>
+              <ellipse cx="160" cy="380" rx="3" ry="1.5" fill="#10B981" transform="rotate(-35 160 380)"/>
+            </g>
           </svg>
 
           <!-- Cards flotantes con iconos tech -->
