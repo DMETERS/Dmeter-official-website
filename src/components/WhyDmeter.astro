@@ -8,15 +8,13 @@ interface Props {
 const { lang = defaultLang } = Astro.props;
 const t = useTranslations(lang);
 
-const techLogos = [
-  { name: 'React', color: '#61DAFB' },
-  { name: 'Node.js', color: '#339933' },
-  { name: 'Python', color: '#3776AB' },
-  { name: 'TypeScript', color: '#3178C6' },
-  { name: 'PostgreSQL', color: '#336791' },
-  { name: 'AWS', color: '#FF9900' },
-  { name: 'Docker', color: '#2496ED' },
-  { name: 'OpenAI', color: '#10B981' }
+const capabilities = [
+  'Web Moderno',
+  'Backend Escalable',
+  'Automatización & IA',
+  'Cloud Native',
+  'Datos & Analytics',
+  'Integraciones'
 ];
 
 const pointIcons = [
@@ -62,18 +60,54 @@ const colors = ['primary', 'accent-cyan', 'accent-solar'];
       ))}
     </div>
 
-    <!-- Technologies -->
+    <!-- Capabilities -->
     <div class="text-center">
       <h3 class="text-xl font-semibold text-text-light mb-8">
         {t.why.techTitle}
       </h3>
-      <div class="flex flex-wrap justify-center gap-4">
-        {techLogos.map((tech) => (
-          <div class="px-5 py-3 rounded-xl glass hover:scale-105 transition-transform cursor-default">
-            <span class="text-text-muted font-medium">{tech.name}</span>
-          </div>
-        ))}
-      </div>
+    </div>
+  </div>
+
+  <!-- Carousel infinito de capacidades -->
+  <div class="capabilities-carousel overflow-hidden mt-4 relative">
+    <!-- Fade en los bordes -->
+    <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-bg-dark to-transparent z-10 pointer-events-none"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-bg-dark to-transparent z-10 pointer-events-none"></div>
+
+    <div class="capabilities-track flex gap-6">
+      {/* Triplicamos para efecto infinito sin cortes */}
+      {[...capabilities, ...capabilities, ...capabilities, ...capabilities].map((cap) => (
+        <div class="px-6 py-3 rounded-xl glass whitespace-nowrap flex-shrink-0">
+          <span class="text-text-muted font-medium">{cap}</span>
+        </div>
+      ))}
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes scroll-infinite {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-25%);
+    }
+  }
+
+  .capabilities-track {
+    animation: scroll-infinite 15s linear infinite;
+  }
+
+  .capabilities-carousel:hover .capabilities-track {
+    animation-play-state: paused;
+  }
+
+  .capabilities-carousel {
+    cursor: grab;
+  }
+
+  .capabilities-carousel:active {
+    cursor: grabbing;
+  }
+</style>

@@ -148,7 +148,7 @@ Dmeter-official-website/
 - Sombra dinámica al hacer scroll
 
 ### 2. Hero (Revolución Completa)
-**Ilustración SVG Robot Humanoide (estilo Tesla Optimus):**
+**Ilustración SVG Robot Humanoide (estilo Tesla Optimus + Solarpunk):**
 - Robot de cuerpo completo con proporciones humanas
 - Cabeza ovalada con visor LED horizontal iluminado y ojos cyan
 - Antena/sensor superior con luz pulsante
@@ -161,6 +161,14 @@ Dmeter-official-website/
 - Acabado metálico (gradientes gris oscuro a claro)
 - Acentos en colores de marca (cyan #06B6D4, verde #10B981)
 - Sin fondo (transparente, se integra con el Hero)
+
+**Vegetación Solarpunk integrada al robot:**
+- Hojas en ambos hombros (3 hojas por lado, animación sway)
+- Brote pequeño creciendo del hombro derecho (tallo + 2 hojas + punta)
+- Enredadera subiendo por brazo izquierdo (tallo curvo + 4 hojas)
+- Musgo sutil en codos (manchas verdes con opacidad 0.5)
+- Musgo sutil en rodillas (manchas más pequeñas)
+- Hojas flotando cerca del robot (3 hojas con animación float)
 
 **Elementos Atmosféricos:**
 - Orbes de energía solar (green, gold, cyan)
@@ -351,13 +359,20 @@ npm run preview
 
 ## Historial de Cambios
 
-### Diciembre 2025 - Robot Humanoide + Nuevos Casos
+### Diciembre 2025 - Robot Humanoide + Vegetación Solarpunk + Nuevos Casos
 - **Hero:** Nueva ilustración SVG de robot humanoide estilo Tesla Optimus
 - **Robot:** Cuerpo completo detallado con reactor de energía, articulaciones, manos con dedos
 - **Colores robot:** Metálico (grises) con acentos cyan y verde de la marca
+- **Vegetación Solarpunk:** Integrada al robot para fusión tech-naturaleza:
+  - Hojas en hombros (animación sway)
+  - Brote creciendo del hombro derecho
+  - Enredadera en brazo izquierdo con hojas
+  - Musgo en codos y rodillas
+  - Hojas flotando alrededor
 - **CaseStudies:** Agregados 2 nuevos casos (11 total):
   - Sistema de Gestión Integral para PyME (migración MS-DOS a web moderna)
   - Generador de Presupuestos con API de Vuelos en tiempo real
+- **Contador:** Cambiado de dinámico a "50+" fijo para consistencia con Hero
 
 ### Diciembre 2025 - Carousel de Casos de Éxito
 - **CaseStudies:** Transformado de 3 cards estáticas a carousel con 9 casos
