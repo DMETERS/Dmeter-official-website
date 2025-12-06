@@ -118,7 +118,7 @@ const t = useTranslations(lang);
         <div class="relative w-full aspect-square max-w-xl mx-auto">
 
           <!-- Ilustración: Robot Humanoide Futurista estilo Tesla Optimus -->
-          <svg class="w-full h-full" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg id="robot-svg" class="w-full h-full" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <!-- Gradientes para el robot -->
               <linearGradient id="metal-body" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -181,6 +181,7 @@ const t = useTranslations(lang);
 
             <!-- CABEZA -->
             <g class="animate-float" style="animation-delay: 0.1s;">
+              <g id="robot-head" style="transform-origin: 250px 72px;">
               <!-- Cráneo principal - forma ovalada elegante -->
               <ellipse cx="250" cy="72" rx="42" ry="52" fill="url(#metal-body)"/>
 
@@ -202,6 +203,7 @@ const t = useTranslations(lang);
               <!-- Antena/Sensor superior -->
               <rect x="248" y="18" width="4" height="12" rx="2" fill="url(#metal-light)"/>
               <circle cx="250" cy="15" r="5" fill="url(#accent-cyan)" filter="url(#glow)" class="animate-breathe"/>
+              </g>
             </g>
 
             <!-- CUELLO -->
@@ -527,3 +529,60 @@ const t = useTranslations(lang);
     </div>
   </div>
 </section>
+
+<script>
+  // Robot head follows mouse after 0.5s idle
+  let mouseTimeout: ReturnType<typeof setTimeout>;
+  let lastMouseX = 0;
+  let lastMouseY = 0;
+
+  const robotHead = document.getElementById('robot-head');
+  const robotSvg = document.getElementById('robot-svg');
+
+  if (robotHead && robotSvg) {
+    // Centro de la cabeza en el viewBox
+    const headCenterX = 250;
+    const headCenterY = 72;
+
+    document.addEventListener('mousemove', (e) => {
+      lastMouseX = e.clientX;
+      lastMouseY = e.clientY;
+
+      // Resetear timeout
+      clearTimeout(mouseTimeout);
+
+      // Después de 0.5s quieto, mover la cabeza
+      mouseTimeout = setTimeout(() => {
+        const rect = robotSvg.getBoundingClientRect();
+
+        // Solo actuar si el mouse está cerca del robot
+        const mouseXRel = lastMouseX - rect.left;
+        const mouseYRel = lastMouseY - rect.top;
+
+        // Convertir a coordenadas del viewBox
+        const scaleX = 500 / rect.width;
+        const scaleY = 500 / rect.height;
+        const mouseVBX = mouseXRel * scaleX;
+        const mouseVBY = mouseYRel * scaleY;
+
+        // Calcular rotación (limitado a ±15° horizontal, ±10° vertical)
+        const deltaX = mouseVBX - headCenterX;
+        const deltaY = mouseVBY - headCenterY;
+
+        const rotateY = Math.max(-15, Math.min(15, deltaX * 0.05));
+        const rotateX = Math.max(-10, Math.min(10, deltaY * 0.03));
+
+        // Aplicar transformación suave
+        robotHead.style.transition = 'transform 0.3s ease-out';
+        robotHead.style.transform = `rotate(${rotateY * 0.5}deg) translateX(${rotateY * 0.3}px) translateY(${rotateX * 0.2}px)`;
+      }, 500);
+    });
+
+    // Resetear cuando el mouse sale de la ventana
+    document.addEventListener('mouseleave', () => {
+      clearTimeout(mouseTimeout);
+      robotHead.style.transition = 'transform 0.5s ease-out';
+      robotHead.style.transform = 'rotate(0deg) translateX(0) translateY(0)';
+    });
+  }
+</script>
