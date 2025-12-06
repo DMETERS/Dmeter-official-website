@@ -137,6 +137,18 @@
         "title": "Advanced E-commerce Platform",
         "description": "Online store with multiple integrations: payments, shipping, inventory and CRM, all connected and automated.",
         "results": ["100% automated operation", "Multiple sales channels", "Real-time analytics"]
+      },
+      {
+        "industry": "SMB",
+        "title": "Comprehensive SMB Management System",
+        "description": "Complete modernization from legacy MS-DOS system to modern web application. Stock control, production, customers, sales and raw materials in an intuitive environment.",
+        "results": ["Migration from legacy system", "Modern user-friendly interface", "Foundation for future development"]
+      },
+      {
+        "industry": "Tourism/Software",
+        "title": "Budget Generator with Flight API",
+        "description": "Custom system for travel agency with real-time flight API integration. Budget generation in PDF/Excel with up-to-date airline data.",
+        "results": ["Real-time flight data", "PDF and Excel export", "Centralized history"]
       }
     ]
   },

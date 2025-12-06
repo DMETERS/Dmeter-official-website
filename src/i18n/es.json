@@ -137,6 +137,18 @@
         "title": "Plataforma E-commerce Avanzada",
         "description": "Tienda online con múltiples integraciones: pagos, envíos, inventario y CRM, todo conectado y automatizado.",
         "results": ["Operación 100% automatizada", "Múltiples canales de venta", "Analíticas en tiempo real"]
+      },
+      {
+        "industry": "PyME",
+        "title": "Sistema de Gestión Integral para PyME",
+        "description": "Modernización completa de sistema legacy MS-DOS a aplicación web moderna. Control de stock, producción, clientes, ventas y materias primas en un entorno intuitivo.",
+        "results": ["Migración desde sistema legacy", "Interfaz moderna y amigable", "Base para futuros desarrollos"]
+      },
+      {
+        "industry": "Turismo/Software",
+        "title": "Generador de Presupuestos con API de Vuelos",
+        "description": "Sistema personalizado para agencia de viajes con integración a API de vuelos en tiempo real. Generación de presupuestos en PDF/Excel con datos actualizados de aerolíneas.",
+        "results": ["Datos de vuelos en tiempo real", "Exportación PDF y Excel", "Historial centralizado"]
       }
     ]
   },

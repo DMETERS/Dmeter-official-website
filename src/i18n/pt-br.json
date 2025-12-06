@@ -137,6 +137,18 @@
         "title": "Plataforma E-commerce Avançada",
         "description": "Loja online com múltiplas integrações: pagamentos, envios, estoque e CRM, tudo conectado e automatizado.",
         "results": ["Operação 100% automatizada", "Múltiplos canais de venda", "Analytics em tempo real"]
+      },
+      {
+        "industry": "PME",
+        "title": "Sistema de Gestão Integral para PME",
+        "description": "Modernização completa de sistema legado MS-DOS para aplicação web moderna. Controle de estoque, produção, clientes, vendas e matérias-primas em um ambiente intuitivo.",
+        "results": ["Migração de sistema legado", "Interface moderna e amigável", "Base para desenvolvimentos futuros"]
+      },
+      {
+        "industry": "Turismo/Software",
+        "title": "Gerador de Orçamentos com API de Voos",
+        "description": "Sistema personalizado para agência de viagens com integração a API de voos em tempo real. Geração de orçamentos em PDF/Excel com dados atualizados de companhias aéreas.",
+        "results": ["Dados de voos em tempo real", "Exportação PDF e Excel", "Histórico centralizado"]
       }
     ]
   },
