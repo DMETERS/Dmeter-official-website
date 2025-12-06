@@ -5,7 +5,7 @@
 Landing page profesional para **Dmeter**, consultora de servicios de software, desarrollada con estilo visual **Solarpunk** - una estética que combina tecnología futurista con naturaleza, sostenibilidad y esperanza radical.
 
 **Fecha de creación:** Diciembre 2025
-**Última actualización:** Diciembre 2025 (Revolución Solarpunk)
+**Última actualización:** Diciembre 2025 (Dmetercito + Páginas Legales)
 **Tech Stack:** Astro 5 + Tailwind CSS 4
 **Idiomas:** Español (default), English, Português (Brasil)
 **Deploy:** GitHub Pages / Netlify
@@ -97,9 +97,9 @@ Dmeter-official-website/
 │   │   ├── CaseStudies.astro      # Casos de éxito
 │   │   ├── WhyDmeter.astro        # Propuesta de valor
 │   │   ├── Contact.astro          # Formulario + info
-│   │   ├── Footer.astro           # Jardín nocturno + plantas SVG
+│   │   ├── Footer.astro           # Jardín nocturno + plantas SVG + links legales
 │   │   ├── LanguageSwitcher.astro # Selector de idioma
-│   │   └── WhatsAppButton.astro   # Botón flotante
+│   │   └── Dmetercito.astro       # Chatbot de flujo guiado (3 idiomas)
 │   │
 │   ├── i18n/
 │   │   ├── es.json                # Español (default)
@@ -113,14 +113,19 @@ Dmeter-official-website/
 │   ├── pages/
 │   │   ├── index.astro            # Página ES (/)
 │   │   ├── en/index.astro         # Página EN (/en/)
-│   │   └── pt-br/index.astro      # Página PT (/pt-br/)
+│   │   ├── pt-br/index.astro      # Página PT (/pt-br/)
+│   │   ├── privacidad.astro       # Política de Privacidad
+│   │   ├── aviso-legal.astro      # Aviso Legal
+│   │   └── cookies.astro          # Política de Cookies
 │   │
 │   └── styles/
 │       └── global.css             # Sistema de diseño Solarpunk completo
 │
 ├── public/
 │   ├── favicon.svg                # Favicon gradiente verde
-│   └── images/                    # Imágenes
+│   ├── images/                    # Imágenes
+│   └── videos/
+│       └── demeter-contact.mp4    # Video de Demeter para sección Contact
 │
 ├── docs/
 │   └── LANDING-PAGE.md            # Esta documentación
@@ -228,14 +233,50 @@ Dmeter-official-website/
 | 10 | PyME/SMB | Sistema de Gestión Integral (migración MS-DOS a web) |
 | 11 | Turismo/Software | Generador de Presupuestos con API de Vuelos en tiempo real |
 
-### 6. Footer (Jardín Nocturno)
+### 6. WhyDmeter (Propuesta de Valor)
+- 3 puntos de valor: Cercanía Real, Soluciones con Propósito, Acompañamiento Continuo
+- **Nuestras Capacidades** (reemplazó "Tecnologías que Dominamos"):
+  - Web Moderno, Backend Escalable, Automatización & IA, Cloud Native, Datos & Analytics, Integraciones
+- Carousel infinito horizontal con scroll táctil
+- Fade en los bordes para efecto de loop continuo
+- Pausa al hover
+
+### 7. Contact (Formulario + Video Background)
+- Formulario centrado con campos: nombre, email, tipo de proyecto, mensaje
+- **Video de Demeter** como fondo sutil (opacidad 10%)
+- Filtro CSS para integrar con paleta Solarpunk
+- Overlay gradiente para legibilidad
+- Redes de contacto en fila horizontal debajo del formulario
+- Envío via Netlify Forms
+
+### 8. Footer (Jardín Nocturno)
 - Fondo gradiente hacia `night-deep`
 - Plantas SVG decorativas en esquinas
 - Orbes de energía sutiles
 - Link Instagram con card orgánico
 - Separador SVG ondulado con nodos de energía
+- **Links legales:** Privacidad, Aviso Legal, Cookies
 - Mensaje: "Hecho con 🌱 para un futuro mejor"
 - Badge "Cultivando el futuro digital"
+
+### 9. Dmetercito (Chatbot)
+- **Reemplazó el botón flotante de WhatsApp**
+- Chatbot de flujo guiado (árbol de decisiones)
+- Soporte completo para 3 idiomas (ES, EN, PT-BR)
+- Flujo: Inicio → Tipo proyecto → Detalles → Urgencia → Contacto → Envío
+- FAQ integrado: Precios, Tiempos, Tecnologías
+- Typing indicator mientras "piensa"
+- Envío via Netlify Forms
+- 100% JavaScript vanilla, sin dependencias
+- Icono de robot con hojas (estilo Solarpunk)
+- Animaciones suaves de apertura/cierre
+
+### 10. Páginas Legales
+- **/privacidad** - Política de Privacidad minimalista
+- **/aviso-legal** - Aviso Legal (nombre comercial Dmeter)
+- **/cookies** - Solo cookies técnicas esenciales (sin tracking)
+- Diseño consistente con estilo Solarpunk
+- Links en el footer
 
 ---
 
@@ -330,15 +371,12 @@ El archivo `netlify.toml` está configurado para deploy automático.
 ## Configuración Pendiente
 
 ### Antes del Deploy Final
-1. **WhatsApp** (`src/components/WhatsAppButton.astro` y `Contact.astro`)
+1. **Email** (`src/components/Contact.astro`)
    ```javascript
-   const WHATSAPP_NUMBER = 'TU_NUMERO_AQUI'; // ej: 5491123456789
+   const CONTACT_EMAIL = 'hola@dmeter.dev';  // Ya configurado
    ```
 
-2. **Email** (`src/components/Contact.astro`)
-   ```javascript
-   const CONTACT_EMAIL = 'tu@email.com';
-   ```
+2. **Netlify Forms** - Los formularios (Contact y Dmetercito) ya están configurados para Netlify
 
 ---
 
@@ -358,6 +396,24 @@ npm run preview
 ---
 
 ## Historial de Cambios
+
+### Diciembre 2025 - Dmetercito + Video Contact + Páginas Legales
+- **Dmetercito:** Chatbot de flujo guiado reemplazando botón WhatsApp
+  - Árbol de decisiones completo (proyecto, FAQs, contacto)
+  - Soporte 3 idiomas (ES, EN, PT-BR)
+  - Envío a Netlify Forms
+  - 100% vanilla JS, sin dependencias
+- **Contact:** Video de Demeter como fondo sutil
+  - Opacidad 10% con filtro Solarpunk
+  - Overlay gradiente para legibilidad
+  - Formulario centrado, redes en fila horizontal
+- **WhyDmeter:** "Nuestras Capacidades" reemplazó "Tecnologías que Dominamos"
+  - Carousel infinito con fade en bordes
+  - Capacidades: Web Moderno, Backend Escalable, IA, Cloud, Datos, Integraciones
+- **Páginas Legales:** Privacidad, Aviso Legal, Cookies
+  - Links agregados al footer
+  - Políticas minimalistas y profesionales
+- **Footer:** Links legales agregados
 
 ### Diciembre 2025 - Robot Humanoide + Vegetación Solarpunk + Nuevos Casos
 - **Hero:** Nueva ilustración SVG de robot humanoide estilo Tesla Optimus
@@ -404,11 +460,11 @@ npm run preview
 
 ## Próximos Pasos
 
-- [ ] Actualizar datos de contacto (WhatsApp, Email)
-- [ ] Agregar casos de éxito reales (anónimos)
+- [x] ~~Integrar chatbot~~ → Dmetercito implementado
+- [x] ~~Páginas legales~~ → Privacidad, Aviso Legal, Cookies
 - [ ] Optimizar imágenes/assets
 - [ ] Testing responsive completo
-- [ ] Fase 2: Integrar chatbot de IA
+- [ ] Configurar dominio dmeter.dev
 - [ ] Fase 2: Sistema de reserva (Calendly)
 - [ ] Fase 2: Blog/recursos
 
