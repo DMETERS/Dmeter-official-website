@@ -24,7 +24,7 @@ const comparison = t.comparison || {
       name: 'Dmeter',
       highlight: true,
       values: {
-        response: '< 24hrs',
+        response: 'En el día',
         customization: 'Total',
         support: 'Incluido',
         scalability: 'Desde el inicio',
@@ -61,7 +61,7 @@ const criteriaKeys = ['response', 'customization', 'support', 'scalability', 'ri
 // Función para determinar si un valor es positivo
 const isPositiveValue = (value: string, isHighlight: boolean) => {
   if (isHighlight) return true;
-  const positiveTerms = ['Total', 'Full', 'Incluido', 'Included', 'Incluído', 'Bajo', 'Low', 'Baixo', '< 24', 'Desde el inicio', 'From the start', 'Desde o início'];
+  const positiveTerms = ['Total', 'Full', 'Incluido', 'Included', 'Incluído', 'Bajo', 'Low', 'Baixo', 'En el día', 'Same day', 'No mesmo dia', 'Desde el inicio', 'From the start', 'Desde o início'];
   return positiveTerms.some(term => value.includes(term));
 };
 ---

@@ -5,7 +5,7 @@
 Landing page profesional para **Dmeter**, consultora de servicios de software, desarrollada con estilo visual **Solarpunk** - una estética que combina tecnología futurista con naturaleza, sostenibilidad y esperanza radical.
 
 **Fecha de creación:** Diciembre 2025
-**Última actualización:** Diciembre 2025 (S.O.S + Robot interactivo)
+**Última actualización:** Diciembre 2025 (TechLogosBar + Comparison + Métricas)
 **Tech Stack:** Astro 5 + Tailwind CSS 4
 **Idiomas:** Español (default), English, Português (Brasil)
 **Deploy:** GitHub Pages / Netlify
@@ -91,13 +91,15 @@ Dmeter-official-website/
 ├── src/
 │   ├── components/
 │   │   ├── Header.astro           # Nav con hoja decorativa + glass-warm
-│   │   ├── Hero.astro             # Ciudad Solarpunk SVG + luciérnagas
+│   │   ├── Hero.astro             # Robot Solarpunk SVG + stats
+│   │   ├── TechLogosBar.astro     # Carousel de integraciones (12 logos)
 │   │   ├── Services.astro         # Cards orgánicas con hojas
 │   │   ├── Process.astro          # Sendero jardín (semilla→árbol)
-│   │   ├── CaseStudies.astro      # Casos de éxito
-│   │   ├── WhyDmeter.astro        # Propuesta de valor
-│   │   ├── Contact.astro          # Formulario + info
-│   │   ├── Footer.astro           # Jardín nocturno + plantas SVG + links legales
+│   │   ├── CaseStudies.astro      # Carousel de casos de éxito (11)
+│   │   ├── WhyDmeter.astro        # Propuesta de valor + capacidades
+│   │   ├── Comparison.astro       # Dmeter vs Agencias vs Freelancers
+│   │   ├── Contact.astro          # Formulario + video + S.O.S
+│   │   ├── Footer.astro           # Jardín nocturno + links legales
 │   │   ├── LanguageSwitcher.astro # Selector de idioma
 │   │   └── Dmetercito.astro       # Chatbot de flujo guiado (3 idiomas)
 │   │
@@ -128,7 +130,8 @@ Dmeter-official-website/
 │       └── demeter-contact.mp4    # Video de Demeter para sección Contact
 │
 ├── docs/
-│   └── LANDING-PAGE.md            # Esta documentación
+│   ├── LANDING-PAGE.md            # Esta documentación
+│   └── Agente.md                  # Prompt del agente Solarpunk
 │
 ├── .github/
 │   └── workflows/
@@ -142,9 +145,37 @@ Dmeter-official-website/
 
 ---
 
-## Componentes Transformados
+## Orden de Componentes en la Página
 
-### 1. Header (Actualizado)
+```
+Header
+↓
+Hero (Robot + Stats)
+↓
+TechLogosBar (Carousel de integraciones)
+↓
+Services (6 servicios)
+↓
+Process (4 pasos)
+↓
+CaseStudies (11 casos)
+↓
+WhyDmeter (3 valores + capacidades)
+↓
+Comparison (Dmeter vs Agencias vs Freelancers)
+↓
+Contact (Formulario + S.O.S)
+↓
+Footer
+↓
+Dmetercito (Chatbot flotante)
+```
+
+---
+
+## Componentes Detallados
+
+### 1. Header
 - Logo con hoja decorativa animada
 - Fondo `glass-warm` con blur orgánico
 - Navegación con indicadores de hoja al hover
@@ -152,78 +183,85 @@ Dmeter-official-website/
 - Menú mobile con separadores orgánicos SVG
 - Sombra dinámica al hacer scroll
 
-### 2. Hero (Revolución Completa)
+### 2. Hero (Robot Solarpunk)
 **Interactividad del Robot:**
 - La cabeza del robot sigue al cursor del mouse después de 0.5s de inactividad
 - Movimiento sutil y suave (±15° horizontal, ±10° vertical)
 - Se resetea cuando el mouse sale de la ventana
 - Solo funciona en desktop (donde el robot es visible)
-- Estructura SVG: grupo externo con animación CSS float, grupo interno con transform JS
 
 **Ilustración SVG Robot Humanoide (estilo Tesla Optimus + Solarpunk):**
 - Robot de cuerpo completo con proporciones humanas
 - Cabeza ovalada con visor LED horizontal iluminado y ojos cyan
-- Antena/sensor superior con luz pulsante
-- Cuello articulado con segmentos y cables visibles
-- Torso con núcleo de energía verde brillante (reactor central con anillo giratorio)
-- Paneles de ventilación y luces de estado
-- Abdomen segmentado con líneas de conexión
-- Brazos completos: hombros esféricos, codos articulados, manos con 5 dedos detallados
-- Piernas completas: muslos, rodillas con luces LED, pies
-- Acabado metálico (gradientes gris oscuro a claro)
-- Acentos en colores de marca (cyan #06B6D4, verde #10B981)
-- Sin fondo (transparente, se integra con el Hero)
+- Torso con núcleo de energía verde brillante (reactor central)
+- Brazos y piernas completos con articulaciones detalladas
+- Acabado metálico con acentos cyan y verde de la marca
 
-**Vegetación Solarpunk integrada al robot:**
-- Hojas en ambos hombros (3 hojas por lado, animación sway)
-- Brote pequeño creciendo del hombro derecho (tallo + 2 hojas + punta)
-- Enredadera subiendo por brazo izquierdo (tallo curvo + 4 hojas)
-- Musgo sutil en codos (manchas verdes con opacidad 0.5)
-- Musgo sutil en rodillas (manchas más pequeñas)
-- Hojas flotando cerca del robot (3 hojas con animación float)
+**Vegetación Solarpunk integrada:**
+- Hojas en hombros, brote en hombro derecho
+- Enredadera en brazo izquierdo, musgo en codos/rodillas
+- Hojas flotando alrededor
 
-**Elementos Atmosféricos:**
-- Orbes de energía solar (green, gold, cyan)
-- Luciérnagas flotantes (`animate-firefly`)
-- Hojas flotantes animadas (`animate-sway`)
-- Grid orgánico + puntos semilla
-- Partículas de energía alrededor del robot
-- Líneas de conexión de energía sutiles desde el reactor a los brazos
+**Stats de Confianza (4 métricas):**
+| Métrica | Valor | Descripción |
+|---------|-------|-------------|
+| Proyectos | 50+ | Proyectos completados |
+| Industrias | 6 | Sectores diferentes |
+| Usuarios | 2000+ | Usuarios atendidos |
+| Compromiso | 100% | Garantía de calidad |
 
-**Stats de Confianza:**
-- 50+ Proyectos
-- 3 Países
-- 100% Compromiso
+### 3. TechLogosBar (Carousel de Integraciones)
+**Características:**
+- Carousel infinito horizontal con animación CSS (40s, imperceptible)
+- **Draggable:** Se puede arrastrar con mouse o touch
+- Pausa al hover o al arrastrar
+- Fade en los bordes (gradiente transparente)
+- Respeta `prefers-reduced-motion`
 
-### 3. Services (Cards Orgánicas)
+**Logos incluidos (12):**
+| Logo | Categoría |
+|------|-----------|
+| Stripe | Pagos |
+| PayPal | Pagos |
+| Mercado Pago | Pagos LATAM |
+| Claude | IA |
+| OpenAI | IA |
+| AWS | Cloud |
+| Google Cloud | Cloud |
+| Slack | Comunicación |
+| Vercel | Deploy |
+| Supabase | Backend |
+| GitHub | DevOps |
+| Docker | DevOps |
+
+**Traducciones:**
+- ES: "Integramos con"
+- EN: "We integrate with"
+- PT-BR: "Integramos com"
+
+### 4. Services (Cards Orgánicas)
+- 6 servicios: Landing Pages, Software a Medida, Dashboards, Soluciones con IA, Integraciones & APIs, Consultoría Digital
 - Clase `card-organic` con bordes redondeados 28px
 - Decoración de hoja SVG en esquina superior derecha
 - Iconos con gradiente y pulso de energía al hover
-- Línea de crecimiento en bottom al hover
-- Subtítulo badge "Soluciones que crecen contigo"
 
-### 4. Process (Sendero de Jardín)
-**Iconos SVG personalizados por etapa:**
-1. **Conversamos** - Semilla plantándose (verde brote)
-2. **Diseñamos** - Brote emergiendo (verde primario)
-3. **Desarrollamos** - Planta con raíces tech (cyan)
-4. **Acompañamos** - Árbol con frutos/energía (dorado solar)
+### 5. Process (Sendero de Jardín)
+**4 etapas con iconos SVG:**
+1. **Conversamos** - Semilla plantándose
+2. **Diseñamos** - Brote emergiendo
+3. **Desarrollamos** - Planta con raíces tech
+4. **Acompañamos** - Árbol con frutos
 
-**Elementos visuales:**
 - Línea ondulada SVG como camino de jardín
-- Nodos de energía en la línea
 - Gradiente de colores progresivo
-- Pequeñas hojas decorativas animadas
 - CTA "Plantemos juntos"
 
-### 5. CaseStudies (Carousel de 9 Casos)
+### 6. CaseStudies (Carousel de 11 Casos)
 **Carousel CSS nativo + JavaScript vanilla:**
-- 9 casos de éxito basados en experiencia real (anónimos)
+- 11 casos de éxito basados en experiencia real (anónimos)
 - Autoplay cada 6 segundos (respeta prefers-reduced-motion)
-- Navegación: flechas, dots indicadores, swipe táctil
-- Responsive: 1 card (mobile), 2 cards (tablet), 3 cards (desktop)
-- Accesibilidad: keyboard navigation, aria-labels
-- Estilo Solarpunk: card-organic, hojas decorativas, colores por industria
+- Navegación: flechas, dots, swipe táctil, keyboard
+- Responsive: 1 card (mobile), 2 (tablet), 3 (desktop)
 
 **Casos incluidos:**
 | # | Industria | Proyecto |
@@ -232,138 +270,85 @@ Dmeter-official-website/
 | 2 | Automatización | Sistema de Prospección Automatizado |
 | 3 | IA/Contenido | Generador de Contenido Literario (+2000 autores) |
 | 4 | Turismo | Plataforma de Viajes (Amadeus, Orbis, RateHawk) |
-| 5 | Fintech | Gateway de Pagos Multi-proveedor (Stripe, Redsys, PayPal) |
+| 5 | Fintech | Gateway de Pagos (Stripe, Redsys, PayPal) |
 | 6 | IA/Chatbots | Chatbot para Autores Literarios |
 | 7 | DevTools | Agente MCP con IA |
 | 8 | Healthcare | Integración de Telemedicina |
 | 9 | E-commerce | Plataforma E-commerce Avanzada |
-| 10 | PyME/SMB | Sistema de Gestión Integral (migración MS-DOS a web) |
-| 11 | Turismo/Software | Generador de Presupuestos con API de Vuelos en tiempo real |
+| 10 | PyME | Sistema de Gestión (migración MS-DOS a web) |
+| 11 | Turismo | Generador de Presupuestos con API de Vuelos |
 
-### 6. WhyDmeter (Propuesta de Valor)
-- 3 puntos de valor: Cercanía Real, Soluciones con Propósito, Acompañamiento Continuo
-- **Nuestras Capacidades** (reemplazó "Tecnologías que Dominamos"):
-  - Web Moderno, Backend Escalable, Automatización & IA, Cloud Native, Datos & Analytics, Integraciones
-- Carousel infinito horizontal con scroll táctil
-- Fade en los bordes para efecto de loop continuo
-- Pausa al hover
+### 7. WhyDmeter (Propuesta de Valor)
+- **3 puntos de valor:**
+  - Cercanía Real
+  - Soluciones con Propósito
+  - Acompañamiento Continuo
+- **Carousel de Capacidades:** Web Moderno, Backend Escalable, Automatización & IA, Cloud Native, Datos & Analytics, Integraciones
 
-### 7. Contact (Formulario + Video Background + S.O.S)
-- Formulario centrado con campos: nombre, email, tipo de proyecto, mensaje
-- **Video de Demeter** como fondo sutil (opacidad 10%)
-- Filtro CSS para integrar con paleta Solarpunk
-- Overlay gradiente para legibilidad
-- Redes de contacto en fila horizontal debajo del formulario
+### 8. Comparison (Dmeter vs Alternativas)
+**Diseño: 3 Cards Simétricas**
+- Card de Dmeter destacada con borde verde, escala 105%, badge "Recomendado"
+- Cards de Agencias y Freelancers con estilo neutro
+- CTA solo en card de Dmeter
+
+**Criterios de comparación:**
+| Criterio | Dmeter | Agencias | Freelancers |
+|----------|--------|----------|-------------|
+| Tiempo de respuesta | En el día | Días/Semanas | Variable |
+| Personalización | Total | Procesos rígidos | Depende |
+| Soporte post-lanzamiento | Incluido | Costo extra | Limitado |
+| Escalabilidad | Desde el inicio | Lento | No escalable |
+| Riesgo | Bajo | Medio | Alto |
+
+**Traducciones tiempo de respuesta:**
+- ES: "En el día"
+- EN: "Same day"
+- PT-BR: "No mesmo dia"
+
+### 9. Contact (Formulario + S.O.S)
+- Formulario: nombre, email, tipo de proyecto, mensaje
+- Video de fondo sutil (opacidad 10%)
+- Redes de contacto en fila horizontal
 - Envío via Netlify Forms
 
 **S.O.S de Emergencia Técnica:**
-- Enlace discreto debajo de las redes (40% opacidad, hover 60%)
-- Texto: "¿Sistema caído? Emergencia técnica →"
-- Modal fullscreen al hacer click con animaciones fade + scale
-- Icono con pulso verde Solarpunk (sin rojos de alarma)
-- Formulario ultra mínimo: teléfono/WhatsApp + descripción breve (280 chars)
-- Campo oculto `priority: urgent` para filtrar en Netlify
-- Cierra con X, Escape, o click en backdrop
-- Soporte 3 idiomas (ES, EN, PT-BR)
-- Envío como formulario "sos" separado en Netlify
+- Enlace discreto debajo de las redes
+- Modal fullscreen con formulario ultra mínimo
+- Campo `priority: urgent` para filtrar en Netlify
 
-### 8. Footer (Jardín Nocturno)
+### 10. Footer (Jardín Nocturno)
 - Fondo gradiente hacia `night-deep`
-- Plantas SVG decorativas en esquinas
-- Orbes de energía sutiles
-- Link Instagram con card orgánico
-- Separador SVG ondulado con nodos de energía
-- **Links legales:** Privacidad, Aviso Legal, Cookies
+- Plantas SVG decorativas
+- Links legales: Privacidad, Aviso Legal, Cookies
 - Mensaje: "Hecho con 🌱 para un futuro mejor"
-- Badge "Cultivando el futuro digital"
 
-### 9. Dmetercito (Chatbot)
-- **Reemplazó el botón flotante de WhatsApp**
+### 11. Dmetercito (Chatbot)
 - Chatbot de flujo guiado (árbol de decisiones)
-- Soporte completo para 3 idiomas (ES, EN, PT-BR)
-- Flujo: Inicio → Tipo proyecto → Detalles → Urgencia → Contacto → Envío
+- Soporte 3 idiomas (ES, EN, PT-BR)
 - FAQ integrado: Precios, Tiempos, Tecnologías
-- Typing indicator mientras "piensa"
 - Envío via Netlify Forms
-- 100% JavaScript vanilla, sin dependencias
-- Icono de robot con hojas (estilo Solarpunk)
-- Animaciones suaves de apertura/cierre
+- 100% JavaScript vanilla
 
-### 10. Páginas Legales
-- **/privacidad** - Política de Privacidad minimalista
-- **/aviso-legal** - Aviso Legal (nombre comercial Dmeter)
-- **/cookies** - Solo cookies técnicas esenciales (sin tracking)
-- Diseño consistente con estilo Solarpunk
-- Links en el footer
+### 12. Páginas Legales
+- **/privacidad** - Política de Privacidad
+- **/aviso-legal** - Aviso Legal
+- **/cookies** - Política de Cookies
 
 ---
 
 ## Sistema de Animaciones
 
-### Animaciones Definidas en global.css
-
-| Clase | Efecto | Descripción |
-|-------|--------|-------------|
-| `.animate-float` | Flotación | Hoja en la brisa (4s) |
-| `.animate-grow` | Crecimiento | Planta brotando (0.8s) |
-| `.animate-sway` | Balanceo | Plantas moviéndose (6s) |
-| `.animate-breathe` | Respiración | Expansión suave (4s) |
-| `.animate-solar-pulse` | Pulso solar | Glow verde/dorado (3s) |
-| `.animate-bloom` | Florecimiento | Botones expandiendo (2s) |
-| `.animate-sprout` | Brote | Aparecer desde abajo (0.7s) |
-| `.animate-sun` | Rotación sol | 360° lento (30s) |
-| `.animate-firefly` | Luciérnaga | Parpadeo suave (3s) |
-
-### Delays para Escalonamiento
-```css
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
-.delay-500 { animation-delay: 0.5s; }
-```
-
----
-
-## Componentes CSS Reutilizables
-
-### Botones
-```css
-.btn-bloom          /* Botón principal con gradiente y glow */
-.btn-outline-organic /* Botón outline con hover suave */
-```
-
-### Cards
-```css
-.card-organic       /* Card con bordes 28px y hover elevado */
-.card-hover         /* Hover genérico con sombra */
-```
-
-### Glass Effects
-```css
-.glass              /* Glassmorphism básico */
-.glass-warm         /* Glassmorphism cálido para header */
-```
-
-### Fondos
-```css
-.bg-grid-organic    /* Grid sutil verde */
-.bg-dots-seeds      /* Puntos como semillas */
-.bg-horizon         /* Gradiente de horizonte */
-```
-
-### Orbes de Energía
-```css
-.orb-solar          /* Base para orbes */
-.orb-solar-green    /* Orbe verde */
-.orb-solar-gold     /* Orbe dorado */
-.orb-solar-cyan     /* Orbe cyan */
-```
-
-### Inputs
-```css
-.input-organic      /* Input con bordes verdes suaves */
-```
+| Clase | Efecto | Duración |
+|-------|--------|----------|
+| `.animate-float` | Flotación (hoja en brisa) | 4s |
+| `.animate-grow` | Crecimiento (planta brotando) | 0.8s |
+| `.animate-sway` | Balanceo (plantas) | 6s |
+| `.animate-breathe` | Respiración (expansión suave) | 4s |
+| `.animate-solar-pulse` | Pulso solar (glow verde/dorado) | 3s |
+| `.animate-bloom` | Florecimiento (botones) | 2s |
+| `.animate-sprout` | Brote (aparecer desde abajo) | 0.7s |
+| `.animate-sun` | Rotación sol | 30s |
+| `.animate-firefly` | Luciérnaga (parpadeo) | 3s |
 
 ---
 
@@ -373,136 +358,89 @@ Dmeter-official-website/
 **Repo:** https://github.com/DMETERS/Dmeter-official-website
 **URL:** https://dmeters.github.io/Dmeter-official-website/
 
-**Configuración en astro.config.mjs:**
-```javascript
-site: 'https://dmeters.github.io',
-base: '/Dmeter-official-website',
-```
-
-**GitHub Actions:** `.github/workflows/deploy.yml`
-
 ### Netlify (Alternativa)
 El archivo `netlify.toml` está configurado para deploy automático.
 
 ---
 
-## Configuración Pendiente
+## Netlify Forms
 
-### Antes del Deploy Final
-1. **Email** (`src/components/Contact.astro`)
-   ```javascript
-   const CONTACT_EMAIL = 'hola@dmeter.dev';  // Ya configurado
-   ```
-
-2. **Netlify Forms** - 3 formularios configurados:
-   - `contact` - Formulario principal de contacto
-   - `dmetercito` - Chatbot de flujo guiado
-   - `sos` - Emergencias técnicas (campo `priority: urgent`)
+3 formularios configurados:
+- `contact` - Formulario principal
+- `dmetercito` - Chatbot
+- `sos` - Emergencias (campo `priority: urgent`)
 
 ---
 
 ## Comandos
 
 ```bash
-# Desarrollo local
-npm run dev
-
-# Build para producción
-npm run build
-
-# Preview del build
-npm run preview
+npm run dev      # Desarrollo local
+npm run build    # Build producción
+npm run preview  # Preview del build
 ```
 
 ---
 
 ## Historial de Cambios
 
+### Diciembre 2025 - TechLogosBar + Comparison + Métricas
+- **TechLogosBar:** Nuevo componente con carousel de integraciones
+  - 12 logos: Stripe, PayPal, Mercado Pago, Claude, OpenAI, AWS, Google Cloud, Slack, Vercel, Supabase, GitHub, Docker
+  - Carousel infinito (40s) + draggable con mouse/touch
+  - Fade en bordes, pausa al hover/drag
+  - Título traducido en 3 idiomas
+- **Comparison:** Nuevo componente comparativo
+  - 3 cards simétricas: Dmeter vs Agencias vs Freelancers
+  - Card Dmeter destacada (escala 105%, borde verde, badge "Recomendado")
+  - 5 criterios: Tiempo de respuesta, Personalización, Soporte, Escalabilidad, Riesgo
+  - Tiempo de respuesta cambiado de "< 24hrs" a texto claro ("En el día", "Same day", "No mesmo dia")
+  - CTA solo en card de Dmeter
+- **Hero Stats actualizadas:**
+  - Antes: 50+ Proyectos, 3 Países, 100% Compromiso
+  - Ahora: 50+ Proyectos, 6 Industrias, 2000+ Usuarios, 100% Compromiso
+- **Orden de componentes actualizado:**
+  - Hero → TechLogosBar → Services → Process → CaseStudies → WhyDmeter → Comparison → Contact
+
 ### Diciembre 2025 - S.O.S + Robot Interactivo
 - **Robot Hero:** La cabeza sigue al cursor después de 0.5s de inactividad
-  - Estructura dual: grupo CSS (animación float) + grupo JS (seguimiento mouse)
-  - Rotación limitada ±15° horizontal, ±10° vertical
-  - Transición suave 0.3s
-  - Solo desktop (donde robot es visible)
-- **S.O.S Emergencia:** Modal para urgencias técnicas
-  - Enlace discreto bajo redes de contacto (40% opacidad)
-  - Modal fullscreen con animaciones fade + scale
-  - Formulario ultra mínimo: teléfono + descripción (280 chars)
-  - Icono con pulso verde Solarpunk
-  - Campo `priority: urgent` para Netlify
-  - Soporte 3 idiomas
-  - Formulario separado "sos" en Netlify
+- **S.O.S Emergencia:** Modal para urgencias técnicas con formulario mínimo
 
 ### Diciembre 2025 - Dmetercito + Video Contact + Páginas Legales
 - **Dmetercito:** Chatbot de flujo guiado reemplazando botón WhatsApp
-  - Árbol de decisiones completo (proyecto, FAQs, contacto)
-  - Soporte 3 idiomas (ES, EN, PT-BR)
-  - Envío a Netlify Forms
-  - 100% vanilla JS, sin dependencias
 - **Contact:** Video de Demeter como fondo sutil
-  - Opacidad 10% con filtro Solarpunk
-  - Overlay gradiente para legibilidad
-  - Formulario centrado, redes en fila horizontal
-- **WhyDmeter:** "Nuestras Capacidades" reemplazó "Tecnologías que Dominamos"
-  - Carousel infinito con fade en bordes
-  - Capacidades: Web Moderno, Backend Escalable, IA, Cloud, Datos, Integraciones
 - **Páginas Legales:** Privacidad, Aviso Legal, Cookies
-  - Links agregados al footer
-  - Políticas minimalistas y profesionales
-- **Footer:** Links legales agregados
 
-### Diciembre 2025 - Robot Humanoide + Vegetación Solarpunk + Nuevos Casos
-- **Hero:** Nueva ilustración SVG de robot humanoide estilo Tesla Optimus
-- **Robot:** Cuerpo completo detallado con reactor de energía, articulaciones, manos con dedos
-- **Colores robot:** Metálico (grises) con acentos cyan y verde de la marca
-- **Vegetación Solarpunk:** Integrada al robot para fusión tech-naturaleza:
-  - Hojas en hombros (animación sway)
-  - Brote creciendo del hombro derecho
-  - Enredadera en brazo izquierdo con hojas
-  - Musgo en codos y rodillas
-  - Hojas flotando alrededor
-- **CaseStudies:** Agregados 2 nuevos casos (11 total):
-  - Sistema de Gestión Integral para PyME (migración MS-DOS a web moderna)
-  - Generador de Presupuestos con API de Vuelos en tiempo real
-- **Contador:** Cambiado de dinámico a "50+" fijo para consistencia con Hero
+### Diciembre 2025 - Robot Humanoide + Vegetación Solarpunk
+- **Hero:** Robot humanoide estilo Tesla Optimus con vegetación integrada
+- **CaseStudies:** Expandido a 11 casos de éxito
 
 ### Diciembre 2025 - Carousel de Casos de Éxito
-- **CaseStudies:** Transformado de 3 cards estáticas a carousel con 9 casos
-- **Carousel:** CSS nativo + JavaScript vanilla (sin dependencias)
-- **Casos reales:** 9 proyectos basados en experiencia real (anónimos)
-- **Autoplay:** 6 segundos, respeta prefers-reduced-motion
-- **Accesibilidad:** Keyboard navigation, aria-labels, pause on hover
-- **i18n:** Traducciones completas en ES/EN/PT-BR
-- **Estilos:** Cards con estilo card-organic consistente con Services
+- **CaseStudies:** Carousel con 9 casos iniciales
 
 ### Diciembre 2025 - Revolución Solarpunk
-- **Paleta de colores:** Expandida con sistema completo (verdes, dorados, tierras, nocturnos)
-- **Tipografías:** Cambiadas a Fraunces + Nunito (más orgánicas)
-- **Hero:** Ilustración SVG de ciudad solarpunk completa
-- **Animaciones:** 9 nuevas animaciones naturales
-- **Header:** Rediseño con glass-warm y hoja decorativa
-- **Services:** Cards orgánicas con decoraciones de hojas
-- **Process:** Transformado en sendero de jardín con iconos de crecimiento
-- **Footer:** Convertido en jardín nocturno con plantas SVG
-- **Filosofía:** Integración completa de principios Solarpunk UX/UI
+- Paleta de colores expandida
+- Tipografías Fraunces + Nunito
+- Animaciones naturales
+- Componentes orgánicos
 
 ### Diciembre 2025 - Versión Inicial
-- Setup inicial con Astro 5 + Tailwind CSS 4
+- Setup Astro 5 + Tailwind CSS 4
 - Sistema i18n (ES/EN/PT-BR)
-- Componentes base
-- Deploy en GitHub Pages
+- Deploy GitHub Pages
 
 ---
 
 ## Próximos Pasos
 
-- [x] ~~Integrar chatbot~~ → Dmetercito implementado
+- [x] ~~Integrar chatbot~~ → Dmetercito
 - [x] ~~Páginas legales~~ → Privacidad, Aviso Legal, Cookies
+- [x] ~~Barra de logos/integraciones~~ → TechLogosBar
+- [x] ~~Sección comparativa~~ → Comparison
+- [x] ~~Métricas expandidas~~ → 4 stats en Hero
 - [ ] Optimizar imágenes/assets
 - [ ] Testing responsive completo
 - [ ] Configurar dominio dmeter.dev
-- [ ] Fase 2: Sistema de reserva (Calendly)
-- [ ] Fase 2: Blog/recursos
 
 ---
 
@@ -511,6 +449,6 @@ npm run preview
 - **Framework:** [Astro](https://astro.build/)
 - **Estilos:** [Tailwind CSS](https://tailwindcss.com/)
 - **Fuentes:** [Google Fonts](https://fonts.google.com/) (Fraunces, Nunito)
-- **Iconos:** SVG inline personalizados (estilo Solarpunk)
+- **Iconos:** SVG inline personalizados (Simple Icons para logos)
 - **Filosofía:** Solarpunk Design System
 - **Deploy:** GitHub Pages / Netlify
