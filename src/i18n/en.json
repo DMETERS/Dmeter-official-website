@@ -16,7 +16,16 @@
     "titleEnd": "your business",
     "subtitle": "We develop custom digital solutions: from landing pages to AI-powered systems. Technology with purpose, real results.",
     "cta": "Schedule a free call",
-    "ctaSecondary": "Explore our services"
+    "ctaSecondary": "Explore our services",
+    "stats": {
+      "projects": "Projects",
+      "industries": "Industries",
+      "users": "Users",
+      "commitment": "Commitment"
+    }
+  },
+  "logos": {
+    "title": "We integrate with"
   },
   "services": {
     "title": "Our Services",
@@ -208,5 +217,52 @@
     "phone": "WhatsApp or Phone",
     "problem": "What's happening?",
     "submit": "Send S.O.S"
+  },
+  "comparison": {
+    "title": "Why choose us?",
+    "subtitle": "Compare and decide with clarity",
+    "cta": "Start your project",
+    "criteria": {
+      "response": "Response time",
+      "customization": "Customization",
+      "support": "Post-launch support",
+      "scalability": "Scalability",
+      "risk": "Risk"
+    },
+    "options": [
+      {
+        "name": "Dmeter",
+        "highlight": true,
+        "values": {
+          "response": "< 24hrs",
+          "customization": "Full",
+          "support": "Included",
+          "scalability": "From the start",
+          "risk": "Low"
+        }
+      },
+      {
+        "name": "Agencies",
+        "highlight": false,
+        "values": {
+          "response": "Days/Weeks",
+          "customization": "Rigid processes",
+          "support": "Extra cost",
+          "scalability": "Slow",
+          "risk": "Medium"
+        }
+      },
+      {
+        "name": "Freelancers",
+        "highlight": false,
+        "values": {
+          "response": "Variable",
+          "customization": "Depends",
+          "support": "Limited",
+          "scalability": "Not scalable",
+          "risk": "High"
+        }
+      }
+    ]
   }
 }

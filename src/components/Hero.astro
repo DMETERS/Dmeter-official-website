@@ -94,18 +94,22 @@ const t = useTranslations(lang);
 
         <!-- Indicadores de confianza / Stats -->
         <div class="mt-12 pt-8 border-t border-primary/10">
-          <div class="flex flex-wrap gap-8 justify-center lg:justify-start">
+          <div class="flex flex-wrap gap-6 justify-center lg:justify-start">
             <div class="text-center lg:text-left">
               <div class="text-3xl font-bold gradient-text-static">50+</div>
-              <div class="text-text-dim text-sm mt-1">Proyectos</div>
+              <div class="text-text-dim text-sm mt-1">{t.hero?.stats?.projects || 'Proyectos'}</div>
             </div>
             <div class="text-center lg:text-left">
-              <div class="text-3xl font-bold gradient-text-static">3</div>
-              <div class="text-text-dim text-sm mt-1">Países</div>
+              <div class="text-3xl font-bold gradient-text-static">6</div>
+              <div class="text-text-dim text-sm mt-1">{t.hero?.stats?.industries || 'Industrias'}</div>
+            </div>
+            <div class="text-center lg:text-left">
+              <div class="text-3xl font-bold gradient-text-static">2000+</div>
+              <div class="text-text-dim text-sm mt-1">{t.hero?.stats?.users || 'Usuarios'}</div>
             </div>
             <div class="text-center lg:text-left">
               <div class="text-3xl font-bold gradient-text-static">100%</div>
-              <div class="text-text-dim text-sm mt-1">Compromiso</div>
+              <div class="text-text-dim text-sm mt-1">{t.hero?.stats?.commitment || 'Compromiso'}</div>
             </div>
           </div>
         </div>

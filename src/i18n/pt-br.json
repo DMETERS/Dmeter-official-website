@@ -16,7 +16,16 @@
     "titleEnd": "seu negócio",
     "subtitle": "Desenvolvemos soluções digitais sob medida: de landing pages a sistemas com inteligência artificial. Tecnologia com propósito, resultados reais.",
     "cta": "Agende uma call gratuita",
-    "ctaSecondary": "Conheça nossos serviços"
+    "ctaSecondary": "Conheça nossos serviços",
+    "stats": {
+      "projects": "Projetos",
+      "industries": "Indústrias",
+      "users": "Usuários",
+      "commitment": "Compromisso"
+    }
+  },
+  "logos": {
+    "title": "Integramos com"
   },
   "services": {
     "title": "Nossos Serviços",
@@ -208,5 +217,52 @@
     "phone": "WhatsApp ou Telefone",
     "problem": "O que está acontecendo?",
     "submit": "Enviar S.O.S"
+  },
+  "comparison": {
+    "title": "Por que nos escolher?",
+    "subtitle": "Compare e decida com clareza",
+    "cta": "Comece seu projeto",
+    "criteria": {
+      "response": "Tempo de resposta",
+      "customization": "Personalização",
+      "support": "Suporte pós-lançamento",
+      "scalability": "Escalabilidade",
+      "risk": "Risco"
+    },
+    "options": [
+      {
+        "name": "Dmeter",
+        "highlight": true,
+        "values": {
+          "response": "< 24hrs",
+          "customization": "Total",
+          "support": "Incluído",
+          "scalability": "Desde o início",
+          "risk": "Baixo"
+        }
+      },
+      {
+        "name": "Agências",
+        "highlight": false,
+        "values": {
+          "response": "Dias/Semanas",
+          "customization": "Processos rígidos",
+          "support": "Custo extra",
+          "scalability": "Lento",
+          "risk": "Médio"
+        }
+      },
+      {
+        "name": "Freelancers",
+        "highlight": false,
+        "values": {
+          "response": "Variável",
+          "customization": "Depende",
+          "support": "Limitado",
+          "scalability": "Não escalável",
+          "risk": "Alto"
+        }
+      }
+    ]
   }
 }

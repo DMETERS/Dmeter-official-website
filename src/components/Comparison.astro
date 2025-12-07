@@ -1,0 +1,160 @@
+---
+import { type Lang, defaultLang, useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
+const t = useTranslations(lang);
+
+const comparison = t.comparison || {
+  title: '¿Por qué elegirnos?',
+  subtitle: 'Compara y decide con claridad',
+  cta: 'Comienza tu proyecto',
+  criteria: {
+    response: 'Tiempo de respuesta',
+    customization: 'Personalización',
+    support: 'Soporte post-lanzamiento',
+    scalability: 'Escalabilidad',
+    risk: 'Riesgo'
+  },
+  options: [
+    {
+      name: 'Dmeter',
+      highlight: true,
+      values: {
+        response: '< 24hrs',
+        customization: 'Total',
+        support: 'Incluido',
+        scalability: 'Desde el inicio',
+        risk: 'Bajo'
+      }
+    },
+    {
+      name: 'Agencias',
+      highlight: false,
+      values: {
+        response: 'Días/Semanas',
+        customization: 'Procesos rígidos',
+        support: 'Costo extra',
+        scalability: 'Lento',
+        risk: 'Medio'
+      }
+    },
+    {
+      name: 'Freelancers',
+      highlight: false,
+      values: {
+        response: 'Variable',
+        customization: 'Depende',
+        support: 'Limitado',
+        scalability: 'No escalable',
+        risk: 'Alto'
+      }
+    }
+  ]
+};
+
+const criteriaKeys = ['response', 'customization', 'support', 'scalability', 'risk'] as const;
+
+// Función para determinar si un valor es positivo
+const isPositiveValue = (value: string, isHighlight: boolean) => {
+  if (isHighlight) return true;
+  const positiveTerms = ['Total', 'Full', 'Incluido', 'Included', 'Incluído', 'Bajo', 'Low', 'Baixo', '< 24', 'Desde el inicio', 'From the start', 'Desde o início'];
+  return positiveTerms.some(term => value.includes(term));
+};
+---
+
+<section class="py-20 md:py-32 relative overflow-hidden">
+  <!-- Background -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold">
+        {comparison.title}
+      </h2>
+      <p class="mt-4 text-lg text-text-muted">
+        {comparison.subtitle}
+      </p>
+    </div>
+
+    <!-- 3 Cards simétricas -->
+    <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+      {comparison.options.map((option, optionIndex) => (
+        <div class={`relative rounded-3xl p-6 lg:p-8 transition-all duration-300 ${
+          option.highlight
+            ? 'bg-gradient-to-b from-primary/20 to-primary/5 border-2 border-primary shadow-lg shadow-primary/20 scale-[1.02] md:scale-105'
+            : 'bg-bg-card/50 border border-white/10 hover:border-white/20'
+        }`}>
+          {/* Badge recomendado */}
+          {option.highlight && (
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+              <span class="px-4 py-1.5 text-xs font-bold bg-primary text-bg-dark rounded-full uppercase tracking-wider">
+                {lang === 'en' ? 'Recommended' : lang === 'pt-br' ? 'Recomendado' : 'Recomendado'}
+              </span>
+            </div>
+          )}
+
+          {/* Header de la card */}
+          <div class="text-center mb-8 pt-2">
+            <h3 class={`text-2xl font-bold ${option.highlight ? 'text-primary' : 'text-text-light'}`}>
+              {option.name}
+            </h3>
+          </div>
+
+          {/* Lista de criterios */}
+          <div class="space-y-4">
+            {criteriaKeys.map((key) => {
+              const value = option.values[key];
+              const isPositive = isPositiveValue(value, option.highlight);
+
+              return (
+                <div class="flex items-start gap-3">
+                  {/* Icono */}
+                  <div class={`flex-shrink-0 w-5 h-5 mt-0.5 ${isPositive ? 'text-primary' : 'text-text-dim'}`}>
+                    {isPositive ? (
+                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                      </svg>
+                    ) : (
+                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                      </svg>
+                    )}
+                  </div>
+
+                  {/* Texto */}
+                  <div class="flex-1 min-w-0">
+                    <p class="text-xs text-text-dim uppercase tracking-wide mb-0.5">
+                      {comparison.criteria[key]}
+                    </p>
+                    <p class={`font-medium ${isPositive ? 'text-text-light' : 'text-text-muted'}`}>
+                      {value}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* CTA solo en la card destacada */}
+          {option.highlight && (
+            <div class="mt-8 pt-6 border-t border-primary/20">
+              <a
+                href="#contact"
+                class="block w-full text-center px-6 py-3 bg-primary hover:bg-primary-dark text-bg-dark font-semibold rounded-full transition-all hover:scale-105"
+              >
+                {comparison.cta}
+              </a>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
