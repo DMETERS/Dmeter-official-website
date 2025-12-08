@@ -61,7 +61,7 @@ const INSTAGRAM_URL = 'https://www.instagram.com/dmeter2022/';
           <input type="checkbox" name="botcheck" class="hidden" />
 
           <div class="grid sm:grid-cols-2 gap-6">
-            <div class="input-organic">
+            <div>
               <label for="name" class="block text-sm font-medium text-text-light mb-2">
                 {t.contact.form.name}
               </label>
@@ -71,11 +71,11 @@ const INSTAGRAM_URL = 'https://www.instagram.com/dmeter2022/';
                 name="name"
                 required
                 placeholder={t.contact.form.namePlaceholder}
-                class="input-field w-full px-4 py-3 bg-bg-dark border border-primary/20 rounded-xl text-text-light placeholder:text-text-dim/60 focus:outline-none transition-all duration-300"
+                class="w-full px-4 py-3 bg-bg-dark border border-primary/20 rounded-xl text-text-light placeholder:text-text-dim/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
               />
             </div>
 
-            <div class="input-organic">
+            <div>
               <label for="email" class="block text-sm font-medium text-text-light mb-2">
                 {t.contact.form.email}
               </label>
@@ -85,12 +85,12 @@ const INSTAGRAM_URL = 'https://www.instagram.com/dmeter2022/';
                 name="email"
                 required
                 placeholder={t.contact.form.emailPlaceholder}
-                class="input-field w-full px-4 py-3 bg-bg-dark border border-primary/20 rounded-xl text-text-light placeholder:text-text-dim/60 focus:outline-none transition-all duration-300"
+                class="w-full px-4 py-3 bg-bg-dark border border-primary/20 rounded-xl text-text-light placeholder:text-text-dim/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
               />
             </div>
           </div>
 
-          <div class="input-organic">
+          <div>
             <label for="project" class="block text-sm font-medium text-text-light mb-2">
               {t.contact.form.project}
             </label>
@@ -98,7 +98,7 @@ const INSTAGRAM_URL = 'https://www.instagram.com/dmeter2022/';
               id="project"
               name="project"
               required
-              class="input-field w-full px-4 py-3 bg-bg-dark border border-primary/20 rounded-xl text-text-light focus:outline-none transition-all duration-300"
+              class="w-full px-4 py-3 bg-bg-dark border border-primary/20 rounded-xl text-text-light focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
             >
               {t.contact.form.projectOptions.map((option) => (
                 <option value={option}>{option}</option>
@@ -106,7 +106,7 @@ const INSTAGRAM_URL = 'https://www.instagram.com/dmeter2022/';
             </select>
           </div>
 
-          <div class="input-organic">
+          <div>
             <label for="message" class="block text-sm font-medium text-text-light mb-2">
               {t.contact.form.message}
             </label>
@@ -116,7 +116,7 @@ const INSTAGRAM_URL = 'https://www.instagram.com/dmeter2022/';
               rows="4"
               required
               placeholder={t.contact.form.messagePlaceholder}
-              class="input-field w-full px-4 py-3 bg-bg-dark border border-primary/20 rounded-xl text-text-light placeholder:text-text-dim/60 focus:outline-none transition-all duration-300 resize-none"
+              class="w-full px-4 py-3 bg-bg-dark border border-primary/20 rounded-xl text-text-light placeholder:text-text-dim/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none"
             ></textarea>
           </div>
 
@@ -126,7 +126,7 @@ const INSTAGRAM_URL = 'https://www.instagram.com/dmeter2022/';
           >
             <span class="btn-text">{t.contact.form.submit}</span>
             <svg class="w-5 h-5 btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
             <svg class="w-5 h-5 btn-loader hidden animate-spin" fill="none" viewBox="0 0 24 24">
               <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -302,40 +302,6 @@ const INSTAGRAM_URL = 'https://www.instagram.com/dmeter2022/';
 </section>
 
 <style>
-  /* Focus state orgánico - borde que crece como raíz */
-  .input-organic {
-    position: relative;
-  }
-
-  .input-field {
-    position: relative;
-    z-index: 1;
-  }
-
-  .input-field:focus {
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
-  }
-
-  /* Efecto de raíz creciendo */
-  .input-organic::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #10B981, #34D399, #10B981, transparent);
-    transition: width 0.4s ease-out, left 0.4s ease-out;
-    border-radius: 2px;
-    z-index: 2;
-  }
-
-  .input-organic:focus-within::after {
-    width: 100%;
-    left: 0;
-  }
-
   /* Animación de la planta floreciendo */
   .success-plant .stem {
     stroke-dasharray: 40;
@@ -348,18 +314,10 @@ const INSTAGRAM_URL = 'https://www.instagram.com/dmeter2022/';
     transform: scale(0);
   }
 
-  .success-plant .leaf-1 {
-    animation: growLeaf 0.4s ease-out 0.6s forwards;
-  }
-  .success-plant .leaf-2 {
-    animation: growLeaf 0.4s ease-out 0.7s forwards;
-  }
-  .success-plant .leaf-3 {
-    animation: growLeaf 0.4s ease-out 0.9s forwards;
-  }
-  .success-plant .leaf-4 {
-    animation: growLeaf 0.4s ease-out 1s forwards;
-  }
+  .success-plant .leaf-1 { animation: growLeaf 0.4s ease-out 0.6s forwards; }
+  .success-plant .leaf-2 { animation: growLeaf 0.4s ease-out 0.7s forwards; }
+  .success-plant .leaf-3 { animation: growLeaf 0.4s ease-out 0.9s forwards; }
+  .success-plant .leaf-4 { animation: growLeaf 0.4s ease-out 1s forwards; }
 
   .success-plant .flower {
     transform-origin: center;
@@ -380,40 +338,19 @@ const INSTAGRAM_URL = 'https://www.instagram.com/dmeter2022/';
   }
 
   @keyframes growLeaf {
-    0% {
-      opacity: 0;
-      transform: scale(0) rotate(-10deg);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1) rotate(0);
-    }
+    0% { opacity: 0; transform: scale(0) rotate(-10deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0); }
   }
 
   @keyframes bloomFlower {
-    0% {
-      opacity: 0;
-      transform: scale(0) rotate(-180deg);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1) rotate(0);
-    }
+    0% { opacity: 0; transform: scale(0) rotate(-180deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0); }
   }
 
   @keyframes sparkle {
-    0% {
-      opacity: 0;
-      transform: scale(0);
-    }
-    50% {
-      opacity: 1;
-      transform: scale(1.5);
-    }
-    100% {
-      opacity: 0.8;
-      transform: scale(1);
-    }
+    0% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1.5); }
+    100% { opacity: 0.8; transform: scale(1); }
   }
 
   /* Reset animaciones cuando se oculta el success */
