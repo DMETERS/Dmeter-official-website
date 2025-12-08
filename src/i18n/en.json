@@ -178,7 +178,15 @@
         "description": "We don't disappear after launch. We're with you to maintain, improve and scale your solution."
       }
     ],
-    "techTitle": "Our Capabilities"
+    "techTitle": "Our Capabilities",
+    "capabilities": [
+      "Modern Web",
+      "Scalable Backend",
+      "Automation & AI",
+      "Cloud Native",
+      "Data & Analytics",
+      "Integrations"
+    ]
   },
   "contact": {
     "title": "Let's Talk About Your Project",
@@ -219,7 +227,7 @@
     "submit": "Send S.O.S"
   },
   "comparison": {
-    "title": "Why choose us?",
+    "title": "Still have doubts?",
     "subtitle": "Compare and decide with clarity",
     "cta": "Start your project",
     "criteria": {

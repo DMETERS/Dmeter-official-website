@@ -178,7 +178,15 @@
         "description": "No desaparecemos después del lanzamiento. Estamos contigo para mantener, mejorar y escalar tu solución."
       }
     ],
-    "techTitle": "Nuestras Capacidades"
+    "techTitle": "Nuestras Capacidades",
+    "capabilities": [
+      "Web Moderno",
+      "Backend Escalable",
+      "Automatización & IA",
+      "Cloud Native",
+      "Datos & Analytics",
+      "Integraciones"
+    ]
   },
   "contact": {
     "title": "Hablemos de tu Proyecto",
@@ -219,7 +227,7 @@
     "submit": "Enviar S.O.S"
   },
   "comparison": {
-    "title": "¿Por qué elegirnos?",
+    "title": "¿Sigues con dudas?",
     "subtitle": "Compara y decide con claridad",
     "cta": "Comienza tu proyecto",
     "criteria": {

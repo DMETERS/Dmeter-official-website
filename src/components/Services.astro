@@ -67,11 +67,11 @@ const serviceStyles = [
       </p>
     </div>
 
-    <!-- Grid de servicios -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Grid de servicios (carousel en mobile) -->
+    <div class="services-carousel flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:overflow-visible">
       {t.services.items.map((service, index) => (
         <article
-          class="group card-organic relative overflow-hidden"
+          class="group card-organic relative overflow-hidden flex-shrink-0 w-[85%] snap-start md:w-auto"
           style={`animation-delay: ${index * 0.1}s`}
         >
           <!-- Decoración de hoja en esquina -->
@@ -123,3 +123,20 @@ const serviceStyles = [
     </div>
   </div>
 </section>
+
+<style>
+  .services-carousel {
+    scrollbar-width: none; /* Firefox */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .services-carousel::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+
+  @media (min-width: 768px) {
+    .services-carousel {
+      scrollbar-width: auto;
+    }
+  }
+</style>

@@ -8,7 +8,7 @@ interface Props {
 const { lang = defaultLang } = Astro.props;
 const t = useTranslations(lang);
 
-const capabilities = [
+const capabilities = t.why?.capabilities || [
   'Web Moderno',
   'Backend Escalable',
   'Automatización & IA',
@@ -43,10 +43,10 @@ const colors = ['primary', 'accent-cyan', 'accent-solar'];
       </p>
     </div>
 
-    <!-- Value propositions -->
-    <div class="grid md:grid-cols-3 gap-8 mb-20">
+    <!-- Value propositions (carousel en mobile) -->
+    <div class="why-carousel flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-3 md:gap-8 mb-20 md:overflow-visible">
       {t.why.points.map((point, index) => (
-        <div class="text-center group">
+        <div class="text-center group flex-shrink-0 w-[85%] snap-start md:w-auto">
           <div class={`w-16 h-16 mx-auto rounded-2xl bg-${colors[index]}/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
             <svg class={`w-8 h-8 text-${colors[index]}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" set:html={pointIcons[index]} />
           </div>
@@ -86,6 +86,15 @@ const colors = ['primary', 'accent-cyan', 'accent-solar'];
 </section>
 
 <style>
+  .why-carousel {
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .why-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
   @keyframes scroll-infinite {
     0% {
       transform: translateX(0);
