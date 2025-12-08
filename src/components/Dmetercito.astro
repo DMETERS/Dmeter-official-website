@@ -413,8 +413,8 @@ const treeJson = JSON.stringify(t.tree);
 <!-- Panel del chat -->
 <div
   id="dmetercito-panel"
-  class="fixed bottom-24 right-6 z-50 w-80 sm:w-96 max-h-[500px] rounded-2xl overflow-hidden shadow-2xl opacity-0 scale-95 pointer-events-none transition-all duration-300"
-  style="background: rgba(26, 61, 46, 0.95); backdrop-filter: blur(20px); border: 1px solid rgba(16, 185, 129, 0.2);"
+  class="fixed z-50 opacity-0 scale-95 pointer-events-none transition-all duration-300 inset-0 md:inset-auto md:bottom-24 md:right-6 md:w-96 md:max-h-[500px] md:rounded-2xl overflow-hidden shadow-2xl"
+  style="background: rgba(26, 61, 46, 0.98); backdrop-filter: blur(20px); border: 1px solid rgba(16, 185, 129, 0.2);"
 >
   <!-- Header -->
   <div class="bg-gradient-to-r from-primary/20 to-accent-cyan/20 px-4 py-3 flex items-center justify-between border-b border-primary/20">
@@ -438,7 +438,7 @@ const treeJson = JSON.stringify(t.tree);
   </div>
 
   <!-- Mensajes -->
-  <div id="dmetercito-messages" class="p-4 overflow-y-auto" style="height: 320px;">
+  <div id="dmetercito-messages" class="p-4 overflow-y-auto h-[calc(100vh-140px)] md:h-[320px]">
   </div>
 
   <!-- Input area -->
@@ -504,6 +504,10 @@ const treeJson = JSON.stringify(t.tree);
     panel.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
     panel.classList.add('opacity-100', 'scale-100');
     toggle.querySelector('.animate-ping')?.classList.add('hidden');
+    // Ocultar botón en mobile cuando está abierto
+    toggle.classList.add('md:flex');
+    toggle.classList.remove('flex');
+    toggle.classList.add('hidden');
     if (messagesContainer.children.length === 0) {
       showStep('INICIO');
     }
@@ -513,6 +517,9 @@ const treeJson = JSON.stringify(t.tree);
     state.isOpen = false;
     panel.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
     panel.classList.remove('opacity-100', 'scale-100');
+    // Mostrar botón de nuevo
+    toggle.classList.remove('hidden');
+    toggle.classList.add('flex');
   }
 
   function addMessage(text, isBot = true) {
