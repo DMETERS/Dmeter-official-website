@@ -83,40 +83,108 @@ const isPositiveValue = (value: string, isHighlight: boolean) => {
       </p>
     </div>
 
-    <!-- 3 Cards simétricas -->
-    <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
-      {comparison.options.map((option, optionIndex) => (
-        <div class={`relative rounded-3xl p-6 lg:p-8 transition-all duration-300 ${
+    <!-- DESKTOP: Tabla comparativa -->
+    <div class="hidden md:block">
+      <div class="bg-bg-card/30 rounded-2xl border border-white/10 overflow-visible mt-4">
+        <table class="w-full">
+          <thead>
+            <tr class="border-b border-white/10">
+              <th class="text-left p-4 lg:p-6 text-text-muted font-medium">
+                {lang === 'en' ? 'Criteria' : lang === 'pt-br' ? 'Critério' : 'Criterio'}
+              </th>
+              {comparison.options.map((option) => (
+                <th class={`p-4 lg:p-6 text-left relative ${option.highlight ? 'bg-primary/10' : ''}`}>
+                  {option.highlight && (
+                    <span class="absolute -top-3 left-4 px-3 py-1 text-xs font-bold bg-primary text-bg-dark rounded-full uppercase tracking-wider">
+                      {lang === 'en' ? 'Recommended' : 'Recomendado'}
+                    </span>
+                  )}
+                  <span class={`text-xl font-bold ${option.highlight ? 'text-primary' : 'text-text-light'}`}>
+                    {option.name}
+                  </span>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {criteriaKeys.map((key, index) => (
+              <tr class={index < criteriaKeys.length - 1 ? 'border-b border-white/5' : ''}>
+                <td class="p-4 lg:p-6 text-text-muted font-medium">
+                  {comparison.criteria[key]}
+                </td>
+                {comparison.options.map((option) => {
+                  const value = option.values[key];
+                  const isPositive = isPositiveValue(value, option.highlight);
+                  return (
+                    <td class={`p-4 lg:p-6 text-left ${option.highlight ? 'bg-primary/10' : ''}`}>
+                      <div class="flex items-center gap-2">
+                        <span class={`w-5 h-5 flex-shrink-0 ${isPositive ? 'text-primary' : 'text-text-dim'}`}>
+                          {isPositive ? (
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                            </svg>
+                          ) : (
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                            </svg>
+                          )}
+                        </span>
+                        <span class={`font-medium ${isPositive ? 'text-text-light' : 'text-text-muted'}`}>
+                          {value}
+                        </span>
+                      </div>
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- CTA debajo de la tabla -->
+      <div class="mt-8 text-center">
+        <a
+          href="#contact"
+          class="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primary-dark text-bg-dark font-semibold rounded-full transition-all hover:scale-105"
+        >
+          {comparison.cta}
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- MOBILE: Cards carousel (sin cambios) -->
+    <div class="comparison-carousel md:hidden flex overflow-x-auto snap-x snap-mandatory gap-4 pt-4 pb-4 -mx-4 px-4">
+      {comparison.options.map((option) => (
+        <div class={`relative rounded-3xl p-6 transition-all duration-300 flex-shrink-0 w-[85%] snap-start ${
           option.highlight
-            ? 'bg-gradient-to-b from-primary/20 to-primary/5 border-2 border-primary shadow-lg shadow-primary/20 scale-[1.02] md:scale-105'
-            : 'bg-bg-card/50 border border-white/10 hover:border-white/20'
+            ? 'bg-gradient-to-b from-primary/20 to-primary/5 border-2 border-primary shadow-lg shadow-primary/20'
+            : 'bg-bg-card/50 border border-white/10'
         }`}>
-          {/* Badge recomendado */}
           {option.highlight && (
             <div class="absolute -top-3 left-1/2 -translate-x-1/2">
               <span class="px-4 py-1.5 text-xs font-bold bg-primary text-bg-dark rounded-full uppercase tracking-wider">
-                {lang === 'en' ? 'Recommended' : lang === 'pt-br' ? 'Recomendado' : 'Recomendado'}
+                {lang === 'en' ? 'Recommended' : 'Recomendado'}
               </span>
             </div>
           )}
 
-          {/* Header de la card */}
-          <div class="text-center mb-8 pt-2">
-            <h3 class={`text-2xl font-bold ${option.highlight ? 'text-primary' : 'text-text-light'}`}>
+          <div class="text-center mb-6 pt-2">
+            <h3 class={`text-xl font-bold ${option.highlight ? 'text-primary' : 'text-text-light'}`}>
               {option.name}
             </h3>
           </div>
 
-          {/* Lista de criterios */}
-          <div class="space-y-4">
+          <div class="space-y-3">
             {criteriaKeys.map((key) => {
               const value = option.values[key];
               const isPositive = isPositiveValue(value, option.highlight);
-
               return (
-                <div class="flex items-start gap-3">
-                  {/* Icono */}
-                  <div class={`flex-shrink-0 w-5 h-5 mt-0.5 ${isPositive ? 'text-primary' : 'text-text-dim'}`}>
+                <div class="flex items-start gap-2">
+                  <div class={`flex-shrink-0 w-4 h-4 mt-0.5 ${isPositive ? 'text-primary' : 'text-text-dim'}`}>
                     {isPositive ? (
                       <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
@@ -127,28 +195,18 @@ const isPositiveValue = (value: string, isHighlight: boolean) => {
                       </svg>
                     )}
                   </div>
-
-                  {/* Texto */}
                   <div class="flex-1 min-w-0">
-                    <p class="text-xs text-text-dim uppercase tracking-wide mb-0.5">
-                      {comparison.criteria[key]}
-                    </p>
-                    <p class={`font-medium ${isPositive ? 'text-text-light' : 'text-text-muted'}`}>
-                      {value}
-                    </p>
+                    <p class="text-xs text-text-dim uppercase tracking-wide">{comparison.criteria[key]}</p>
+                    <p class={`text-sm font-medium ${isPositive ? 'text-text-light' : 'text-text-muted'}`}>{value}</p>
                   </div>
                 </div>
               );
             })}
           </div>
 
-          {/* CTA solo en la card destacada */}
           {option.highlight && (
-            <div class="mt-8 pt-6 border-t border-primary/20">
-              <a
-                href="#contact"
-                class="block w-full text-center px-6 py-3 bg-primary hover:bg-primary-dark text-bg-dark font-semibold rounded-full transition-all hover:scale-105"
-              >
+            <div class="mt-6 pt-4 border-t border-primary/20">
+              <a href="#contact" class="block w-full text-center px-4 py-2.5 bg-primary text-bg-dark font-semibold rounded-full text-sm">
                 {comparison.cta}
               </a>
             </div>
@@ -158,3 +216,14 @@ const isPositiveValue = (value: string, isHighlight: boolean) => {
     </div>
   </div>
 </section>
+
+<style>
+  .comparison-carousel {
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .comparison-carousel::-webkit-scrollbar {
+    display: none;
+  }
+</style>

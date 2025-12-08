@@ -93,22 +93,30 @@ const t = useTranslations(lang);
         </div>
 
         <!-- Indicadores de confianza / Stats -->
-        <div class="mt-12 pt-8 border-t border-primary/10">
+        <div id="stats-container" class="mt-12 pt-8 border-t border-primary/10">
           <div class="flex flex-wrap gap-6 justify-center lg:justify-start">
             <div class="text-center lg:text-left">
-              <div class="text-3xl font-bold gradient-text-static">50+</div>
+              <div class="text-3xl font-bold gradient-text-static">
+                <span class="stat-number" data-target="50" data-suffix="+">0</span>
+              </div>
               <div class="text-text-dim text-sm mt-1">{t.hero?.stats?.projects || 'Proyectos'}</div>
             </div>
             <div class="text-center lg:text-left">
-              <div class="text-3xl font-bold gradient-text-static">6</div>
+              <div class="text-3xl font-bold gradient-text-static">
+                <span class="stat-number" data-target="6" data-suffix="">0</span>
+              </div>
               <div class="text-text-dim text-sm mt-1">{t.hero?.stats?.industries || 'Industrias'}</div>
             </div>
             <div class="text-center lg:text-left">
-              <div class="text-3xl font-bold gradient-text-static">2000+</div>
+              <div class="text-3xl font-bold gradient-text-static">
+                <span class="stat-number" data-target="2000" data-suffix="+">0</span>
+              </div>
               <div class="text-text-dim text-sm mt-1">{t.hero?.stats?.users || 'Usuarios'}</div>
             </div>
             <div class="text-center lg:text-left">
-              <div class="text-3xl font-bold gradient-text-static">100%</div>
+              <div class="text-3xl font-bold gradient-text-static">
+                <span class="stat-number" data-target="100" data-suffix="%">0</span>
+              </div>
               <div class="text-text-dim text-sm mt-1">{t.hero?.stats?.commitment || 'Compromiso'}</div>
             </div>
           </div>
@@ -588,5 +596,44 @@ const t = useTranslations(lang);
       robotHead.style.transition = 'transform 0.5s ease-out';
       robotHead.style.transform = 'rotate(0deg) translateX(0) translateY(0)';
     });
+  }
+
+  // Stats counter animation
+  const statsContainer = document.getElementById('stats-container');
+  const statNumbers = document.querySelectorAll('.stat-number');
+  let hasAnimated = false;
+
+  function animateCount(element: Element) {
+    const target = parseInt(element.getAttribute('data-target') || '0');
+    const suffix = element.getAttribute('data-suffix') || '';
+    const duration = 2000;
+    const steps = 60;
+    const stepTime = duration / steps;
+    let current = 0;
+    const increment = target / steps;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      element.textContent = Math.floor(current) + suffix;
+    }, stepTime);
+  }
+
+  if (statsContainer && statNumbers.length > 0) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !hasAnimated) {
+          hasAnimated = true;
+          statNumbers.forEach((stat, index) => {
+            setTimeout(() => animateCount(stat), index * 150);
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(statsContainer);
   }
 </script>

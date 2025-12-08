@@ -178,14 +178,24 @@
         "description": "Não desaparecemos após o lançamento. Estamos com você para manter, melhorar e escalar sua solução."
       }
     ],
-    "techTitle": "Nossas Capacidades"
+    "techTitle": "Nossas Capacidades",
+    "capabilities": [
+      "Web Moderno",
+      "Backend Escalável",
+      "Automação & IA",
+      "Cloud Native",
+      "Dados & Analytics",
+      "Integrações"
+    ]
   },
   "contact": {
     "title": "Vamos Falar do Seu Projeto",
     "subtitle": "Conte sua ideia e respondemos em menos de 24 horas",
     "form": {
       "name": "Seu nome",
+      "namePlaceholder": "Como podemos te chamar?",
       "email": "Seu email",
+      "emailPlaceholder": "ideias.florescem@suaempresa.com",
       "project": "Tipo de projeto",
       "projectOptions": [
         "Landing Page",
@@ -197,7 +207,13 @@
         "Outro"
       ],
       "message": "Conte sobre seu projeto",
+      "messagePlaceholder": "Conte-nos que ideia você quer fazer crescer...",
       "submit": "Enviar mensagem"
+    },
+    "success": {
+      "title": "Mensagem enviada!",
+      "subtitle": "Sua ideia já está germinando. Entraremos em contato em breve.",
+      "cta": "Enviar outra mensagem"
     },
     "info": {
       "email": "Email",
@@ -219,7 +235,7 @@
     "submit": "Enviar S.O.S"
   },
   "comparison": {
-    "title": "Por que nos escolher?",
+    "title": "Ainda tem dúvidas?",
     "subtitle": "Compare e decida com clareza",
     "cta": "Comece seu projeto",
     "criteria": {
@@ -262,6 +278,54 @@
           "scalability": "Não escalável",
           "risk": "Alto"
         }
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "O que nossos clientes dizem",
+    "subtitle": "Histórias reais de projetos que floresceram",
+    "items": [
+      {
+        "quote": "Precisávamos de uma landing page que refletisse nossa marca e convertesse visitantes em clientes. A equipe entendeu nossa visão desde o primeiro dia e entregou algo que superou nossas expectativas.",
+        "name": "María G.",
+        "role": "Fundadora",
+        "industry": "E-commerce de moda",
+        "initials": "MG"
+      },
+      {
+        "quote": "Nosso dashboard antigo era um caos. Agora temos tudo centralizado, com métricas em tempo real e uma interface que nossa equipe realmente gosta de usar.",
+        "name": "Carlos R.",
+        "role": "Diretor de Operações",
+        "industry": "Logística",
+        "initials": "CR"
+      },
+      {
+        "quote": "A integração de IA que implementaram nos economizou horas de trabalho manual toda semana. O suporte pós-lançamento tem sido excepcional.",
+        "name": "Ana L.",
+        "role": "CTO",
+        "industry": "Fintech",
+        "initials": "AL"
+      },
+      {
+        "quote": "Passamos de não ter presença digital a ter um sistema de reservas que funciona sozinho. As reservas aumentaram 40% no primeiro mês.",
+        "name": "Roberto M.",
+        "role": "Proprietário",
+        "industry": "Gastronomia",
+        "initials": "RM"
+      },
+      {
+        "quote": "Tínhamos uma ideia ambiciosa mas não sabíamos como executá-la tecnicamente. Nos guiaram em cada decisão e construíram exatamente o que precisávamos para escalar.",
+        "name": "Lucía S.",
+        "role": "Co-fundadora",
+        "industry": "Startup SaaS",
+        "initials": "LS"
+      },
+      {
+        "quote": "Automatizamos a gestão de consultas e lembretes. Nossa equipe administrativa agora dedica esse tempo ao que realmente importa: os pacientes.",
+        "name": "Diego F.",
+        "role": "Diretor",
+        "industry": "Clínica odontológica",
+        "initials": "DF"
       }
     ]
   }

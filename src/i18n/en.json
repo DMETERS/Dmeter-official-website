@@ -178,14 +178,24 @@
         "description": "We don't disappear after launch. We're with you to maintain, improve and scale your solution."
       }
     ],
-    "techTitle": "Our Capabilities"
+    "techTitle": "Our Capabilities",
+    "capabilities": [
+      "Modern Web",
+      "Scalable Backend",
+      "Automation & AI",
+      "Cloud Native",
+      "Data & Analytics",
+      "Integrations"
+    ]
   },
   "contact": {
     "title": "Let's Talk About Your Project",
     "subtitle": "Tell us your idea and we'll respond within 24 hours",
     "form": {
       "name": "Your name",
+      "namePlaceholder": "What should we call you?",
       "email": "Your email",
+      "emailPlaceholder": "ideas.bloom@yourcompany.com",
       "project": "Project type",
       "projectOptions": [
         "Landing Page",
@@ -197,7 +207,13 @@
         "Other"
       ],
       "message": "Tell us about your project",
+      "messagePlaceholder": "Tell us about the idea you want to grow...",
       "submit": "Send message"
+    },
+    "success": {
+      "title": "Message sent!",
+      "subtitle": "Your idea is already sprouting. We'll be in touch soon.",
+      "cta": "Send another message"
     },
     "info": {
       "email": "Email",
@@ -219,7 +235,7 @@
     "submit": "Send S.O.S"
   },
   "comparison": {
-    "title": "Why choose us?",
+    "title": "Still have doubts?",
     "subtitle": "Compare and decide with clarity",
     "cta": "Start your project",
     "criteria": {
@@ -262,6 +278,54 @@
           "scalability": "Not scalable",
           "risk": "High"
         }
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "What our clients say",
+    "subtitle": "Real stories from projects that flourished",
+    "items": [
+      {
+        "quote": "We needed a landing page that reflected our brand and converted visitors into customers. The team understood our vision from day one and delivered something that exceeded our expectations.",
+        "name": "María G.",
+        "role": "Founder",
+        "industry": "Fashion E-commerce",
+        "initials": "MG"
+      },
+      {
+        "quote": "Our old dashboard was chaos. Now we have everything centralized, with real-time metrics and an interface our team actually enjoys using.",
+        "name": "Carlos R.",
+        "role": "Operations Director",
+        "industry": "Logistics",
+        "initials": "CR"
+      },
+      {
+        "quote": "The AI integration they implemented saved us hours of manual work every week. Post-launch support has been exceptional.",
+        "name": "Ana L.",
+        "role": "CTO",
+        "industry": "Fintech",
+        "initials": "AL"
+      },
+      {
+        "quote": "We went from having no digital presence to having a booking system that runs itself. Reservations increased 40% in the first month.",
+        "name": "Roberto M.",
+        "role": "Owner",
+        "industry": "Restaurant",
+        "initials": "RM"
+      },
+      {
+        "quote": "We had an ambitious idea but didn't know how to execute it technically. They guided us through every decision and built exactly what we needed to scale.",
+        "name": "Lucía S.",
+        "role": "Co-founder",
+        "industry": "SaaS Startup",
+        "initials": "LS"
+      },
+      {
+        "quote": "We automated appointment management and reminders. Our admin team now dedicates that time to what really matters: the patients.",
+        "name": "Diego F.",
+        "role": "Director",
+        "industry": "Dental Clinic",
+        "initials": "DF"
       }
     ]
   }

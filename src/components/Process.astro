@@ -133,10 +133,10 @@ const stepBgColors = [
         </svg>
       </div>
 
-      <!-- Grid de pasos -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+      <!-- Grid de pasos (carousel en mobile) -->
+      <div class="process-carousel flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-10 lg:gap-8 md:overflow-visible">
         {t.process.steps.map((step, index) => (
-          <div class="relative group text-center">
+          <div class="relative group text-center flex-shrink-0 w-[75%] snap-start md:w-auto">
             <!-- Contenedor del icono -->
             <div class="relative inline-block mb-8">
               <!-- Fondo con gradiente -->
@@ -194,3 +194,14 @@ const stepBgColors = [
     </div>
   </div>
 </section>
+
+<style>
+  .process-carousel {
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .process-carousel::-webkit-scrollbar {
+    display: none;
+  }
+</style>
