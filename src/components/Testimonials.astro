@@ -197,12 +197,30 @@ const testimonials = t.testimonials || {
       return slide.offsetWidth + gap;
     };
 
+    const isAtEnd = () => {
+      return track.scrollLeft + track.clientWidth >= track.scrollWidth - 10;
+    };
+
+    const isAtStart = () => {
+      return track.scrollLeft <= 10;
+    };
+
     const scrollPrev = () => {
-      track.scrollBy({ left: -getSlideWidth(), behavior: 'smooth' });
+      if (isAtStart()) {
+        // Si está al inicio, ir al final
+        track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
+      } else {
+        track.scrollBy({ left: -getSlideWidth(), behavior: 'smooth' });
+      }
     };
 
     const scrollNext = () => {
-      track.scrollBy({ left: getSlideWidth(), behavior: 'smooth' });
+      if (isAtEnd()) {
+        // Si está al final, volver al inicio
+        track.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        track.scrollBy({ left: getSlideWidth(), behavior: 'smooth' });
+      }
     };
 
     prevBtn.addEventListener('click', scrollPrev);
