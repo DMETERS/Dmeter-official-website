@@ -1,6 +1,6 @@
 ---
 // Dmetercito - Chatbot de flujo guiado
-// 100% vanilla JS, sin dependencias, envía a Netlify Forms
+// 100% vanilla JS, sin dependencias, envía a Web3Forms
 import { type Lang, defaultLang } from '../i18n/utils';
 
 interface Props {
@@ -460,10 +460,11 @@ const treeJson = JSON.stringify(t.tree);
   </div>
 </div>
 
-<!-- Form oculto para Netlify -->
-<form id="dmetercito-form" name="dmetercito" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="hidden">
-  <input type="hidden" name="form-name" value="dmetercito" />
-  <input type="hidden" name="bot-field" />
+<!-- Form oculto para Web3Forms -->
+<form id="dmetercito-form" class="hidden">
+  <input type="hidden" name="access_key" value="ea29f571-8d4c-42b7-8a31-c61239730a8d" />
+  <input type="hidden" name="subject" value="Nueva consulta desde Dmetercito" />
+  <input type="hidden" name="from_name" value="Dmetercito - Dmeter" />
   <input type="hidden" name="idioma" value={lang} />
   <input type="hidden" name="tipo_proyecto" id="form-tipo" />
   <input type="hidden" name="detalles" id="form-detalles" />
@@ -637,13 +638,24 @@ const treeJson = JSON.stringify(t.tree);
     document.getElementById('form-flujo').value = JSON.stringify(state.history);
 
     const formData = new FormData(netlifyForm);
+    const jsonData = Object.fromEntries(formData.entries());
 
-    fetch('/', {
+    fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString()
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(jsonData)
     })
-    .then(() => showStep('ENVIADO'))
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        showStep('ENVIADO');
+      } else {
+        addMessage(tree.ERROR?.message || 'Error');
+      }
+    })
     .catch(() => addMessage(tree.ERROR?.message || 'Error'));
   }
 

@@ -280,5 +280,39 @@
         }
       }
     ]
+  },
+  "testimonials": {
+    "title": "Lo que dicen nuestros clientes",
+    "subtitle": "Historias reales de proyectos que florecieron",
+    "items": [
+      {
+        "quote": "Necesitábamos una landing que reflejara nuestra marca y convirtiera visitantes en clientes. El equipo entendió nuestra visión desde el primer día y entregó algo que superó nuestras expectativas.",
+        "name": "María G.",
+        "role": "Fundadora",
+        "industry": "E-commerce de moda",
+        "initials": "MG"
+      },
+      {
+        "quote": "Nuestro dashboard antiguo era un caos. Ahora tenemos todo centralizado, con métricas en tiempo real y una interfaz que nuestro equipo realmente disfruta usar.",
+        "name": "Carlos R.",
+        "role": "Director de Operaciones",
+        "industry": "Logística",
+        "initials": "CR"
+      },
+      {
+        "quote": "La integración de IA que implementaron nos ahorró horas de trabajo manual cada semana. El soporte post-lanzamiento ha sido excepcional.",
+        "name": "Ana L.",
+        "role": "CTO",
+        "industry": "Fintech",
+        "initials": "AL"
+      },
+      {
+        "quote": "Pasamos de no tener presencia digital a tener un sistema de reservas que funciona solo. Las reservas aumentaron un 40% el primer mes.",
+        "name": "Roberto M.",
+        "role": "Propietario",
+        "industry": "Gastronomía",
+        "initials": "RM"
+      }
+    ]
   }
 }

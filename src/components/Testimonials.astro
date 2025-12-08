@@ -1,0 +1,152 @@
+---
+import { type Lang, defaultLang, useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = defaultLang } = Astro.props;
+const t = useTranslations(lang);
+
+const testimonials = t.testimonials || {
+  title: 'Lo que dicen nuestros clientes',
+  subtitle: 'Historias reales de proyectos que florecieron',
+  items: [
+    {
+      quote: 'Necesitábamos una landing que reflejara nuestra marca y convirtiera visitantes en clientes. El equipo entendió nuestra visión desde el primer día y entregó algo que superó nuestras expectativas.',
+      name: 'María G.',
+      role: 'Fundadora',
+      industry: 'E-commerce de moda',
+      initials: 'MG'
+    },
+    {
+      quote: 'Nuestro dashboard antiguo era un caos. Ahora tenemos todo centralizado, con métricas en tiempo real y una interfaz que nuestro equipo realmente disfruta usar.',
+      name: 'Carlos R.',
+      role: 'Director de Operaciones',
+      industry: 'Logística',
+      initials: 'CR'
+    },
+    {
+      quote: 'La integración de IA que implementaron nos ahorró horas de trabajo manual cada semana. El soporte post-lanzamiento ha sido excepcional.',
+      name: 'Ana L.',
+      role: 'CTO',
+      industry: 'Fintech',
+      initials: 'AL'
+    },
+    {
+      quote: 'Pasamos de no tener presencia digital a tener un sistema de reservas que funciona solo. Las reservas aumentaron un 40% el primer mes.',
+      name: 'Roberto M.',
+      role: 'Propietario',
+      industry: 'Gastronomía',
+      initials: 'RM'
+    }
+  ]
+};
+---
+
+<section class="py-20 md:py-32 relative overflow-hidden">
+  <!-- Background decorativo -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-accent-cyan/5 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold">
+        {testimonials.title}
+      </h2>
+      <p class="mt-4 text-lg text-text-muted">
+        {testimonials.subtitle}
+      </p>
+    </div>
+
+    <!-- DESKTOP: Grid 2x2 -->
+    <div class="hidden md:grid md:grid-cols-2 gap-6 lg:gap-8">
+      {testimonials.items.map((item, index) => (
+        <div class="group relative bg-bg-card/30 rounded-2xl p-6 lg:p-8 border border-white/10 hover:border-primary/30 transition-all duration-300">
+          <!-- Quote icon -->
+          <div class="absolute -top-3 -left-3 w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+            <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+          </div>
+
+          <!-- Quote text -->
+          <blockquote class="text-text-light text-base lg:text-lg leading-relaxed mb-6 pt-4">
+            "{item.quote}"
+          </blockquote>
+
+          <!-- Author -->
+          <div class="flex items-center gap-4">
+            <!-- Avatar con iniciales -->
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary/30 to-accent-cyan/30 flex items-center justify-center border border-primary/20">
+              <span class="text-sm font-bold text-primary">{item.initials}</span>
+            </div>
+            <div>
+              <p class="font-semibold text-text-light">{item.name}</p>
+              <p class="text-sm text-text-muted">{item.role} · {item.industry}</p>
+            </div>
+          </div>
+
+          <!-- Decorative leaf -->
+          <div class="absolute bottom-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity">
+            <svg class="w-16 h-16 text-primary" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z"/>
+            </svg>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- MOBILE: Carousel -->
+    <div class="testimonials-carousel md:hidden flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4">
+      {testimonials.items.map((item) => (
+        <div class="relative bg-bg-card/30 rounded-2xl p-6 border border-white/10 flex-shrink-0 w-[85%] snap-start">
+          <!-- Quote icon -->
+          <div class="absolute -top-3 -left-1 w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
+            <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+            </svg>
+          </div>
+
+          <!-- Quote text -->
+          <blockquote class="text-text-light text-sm leading-relaxed mb-4 pt-2">
+            "{item.quote}"
+          </blockquote>
+
+          <!-- Author -->
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary/30 to-accent-cyan/30 flex items-center justify-center border border-primary/20">
+              <span class="text-xs font-bold text-primary">{item.initials}</span>
+            </div>
+            <div>
+              <p class="font-semibold text-text-light text-sm">{item.name}</p>
+              <p class="text-xs text-text-muted">{item.role} · {item.industry}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Indicador de scroll en mobile -->
+    <div class="flex justify-center gap-2 mt-4 md:hidden">
+      <span class="text-xs text-text-dim">Desliza para ver más</span>
+      <svg class="w-4 h-4 text-text-dim animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials-carousel {
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .testimonials-carousel::-webkit-scrollbar {
+    display: none;
+  }
+</style>

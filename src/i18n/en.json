@@ -280,5 +280,39 @@
         }
       }
     ]
+  },
+  "testimonials": {
+    "title": "What our clients say",
+    "subtitle": "Real stories from projects that flourished",
+    "items": [
+      {
+        "quote": "We needed a landing page that reflected our brand and converted visitors into customers. The team understood our vision from day one and delivered something that exceeded our expectations.",
+        "name": "María G.",
+        "role": "Founder",
+        "industry": "Fashion E-commerce",
+        "initials": "MG"
+      },
+      {
+        "quote": "Our old dashboard was chaos. Now we have everything centralized, with real-time metrics and an interface our team actually enjoys using.",
+        "name": "Carlos R.",
+        "role": "Operations Director",
+        "industry": "Logistics",
+        "initials": "CR"
+      },
+      {
+        "quote": "The AI integration they implemented saved us hours of manual work every week. Post-launch support has been exceptional.",
+        "name": "Ana L.",
+        "role": "CTO",
+        "industry": "Fintech",
+        "initials": "AL"
+      },
+      {
+        "quote": "We went from having no digital presence to having a booking system that runs itself. Reservations increased 40% in the first month.",
+        "name": "Roberto M.",
+        "role": "Owner",
+        "industry": "Restaurant",
+        "initials": "RM"
+      }
+    ]
   }
 }
