@@ -39,6 +39,20 @@ const testimonials = t.testimonials || {
       role: 'Propietario',
       industry: 'Gastronomía',
       initials: 'RM'
+    },
+    {
+      quote: 'Teníamos una idea ambiciosa pero no sabíamos cómo ejecutarla técnicamente. Nos guiaron en cada decisión y construyeron exactamente lo que necesitábamos para escalar.',
+      name: 'Lucía S.',
+      role: 'Co-fundadora',
+      industry: 'Startup SaaS',
+      initials: 'LS'
+    },
+    {
+      quote: 'Automatizamos la gestión de citas y recordatorios. Nuestro equipo administrativo ahora dedica ese tiempo a lo que realmente importa: los pacientes.',
+      name: 'Diego F.',
+      role: 'Director',
+      industry: 'Clínica dental',
+      initials: 'DF'
     }
   ]
 };
@@ -62,46 +76,73 @@ const testimonials = t.testimonials || {
       </p>
     </div>
 
-    <!-- DESKTOP: Grid 2x2 -->
-    <div class="hidden md:grid md:grid-cols-2 gap-6 lg:gap-8">
-      {testimonials.items.map((item, index) => (
-        <div class="group relative bg-bg-card/30 rounded-2xl p-6 lg:p-8 border border-white/10 hover:border-primary/30 transition-all duration-300">
-          <!-- Quote icon -->
-          <div class="absolute -top-3 -left-3 w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
-            <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-            </svg>
-          </div>
+    <!-- DESKTOP: Carousel con botones a los lados -->
+    <div class="hidden md:block relative px-14" id="testimonials-container">
+      <!-- Botón Anterior -->
+      <button
+        class="carousel-btn carousel-btn-prev"
+        id="testimonials-prev"
+        aria-label="Ver anterior"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
 
-          <!-- Quote text -->
-          <blockquote class="text-text-light text-base lg:text-lg leading-relaxed mb-6 pt-4">
-            "{item.quote}"
-          </blockquote>
-
-          <!-- Author -->
-          <div class="flex items-center gap-4">
-            <!-- Avatar con iniciales -->
-            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary/30 to-accent-cyan/30 flex items-center justify-center border border-primary/20">
-              <span class="text-sm font-bold text-primary">{item.initials}</span>
+      <div
+        id="testimonials-track"
+        class="flex overflow-x-auto snap-x snap-mandatory gap-6 lg:gap-8 pt-4 pb-4 scroll-smooth testimonials-carousel"
+      >
+        {testimonials.items.map((item) => (
+          <div class="group relative bg-bg-card/30 rounded-2xl p-6 lg:p-8 border border-white/10 hover:border-primary/30 transition-all duration-300 flex-shrink-0 w-[calc(50%-0.75rem)] snap-start">
+            <!-- Quote icon -->
+            <div class="absolute -top-3 -left-3 w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+              <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+              </svg>
             </div>
-            <div>
-              <p class="font-semibold text-text-light">{item.name}</p>
-              <p class="text-sm text-text-muted">{item.role} · {item.industry}</p>
+
+            <!-- Quote text -->
+            <blockquote class="text-text-light text-base lg:text-lg leading-relaxed mb-6 pt-4">
+              "{item.quote}"
+            </blockquote>
+
+            <!-- Author -->
+            <div class="flex items-center gap-4">
+              <!-- Avatar con iniciales -->
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary/30 to-accent-cyan/30 flex items-center justify-center border border-primary/20">
+                <span class="text-sm font-bold text-primary">{item.initials}</span>
+              </div>
+              <div>
+                <p class="font-semibold text-text-light">{item.name}</p>
+                <p class="text-sm text-text-muted">{item.role} · {item.industry}</p>
+              </div>
+            </div>
+
+            <!-- Decorative leaf -->
+            <div class="absolute bottom-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity">
+              <svg class="w-16 h-16 text-primary" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z"/>
+              </svg>
             </div>
           </div>
+        ))}
+      </div>
 
-          <!-- Decorative leaf -->
-          <div class="absolute bottom-4 right-4 opacity-10 group-hover:opacity-20 transition-opacity">
-            <svg class="w-16 h-16 text-primary" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z"/>
-            </svg>
-          </div>
-        </div>
-      ))}
+      <!-- Botón Siguiente -->
+      <button
+        class="carousel-btn carousel-btn-next"
+        id="testimonials-next"
+        aria-label="Ver siguiente"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
     </div>
 
-    <!-- MOBILE: Carousel -->
-    <div class="testimonials-carousel md:hidden flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4">
+    <!-- MOBILE: Carousel touch -->
+    <div class="testimonials-carousel md:hidden flex overflow-x-auto overflow-y-visible snap-x snap-mandatory gap-4 pt-4 pb-4 -mx-4 px-4">
       {testimonials.items.map((item) => (
         <div class="relative bg-bg-card/30 rounded-2xl p-6 border border-white/10 flex-shrink-0 w-[85%] snap-start">
           <!-- Quote icon -->
@@ -129,14 +170,6 @@ const testimonials = t.testimonials || {
         </div>
       ))}
     </div>
-
-    <!-- Indicador de scroll en mobile -->
-    <div class="flex justify-center gap-2 mt-4 md:hidden">
-      <span class="text-xs text-text-dim">Desliza para ver más</span>
-      <svg class="w-4 h-4 text-text-dim animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-      </svg>
-    </div>
   </div>
 </section>
 
@@ -150,3 +183,29 @@ const testimonials = t.testimonials || {
     display: none;
   }
 </style>
+
+<script>
+  const track = document.getElementById('testimonials-track');
+  const prevBtn = document.getElementById('testimonials-prev');
+  const nextBtn = document.getElementById('testimonials-next');
+
+  if (track && prevBtn && nextBtn) {
+    const getSlideWidth = () => {
+      const slide = track.querySelector('div') as HTMLElement;
+      if (!slide) return 0;
+      const gap = 24;
+      return slide.offsetWidth + gap;
+    };
+
+    const scrollPrev = () => {
+      track.scrollBy({ left: -getSlideWidth(), behavior: 'smooth' });
+    };
+
+    const scrollNext = () => {
+      track.scrollBy({ left: getSlideWidth(), behavior: 'smooth' });
+    };
+
+    prevBtn.addEventListener('click', scrollPrev);
+    nextBtn.addEventListener('click', scrollNext);
+  }
+</script>

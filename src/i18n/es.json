@@ -312,6 +312,20 @@
         "role": "Propietario",
         "industry": "Gastronomía",
         "initials": "RM"
+      },
+      {
+        "quote": "Teníamos una idea ambiciosa pero no sabíamos cómo ejecutarla técnicamente. Nos guiaron en cada decisión y construyeron exactamente lo que necesitábamos para escalar.",
+        "name": "Lucía S.",
+        "role": "Co-fundadora",
+        "industry": "Startup SaaS",
+        "initials": "LS"
+      },
+      {
+        "quote": "Automatizamos la gestión de citas y recordatorios. Nuestro equipo administrativo ahora dedica ese tiempo a lo que realmente importa: los pacientes.",
+        "name": "Diego F.",
+        "role": "Director",
+        "industry": "Clínica dental",
+        "initials": "DF"
       }
     ]
   }

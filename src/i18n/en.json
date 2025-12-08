@@ -312,6 +312,20 @@
         "role": "Owner",
         "industry": "Restaurant",
         "initials": "RM"
+      },
+      {
+        "quote": "We had an ambitious idea but didn't know how to execute it technically. They guided us through every decision and built exactly what we needed to scale.",
+        "name": "Lucía S.",
+        "role": "Co-founder",
+        "industry": "SaaS Startup",
+        "initials": "LS"
+      },
+      {
+        "quote": "We automated appointment management and reminders. Our admin team now dedicates that time to what really matters: the patients.",
+        "name": "Diego F.",
+        "role": "Director",
+        "industry": "Dental Clinic",
+        "initials": "DF"
       }
     ]
   }
