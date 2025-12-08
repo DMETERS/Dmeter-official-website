@@ -8,6 +8,14 @@ interface Props {
 const { lang = defaultLang } = Astro.props;
 const t = useTranslations(lang);
 
+// Texto del tooltip por idioma
+const tooltipText = {
+  es: 'Conectamos tu negocio con',
+  en: 'We connect your business with',
+  'pt-br': 'Conectamos seu negócio com'
+};
+const tooltip = tooltipText[lang] || tooltipText.es;
+
 // Logos - isotipos oficiales
 const logos = [
   {
@@ -70,7 +78,7 @@ const logos = [
   </div>
 
   <!-- Carousel infinito + draggable -->
-  <div class="logos-carousel relative overflow-hidden cursor-grab active:cursor-grabbing select-none">
+  <div class="logos-carousel relative cursor-grab active:cursor-grabbing select-none overflow-x-clip overflow-y-visible pt-12 -mt-12">
     <!-- Fade en los bordes -->
     <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-bg-dark to-transparent z-10 pointer-events-none"></div>
     <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-bg-dark to-transparent z-10 pointer-events-none"></div>
@@ -79,8 +87,8 @@ const logos = [
       {/* Duplicamos para efecto infinito */}
       {[...logos, ...logos, ...logos].map((logo) => (
         <div
-          class="logo-item flex-shrink-0 flex items-center gap-2.5 opacity-50 hover:opacity-100 transition-opacity duration-300"
-          title={logo.name}
+          class="logo-item flex-shrink-0 flex items-center gap-2.5 opacity-50 hover:opacity-100 transition-opacity duration-300 relative"
+          data-tooltip={`${tooltip} ${logo.name}`}
         >
           <div class="w-5 h-5 md:w-6 md:h-6 text-text-muted [&>svg]:w-full [&>svg]:h-full" set:html={logo.svg} />
           <span class="text-sm font-medium text-text-muted whitespace-nowrap">{logo.name}</span>
@@ -111,6 +119,48 @@ const logos = [
 
   .logos-carousel.is-dragging .logos-track {
     animation-play-state: paused;
+  }
+
+  /* Tooltip */
+  .logo-item::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    padding: 6px 12px;
+    background: rgba(26, 61, 46, 0.95);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 8px;
+    font-size: 12px;
+    color: #e2e8f0;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s;
+    pointer-events: none;
+    z-index: 50;
+  }
+
+  .logo-item::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    border: 6px solid transparent;
+    border-top-color: rgba(26, 61, 46, 0.95);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s;
+    pointer-events: none;
+    z-index: 50;
+  }
+
+  .logo-item:hover::before,
+  .logo-item:hover::after {
+    opacity: 1;
+    visibility: visible;
   }
 
   @media (prefers-reduced-motion: reduce) {
