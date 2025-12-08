@@ -193,7 +193,9 @@
     "subtitle": "Tell us your idea and we'll respond within 24 hours",
     "form": {
       "name": "Your name",
+      "namePlaceholder": "What should we call you?",
       "email": "Your email",
+      "emailPlaceholder": "ideas.bloom@yourcompany.com",
       "project": "Project type",
       "projectOptions": [
         "Landing Page",
@@ -205,7 +207,13 @@
         "Other"
       ],
       "message": "Tell us about your project",
+      "messagePlaceholder": "Tell us about the idea you want to grow...",
       "submit": "Send message"
+    },
+    "success": {
+      "title": "Message sent!",
+      "subtitle": "Your idea is already sprouting. We'll be in touch soon.",
+      "cta": "Send another message"
     },
     "info": {
       "email": "Email",

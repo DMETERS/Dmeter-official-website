@@ -193,7 +193,9 @@
     "subtitle": "Conte sua ideia e respondemos em menos de 24 horas",
     "form": {
       "name": "Seu nome",
+      "namePlaceholder": "Como podemos te chamar?",
       "email": "Seu email",
+      "emailPlaceholder": "ideias.florescem@suaempresa.com",
       "project": "Tipo de projeto",
       "projectOptions": [
         "Landing Page",
@@ -205,7 +207,13 @@
         "Outro"
       ],
       "message": "Conte sobre seu projeto",
+      "messagePlaceholder": "Conte-nos que ideia você quer fazer crescer...",
       "submit": "Enviar mensagem"
+    },
+    "success": {
+      "title": "Mensagem enviada!",
+      "subtitle": "Sua ideia já está germinando. Entraremos em contato em breve.",
+      "cta": "Enviar outra mensagem"
     },
     "info": {
       "email": "Email",

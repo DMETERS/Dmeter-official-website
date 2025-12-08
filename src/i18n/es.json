@@ -193,7 +193,9 @@
     "subtitle": "Cuéntanos tu idea y te respondemos en menos de 24 horas",
     "form": {
       "name": "Tu nombre",
+      "namePlaceholder": "¿Cómo te llamamos?",
       "email": "Tu email",
+      "emailPlaceholder": "donde.florece@tuempresa.com",
       "project": "Tipo de proyecto",
       "projectOptions": [
         "Landing Page",
@@ -205,7 +207,13 @@
         "Otro"
       ],
       "message": "Cuéntanos sobre tu proyecto",
+      "messagePlaceholder": "Cuéntanos qué idea quieres hacer crecer...",
       "submit": "Enviar mensaje"
+    },
+    "success": {
+      "title": "¡Mensaje enviado!",
+      "subtitle": "Tu idea ya está germinando. Te contactamos pronto.",
+      "cta": "Enviar otro mensaje"
     },
     "info": {
       "email": "Email",

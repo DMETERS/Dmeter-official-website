@@ -45,14 +45,23 @@ const INSTAGRAM_URL = 'https://www.instagram.com/dmeter2022/';
     <!-- Formulario centrado -->
     <div class="max-w-2xl mx-auto">
       <div class="bg-bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl p-6 md:p-8">
+        <!-- Netlify Forms (comentado para producción)
         <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
           <input type="hidden" name="form-name" value="contact" />
           <p class="hidden">
             <label>Don't fill this out: <input name="bot-field" /></label>
           </p>
+        -->
+
+        <!-- Web3Forms - Gratis hasta 250/mes -->
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+          <input type="hidden" name="access_key" value="ea29f571-8d4c-42b7-8a31-c61239730a8d" />
+          <input type="hidden" name="subject" value="Nuevo contacto desde Dmeter.dev" />
+          <input type="hidden" name="from_name" value="Dmeter Website" />
+          <input type="checkbox" name="botcheck" class="hidden" />
 
           <div class="grid sm:grid-cols-2 gap-6">
-            <div>
+            <div class="input-organic">
               <label for="name" class="block text-sm font-medium text-text-light mb-2">
                 {t.contact.form.name}
               </label>
@@ -61,11 +70,12 @@ const INSTAGRAM_URL = 'https://www.instagram.com/dmeter2022/';
                 id="name"
                 name="name"
                 required
-                class="w-full px-4 py-3 bg-bg-dark border border-primary/20 rounded-xl text-text-light placeholder:text-text-dim focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                placeholder={t.contact.form.namePlaceholder}
+                class="input-field w-full px-4 py-3 bg-bg-dark border border-primary/20 rounded-xl text-text-light placeholder:text-text-dim/60 focus:outline-none transition-all duration-300"
               />
             </div>
 
-            <div>
+            <div class="input-organic">
               <label for="email" class="block text-sm font-medium text-text-light mb-2">
                 {t.contact.form.email}
               </label>
@@ -74,12 +84,13 @@ const INSTAGRAM_URL = 'https://www.instagram.com/dmeter2022/';
                 id="email"
                 name="email"
                 required
-                class="w-full px-4 py-3 bg-bg-dark border border-primary/20 rounded-xl text-text-light placeholder:text-text-dim focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                placeholder={t.contact.form.emailPlaceholder}
+                class="input-field w-full px-4 py-3 bg-bg-dark border border-primary/20 rounded-xl text-text-light placeholder:text-text-dim/60 focus:outline-none transition-all duration-300"
               />
             </div>
           </div>
 
-          <div>
+          <div class="input-organic">
             <label for="project" class="block text-sm font-medium text-text-light mb-2">
               {t.contact.form.project}
             </label>
@@ -87,7 +98,7 @@ const INSTAGRAM_URL = 'https://www.instagram.com/dmeter2022/';
               id="project"
               name="project"
               required
-              class="w-full px-4 py-3 bg-bg-dark border border-primary/20 rounded-xl text-text-light focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+              class="input-field w-full px-4 py-3 bg-bg-dark border border-primary/20 rounded-xl text-text-light focus:outline-none transition-all duration-300"
             >
               {t.contact.form.projectOptions.map((option) => (
                 <option value={option}>{option}</option>
@@ -95,7 +106,7 @@ const INSTAGRAM_URL = 'https://www.instagram.com/dmeter2022/';
             </select>
           </div>
 
-          <div>
+          <div class="input-organic">
             <label for="message" class="block text-sm font-medium text-text-light mb-2">
               {t.contact.form.message}
             </label>
@@ -104,20 +115,74 @@ const INSTAGRAM_URL = 'https://www.instagram.com/dmeter2022/';
               name="message"
               rows="4"
               required
-              class="w-full px-4 py-3 bg-bg-dark border border-primary/20 rounded-xl text-text-light placeholder:text-text-dim focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none"
+              placeholder={t.contact.form.messagePlaceholder}
+              class="input-field w-full px-4 py-3 bg-bg-dark border border-primary/20 rounded-xl text-text-light placeholder:text-text-dim/60 focus:outline-none transition-all duration-300 resize-none"
             ></textarea>
           </div>
 
           <button
             type="submit"
-            class="w-full gradient-solarpunk text-white py-4 rounded-xl font-semibold text-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+            class="submit-btn w-full gradient-solarpunk text-white py-4 rounded-xl font-semibold text-lg hover:opacity-90 transition-all flex items-center justify-center gap-2"
           >
-            {t.contact.form.submit}
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span class="btn-text">{t.contact.form.submit}</span>
+            <svg class="w-5 h-5 btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+            <svg class="w-5 h-5 btn-loader hidden animate-spin" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>
           </button>
         </form>
+
+        <!-- Success State -->
+        <div id="contact-success" class="hidden text-center py-12">
+          <!-- Animación de planta floreciendo -->
+          <div class="success-plant mx-auto mb-6 w-32 h-32 relative">
+            <svg viewBox="0 0 100 100" class="w-full h-full">
+              <!-- Maceta -->
+              <path class="pot" d="M35 85 L40 70 L60 70 L65 85 Z" fill="#8B7355" opacity="0.8"/>
+              <ellipse class="pot-top" cx="50" cy="70" rx="12" ry="3" fill="#9B8365"/>
+
+              <!-- Tierra -->
+              <ellipse class="soil" cx="50" cy="68" rx="10" ry="2" fill="#5D4037"/>
+
+              <!-- Tallo principal -->
+              <path class="stem" d="M50 68 Q50 45 50 30" stroke="#10B981" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+              <!-- Hojas que aparecen -->
+              <path class="leaf leaf-1" d="M50 55 Q40 50 35 40 Q45 45 50 55" fill="#10B981" opacity="0"/>
+              <path class="leaf leaf-2" d="M50 55 Q60 50 65 40 Q55 45 50 55" fill="#34D399" opacity="0"/>
+              <path class="leaf leaf-3" d="M50 42 Q38 35 32 25 Q42 32 50 42" fill="#10B981" opacity="0"/>
+              <path class="leaf leaf-4" d="M50 42 Q62 35 68 25 Q58 32 50 42" fill="#34D399" opacity="0"/>
+
+              <!-- Flor central -->
+              <g class="flower" opacity="0">
+                <circle cx="50" cy="22" r="8" fill="#FFD700"/>
+                <circle cx="50" cy="22" r="4" fill="#FFA500"/>
+                <!-- Pétalos -->
+                <ellipse cx="50" cy="12" rx="4" ry="6" fill="#FBBF24"/>
+                <ellipse cx="58" cy="18" rx="4" ry="6" fill="#FBBF24" transform="rotate(72 50 22)"/>
+                <ellipse cx="55" cy="28" rx="4" ry="6" fill="#FBBF24" transform="rotate(144 50 22)"/>
+                <ellipse cx="45" cy="28" rx="4" ry="6" fill="#FBBF24" transform="rotate(216 50 22)"/>
+                <ellipse cx="42" cy="18" rx="4" ry="6" fill="#FBBF24" transform="rotate(288 50 22)"/>
+              </g>
+
+              <!-- Partículas de luz -->
+              <circle class="sparkle sparkle-1" cx="30" cy="20" r="2" fill="#FFD700" opacity="0"/>
+              <circle class="sparkle sparkle-2" cx="70" cy="25" r="1.5" fill="#FFD700" opacity="0"/>
+              <circle class="sparkle sparkle-3" cx="40" cy="35" r="1" fill="#10B981" opacity="0"/>
+              <circle class="sparkle sparkle-4" cx="65" cy="15" r="1.5" fill="#34D399" opacity="0"/>
+            </svg>
+          </div>
+
+          <h3 class="text-2xl font-bold text-primary mb-2">{t.contact.success?.title || '¡Mensaje enviado!'}</h3>
+          <p class="text-text-muted mb-6">{t.contact.success?.subtitle || 'Tu idea ya está germinando. Te contactamos pronto.'}</p>
+
+          <button id="reset-form" class="text-primary hover:text-primary-light underline transition-colors">
+            {t.contact.success?.cta || 'Enviar otro mensaje'}
+          </button>
+        </div>
       </div>
 
       <!-- Contact info en fila horizontal -->
@@ -237,6 +302,129 @@ const INSTAGRAM_URL = 'https://www.instagram.com/dmeter2022/';
 </section>
 
 <style>
+  /* Focus state orgánico - borde que crece como raíz */
+  .input-organic {
+    position: relative;
+  }
+
+  .input-field {
+    position: relative;
+    z-index: 1;
+  }
+
+  .input-field:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+  }
+
+  /* Efecto de raíz creciendo */
+  .input-organic::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #10B981, #34D399, #10B981, transparent);
+    transition: width 0.4s ease-out, left 0.4s ease-out;
+    border-radius: 2px;
+    z-index: 2;
+  }
+
+  .input-organic:focus-within::after {
+    width: 100%;
+    left: 0;
+  }
+
+  /* Animación de la planta floreciendo */
+  .success-plant .stem {
+    stroke-dasharray: 40;
+    stroke-dashoffset: 40;
+    animation: growStem 0.6s ease-out 0.2s forwards;
+  }
+
+  .success-plant .leaf {
+    transform-origin: center bottom;
+    transform: scale(0);
+  }
+
+  .success-plant .leaf-1 {
+    animation: growLeaf 0.4s ease-out 0.6s forwards;
+  }
+  .success-plant .leaf-2 {
+    animation: growLeaf 0.4s ease-out 0.7s forwards;
+  }
+  .success-plant .leaf-3 {
+    animation: growLeaf 0.4s ease-out 0.9s forwards;
+  }
+  .success-plant .leaf-4 {
+    animation: growLeaf 0.4s ease-out 1s forwards;
+  }
+
+  .success-plant .flower {
+    transform-origin: center;
+    transform: scale(0);
+    animation: bloomFlower 0.5s ease-out 1.2s forwards;
+  }
+
+  .success-plant .sparkle {
+    animation: sparkle 0.6s ease-out forwards;
+  }
+  .success-plant .sparkle-1 { animation-delay: 1.4s; }
+  .success-plant .sparkle-2 { animation-delay: 1.5s; }
+  .success-plant .sparkle-3 { animation-delay: 1.6s; }
+  .success-plant .sparkle-4 { animation-delay: 1.7s; }
+
+  @keyframes growStem {
+    to { stroke-dashoffset: 0; }
+  }
+
+  @keyframes growLeaf {
+    0% {
+      opacity: 0;
+      transform: scale(0) rotate(-10deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(0);
+    }
+  }
+
+  @keyframes bloomFlower {
+    0% {
+      opacity: 0;
+      transform: scale(0) rotate(-180deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(0);
+    }
+  }
+
+  @keyframes sparkle {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.5);
+    }
+    100% {
+      opacity: 0.8;
+      transform: scale(1);
+    }
+  }
+
+  /* Reset animaciones cuando se oculta el success */
+  #contact-success.hidden .success-plant .stem,
+  #contact-success.hidden .success-plant .leaf,
+  #contact-success.hidden .success-plant .flower,
+  #contact-success.hidden .success-plant .sparkle {
+    animation: none;
+  }
+
+  /* S.O.S Modal */
   .sos-backdrop {
     animation: fadeIn 0.3s ease-out;
   }
@@ -273,9 +461,100 @@ const INSTAGRAM_URL = 'https://www.instagram.com/dmeter2022/';
       box-shadow: 0 0 0 15px rgba(16, 185, 129, 0);
     }
   }
+
+  /* Respeta reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .success-plant .stem,
+    .success-plant .leaf,
+    .success-plant .flower,
+    .success-plant .sparkle,
+    .input-organic::after {
+      animation: none !important;
+      transition: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+      stroke-dashoffset: 0 !important;
+    }
+  }
 </style>
 
 <script>
+  // Contact Form Handler - Web3Forms
+  const contactForm = document.getElementById('contact-form') as HTMLFormElement;
+  const contactSuccess = document.getElementById('contact-success');
+  const resetFormBtn = document.getElementById('reset-form');
+
+  if (contactForm && contactSuccess) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const submitBtn = contactForm.querySelector('.submit-btn') as HTMLButtonElement;
+      const btnText = submitBtn?.querySelector('.btn-text');
+      const btnIcon = submitBtn?.querySelector('.btn-icon');
+      const btnLoader = submitBtn?.querySelector('.btn-loader');
+
+      // Estado de carga
+      if (submitBtn) submitBtn.disabled = true;
+      if (btnText) btnText.classList.add('opacity-50');
+      if (btnIcon) btnIcon.classList.add('hidden');
+      if (btnLoader) btnLoader.classList.remove('hidden');
+
+      try {
+        const formData = new FormData(contactForm);
+
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          // Mostrar success state
+          contactForm.classList.add('hidden');
+          contactSuccess.classList.remove('hidden');
+
+          // Forzar re-render de animaciones
+          const plant = contactSuccess.querySelector('.success-plant');
+          if (plant) {
+            (plant as HTMLElement).style.display = 'none';
+            (plant as HTMLElement).offsetHeight; // Trigger reflow
+            (plant as HTMLElement).style.display = '';
+          }
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        // Reset button state on error
+        if (submitBtn) submitBtn.disabled = false;
+        if (btnText) btnText.classList.remove('opacity-50');
+        if (btnIcon) btnIcon.classList.remove('hidden');
+        if (btnLoader) btnLoader.classList.add('hidden');
+      }
+    });
+  }
+
+  // Reset form button
+  if (resetFormBtn && contactForm && contactSuccess) {
+    resetFormBtn.addEventListener('click', () => {
+      contactForm.reset();
+      contactSuccess.classList.add('hidden');
+      contactForm.classList.remove('hidden');
+
+      const submitBtn = contactForm.querySelector('.submit-btn') as HTMLButtonElement;
+      const btnText = submitBtn?.querySelector('.btn-text');
+      const btnIcon = submitBtn?.querySelector('.btn-icon');
+      const btnLoader = submitBtn?.querySelector('.btn-loader');
+
+      if (submitBtn) submitBtn.disabled = false;
+      if (btnText) btnText.classList.remove('opacity-50');
+      if (btnIcon) btnIcon.classList.remove('hidden');
+      if (btnLoader) btnLoader.classList.add('hidden');
+    });
+  }
+
+  // S.O.S Modal
   const sosTrigger = document.getElementById('sos-trigger');
   const sosModal = document.getElementById('sos-modal');
   const sosClose = document.getElementById('sos-close');
@@ -301,7 +580,7 @@ const INSTAGRAM_URL = 'https://www.instagram.com/dmeter2022/';
 
     // Cerrar al hacer click en el backdrop
     sosModal.addEventListener('click', (e) => {
-      if (e.target === sosModal || e.target.classList.contains('sos-backdrop')) {
+      if (e.target === sosModal || (e.target as Element).classList.contains('sos-backdrop')) {
         sosModal.classList.add('hidden');
         document.body.style.overflow = '';
       }
